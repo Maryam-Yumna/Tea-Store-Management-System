@@ -9,12 +9,15 @@ function Header(){
             <div className = 'text-white ' class ='header'>
                 <div className ='container'>
                     <div className = 'row '>
-                        <div className = 'mr-auto col' >
+                        <div className = 'me-auto col' >
                             <br/>
                             <h1 >
-                                <Link to ="/" className = 'nav-link text-white'>SereniTea</Link>
+                                <Link to ="/" className = 'nav-link text-white'>
+                                    SereniTea
+                                </Link>
                             </h1>
                         </div>
+
                         <div class = "rightMenu">
                             <ul>
                                 <li class="nav-item navbar-brand"><a href = "#">Login</a></li>
