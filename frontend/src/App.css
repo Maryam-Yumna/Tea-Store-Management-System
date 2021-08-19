@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.header{
+    background-color : #1f3d26;
+    color : white;
+}
+
+.rightMenu ul{
+    list-style :none;
+    padding: 0;
+    text-align : right;
+}
+
+.rightMenu li{
+    display: inline-block;
+}
+
+.rightMenu a{
+    text-decoration : none;
+    width: 100px;
+    display : block;
+    padding: 5px 5px;
+    color: white;
+    text-align : center;
+    font-size : 18px;
+}
+
+.rightMenu a:hover{
+    color : #c1e0c9;
+}
