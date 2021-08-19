@@ -6,19 +6,19 @@ import Navbar from "./components/nav bar/Navbar";
 import Cart from "./components/ShoppingCart/Cart";
 import Header from "./components/header/Header";
 
-function App() {
-    return (
-        <Router>
-            <Header/>
-            <Navbar/>
-            <Route path = "/" exact>
-                <Home/>
-            </Route>
-            <Route path = "/cart" >
-                <Cart/>
-            </Route>
-        </Router>
-    )
+class App extends Component {
+  render() {
+      return (
+          <Router>
+              <Header/>
+              <Navbar/>
+              <Switch>
+                  <Route path="/" exact component={Home}/>
+                  <Route path="/cart" exact component={Cart}/>
+              </Switch>
+          </Router>
+          );
+  }
 }
 
 export default App;
