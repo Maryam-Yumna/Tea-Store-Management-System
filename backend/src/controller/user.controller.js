@@ -7,14 +7,7 @@ const auth = require('../../middleware/auth');
 //http://localhost:8070/user/register
 //register a new user
 const register = async(req, res)=> {
-    // const name = req.body.firstName;
-    // const username = req.body.username;
-    // const password = req.body.password;
-    // const userType = req.body.userType;
-    // const email = req.body.email;
-    // const phone = req.body.phone;
     const user = req.body;
-
     const newUser = new User();
 
     newUser.firstName = user.firstName;

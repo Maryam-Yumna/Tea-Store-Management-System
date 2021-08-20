@@ -17,7 +17,8 @@ const userSchema = new Schema({
     },
     userType: {
         type: String,
-        required:true
+        required:true,
+        default: "buyer"
     },
     email: {
         type: String,
@@ -31,6 +32,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    registeredDate:{
+        type: Date,
+        default: Date.now(),
+    }
 });
 
 //method to generate encrypted password
