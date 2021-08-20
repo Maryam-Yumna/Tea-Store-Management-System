@@ -11,18 +11,16 @@ function Header(){
                     <div className = 'row '>
                         <div className = 'me-auto col' >
                             <br/>
-                            <h1 >
-                                <Link to ="/" className = 'nav-link text-white'>
+                                <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
                                     SereniTea
                                 </Link>
-                            </h1>
                         </div>
 
                         <div class = "rightMenu">
                             <ul>
-                                <li class="nav-item navbar-brand"><a href = "#">Login</a></li>
-                                <li class="nav-item navbar-brand"><a href = "#">Register</a></li>
-                                <li class="nav-item navbar-brand"><a href = "/cart">My Cart</a></li>
+                                <li class="nav-item navbar-brand "><a href = "#">Login</a></li>
+                                <li class="nav-item navbar-brand "><a href = "#">Register</a></li>
+                                <li class="nav-item navbar-brand "><a href = "/cart">My Cart</a></li>
                             </ul>
                         </div>
                     </div>
