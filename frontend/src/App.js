@@ -20,7 +20,8 @@ class App extends Component {
   render() {
       return (
           <Router>
-             
+              <Header/>
+              <Navbar/>
               <Switch>
                   <Route path="/" exact component={Home}/>
                   <Route path="/cart" exact component={Cart}/>
