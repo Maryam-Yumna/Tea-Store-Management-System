@@ -12,7 +12,7 @@ function Navbar(){
                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     {/*Categories drop down*/}
                    <li className="nav-item dropdown">
-                     <a   className="navbar-brand dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     <a  className="navbar-brand dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                        Categories
                      </a>
                      <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
