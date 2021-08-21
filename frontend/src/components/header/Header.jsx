@@ -1,19 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../../App.css';
+import TeaBack from 'url:../../../public/images/TeaBack.jpg';
 
 function Header(){
     return<div>
-
         <section>
             <div className = 'text-white ' class ='header'>
-                <div className ='container'>
+                <div >
                     <div className = 'row '>
                         <div className = 'me-auto col' >
-                            <br/>
-                                <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
-                                    SereniTea
-                                </Link>
+                            <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
+                                <img src= {TeaBack} className="img-fluid" style={{width: '100%' , backgroundSize: 'cover'}}/>
+                            </Link>
                         </div>
 
                         <div class = "rightMenu">
