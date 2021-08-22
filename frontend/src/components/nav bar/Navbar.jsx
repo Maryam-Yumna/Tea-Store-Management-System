@@ -12,24 +12,24 @@ function Navbar(){
                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     {/*Categories drop down*/}
                    <li className="nav-item dropdown">
-                     <a  className="navbar-brand dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     <Link  className="navbar-brand dropdown-toggle " to="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                        Categories
-                     </a>
+                     </Link>
                      <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                       <li><a className="dropdown-item" href="#">Category 1</a></li>
-                       <li><a className="dropdown-item" href="#">Category 2</a></li>
-                       <li><a className="dropdown-item" href="#">Category 3</a></li>
+                       <li><Link className="dropdown-item" to="/">Category 1</Link></li>
+                       <li><Link className="dropdown-item" to="/">Category 2</Link></li>
+                       <li><Link className="dropdown-item" to="/">Category 3</Link></li>
                      </ul>
                    </li>
                     {/*About Us*/}
                    <li  className="nav-item">
-                      <Link  className="navbar-brand " aria-current="page" to="/">
+                      <Link className="navbar-brand " aria-current="page" to="/">
                         About Us
                       </Link>
                    </li>
                    {/*Contact Us*/}
-                   <li  className="nav-item">
-                      <Link className="navbar-brand " aria-current="page" to="/">
+                   <li className="nav-item">
+                      <Link  className="navbar-brand " aria-current="page" to="/">
                         Contact Us
                       </Link>
                    </li>
