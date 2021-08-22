@@ -18,7 +18,7 @@ const userSchema = new Schema({
     userType: {
         type: String,
         required:true,
-        default: "buyer"
+        default: "customer"
     },
     email: {
         type: String,
