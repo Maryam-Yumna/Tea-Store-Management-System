@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Cart = require("../models/CartModel");
 
-//creating a new note and insert it into the database
+//Add products to the cart
 router.route("/").post((req , res) =>{
     const productName = req.body.productName;
     const price = req.body.price;
@@ -22,7 +22,7 @@ router.route("/").post((req , res) =>{
 })
 
 
-//retrieve the products
+//retrieve the products which are added to the cart
 router.route('/').get((req, res)=>{
     Cart.find().then((products)=>{
         res.json(products)
@@ -30,5 +30,15 @@ router.route('/').get((req, res)=>{
         console.log(err)
     })
 })
+
+//delete a product from the cart
+router.delete("/delete/:id", (req, res) => {
+  Cart.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
+    if (error) {
+      res.send(error);
+    }
+    return res.json(deletedItem);
+  });
+});
 
 module.exports = router;
