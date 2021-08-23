@@ -17,8 +17,8 @@ function Header(){
 
                         <div class = "rightMenu">
                             <ul>
-                                <li class="nav-item navbar-brand "><Link href = "#">Login</Link></li>
-                                <li class="nav-item navbar-brand "><Link href = "#">Register</Link></li>
+                                <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
+                                <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
                                 <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
                             </ul>
                         </div>
