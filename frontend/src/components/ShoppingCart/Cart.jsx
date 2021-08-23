@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {Link} from 'react-router-dom';
 
 toast.configure()
-function Cart(props){
+function Cart(){
     const[inputs , setInput] = useState([{
             productName : "",
             price : "",
@@ -21,15 +21,15 @@ function Cart(props){
         }).then(jsonRes => setInput(jsonRes))
     })
 
-    function removeFromCart(event){
-        var userValue = window.confirm("Do you want to Remove the Product?");
-        if(userValue == true){
-            //add the deletion function here
-            toast.warn('Product is Removed from My Cart successfully!' , {position: toast.POSITION.BOTTOM_CENTER});
-        }else{
-            //navigate the user back to the cart background
-            toast('Thank you' , {position: toast.POSITION.TOP_CENTER});
-        }
+    //removeFromCart = (id) => {
+    function removeFromCart(id){
+        axios.delete('http://localhost:8070/cart' + `/delete/${id}`).then((res) => {
+             toast.warn('Product is Removed from My Cart successfully!' , {position: toast.POSITION.BOTTOM_CENTER});
+        });
+    }
+
+    function cancel(event){
+        toast('Good Choice!' , {position: toast.POSITION.TOP_CENTER});
     }
 
     function decrementCount(event){
@@ -58,12 +58,31 @@ function Cart(props){
                                <br/> <br/>
                                 <div className ="row">
                                     <div className = "col">
-                                        <button onClick ={removeFromCart} className = "btn btn-danger">Remove</button>
+                                        <button className = "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button>
                                     </div>
                                     <div className ="col">
                                         <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>
                                         <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = "1" disabled="true"/>
                                         <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>
+                                        {/*Confirmation pop up box*/}
+                                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div className="modal-dialog">
+                                            <div className="modal-content">
+                                              <div className="modal-header">
+                                                <h5 className="modal-title" id="exampleModalLabel">Oops...</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div className="modal-body">
+                                                Do you want to Remove the Product?
+                                              </div>
+                                              <div className="modal-footer">
+                                                <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(input._id)}>Confirm</button>
+                                                <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick ={cancel}>Cancel</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        {/*Confirmation pop up box*/}
                                     </div>
                                 </div>
                               </div>
