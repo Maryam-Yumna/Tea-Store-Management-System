@@ -15,9 +15,9 @@ function Footer(){
                     </div>
 
                     <div className ="col"><br/><br/>
-                        <Link to ="/" className = 'fw-bolder nav-link text-white  fs-5 '>
+                        <label  className = 'fw-bolder nav-link text-white  fs-5 '>
                                MAIN MENU
-                        </Link>
+                        </label>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
                                Home
                         </Link>
@@ -32,9 +32,9 @@ function Footer(){
                         </Link>
                     </div>
                     <div className ="col"><br/><br/>
-                        <Link to ="/" className = 'fw-bolder nav-link text-white fs-5 '>
+                        <label className = 'fw-bolder nav-link text-white fs-5 '>
                                FIND US ON
-                        </Link>
+                        </label>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
                                Facebook
                         </Link>

@@ -1,7 +1,11 @@
 import React , {useEffect , useState} from 'react';
 import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+import {Link} from 'react-router-dom';
 
+toast.configure()
 function Cart(props){
     const[inputs , setInput] = useState([{
             productName : "",
@@ -18,7 +22,22 @@ function Cart(props){
     })
 
     function removeFromCart(event){
+        var userValue = window.confirm("Do you want to Remove the Product?");
+        if(userValue == true){
+            //add the deletion function here
+            toast.warn('Product is Removed from My Cart successfully!' , {position: toast.POSITION.BOTTOM_CENTER});
+        }else{
+            //navigate the user back to the cart background
+            toast('Thank you' , {position: toast.POSITION.TOP_CENTER});
+        }
+    }
 
+    function decrementCount(event){
+        toast('Product count is decreased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+    }
+
+    function incrementCount(event){
+        toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
     }
 
     return <div className= 'container '>
@@ -26,7 +45,7 @@ function Cart(props){
                <section className="mt-2 ">
                    <div className = "row g-0 " >
                    {inputs.map(input =>
-                       <div className="card mb-3" >
+                       <div className="card mb-3 shadow" >
                          <div className="row g-0">
                           <div className="col-md-4">
                             <img  src={CardImage} className="card-img-top img-fluid" />
@@ -42,9 +61,9 @@ function Cart(props){
                                         <button onClick ={removeFromCart} className = "btn btn-danger">Remove</button>
                                     </div>
                                     <div className ="col">
-                                        <button  className = "fs-4 btn btn-dark">-</button>
+                                        <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>
                                         <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = "1" disabled="true"/>
-                                        <button  className = "fs-4 btn btn-dark">+</button>
+                                        <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>
                                     </div>
                                 </div>
                               </div>
@@ -57,10 +76,10 @@ function Cart(props){
 
                 <div className ="row">
                     <div className = "col">
-                        <button className = "btn btn-success btn-lg">Next</button>
+                        <Link to="/" className = "btn btn-success btn-lg">Next</Link>
                     </div>
                     <div className ="col">
-                        <button className = "btn btn-outline-secondary btn-lg">Cancel</button>
+                        <Link to="/" className = "btn btn-outline-secondary btn-lg">Cancel</Link>
                     </div>
                 </div>
 

@@ -1,7 +1,11 @@
 import React , {useEffect , useState} from 'react';
 import axios from 'axios';
 import CardImage from 'url:../../../public/images/cardImage.jpg';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
+
+toast.configure()
 function DetailProduct(props){
 
     const [input , setInput] = useState({
@@ -32,6 +36,7 @@ function DetailProduct(props){
 
         axios.post('http://localhost:8070/cart' , newProduct); //passing the newNote to the url given within single quotes
 
+        toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
 
     }
 
@@ -63,6 +68,7 @@ function DetailProduct(props){
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
+
         </div>
 
 

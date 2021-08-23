@@ -1,6 +1,7 @@
 import React , {useEffect , useState} from 'react';
 import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
+import AboutUs from '../AboutUs/AboutUs';
 
 function Home(){
 
@@ -18,10 +19,10 @@ function Home(){
         }).then(jsonRes => setInput(jsonRes))
     })
 
-    return <div className= 'container '>
+    return <div className= 'container'>
            <br/> <br/>
                <section className="mt-2 ">
-                   <div className = "row " >
+                   <div className = "row" >
                    {inputs.map(input =>
                        <div className = "col-3 ">
                            <div className="card shadow" >
@@ -32,12 +33,12 @@ function Home(){
                                <p className="card-text">{input.description}</p>
                                <a href={`/products/${input._id}`} className="btn btn-dark font-size-09 text-light">Read More...</a>
                              </div>
-                           </div>
+                           </div><br/>
                        </div>
                    )}
                    </div>
               </section>
-
+                <AboutUs/>
       </div>
 }
 
