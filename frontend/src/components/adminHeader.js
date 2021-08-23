@@ -116,6 +116,21 @@ class adminHeader extends Component {
                 </a>
               </li>
               <li class="nav-item">
+                <a href="expenses" class="nav-link link-dark px-2">
+                  Expenses | 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="addExpenses" class="nav-link link-dark px-2">
+                  Add Expenses | 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="searchUser" class="nav-link link-dark px-2">
+                  Users | 
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="#" class="nav-link link-dark px-2">
                   About
                 </a>
