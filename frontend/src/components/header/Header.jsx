@@ -17,15 +17,14 @@ function Header(){
 
                         <div class = "rightMenu">
                             <ul>
-                                <li class="nav-item navbar-brand "><a href = "#">Login</a></li>
-                                <li class="nav-item navbar-brand "><a href = "#">Register</a></li>
-                                <li class="nav-item navbar-brand "><a href = "/cart">My Cart</a></li>
+                                <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
+                                <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
+                                <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
     </div>

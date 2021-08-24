@@ -56,12 +56,16 @@
     text-decoration : none;
     width: 100px;
     display : block;
-    padding: 5px 5px;
-    color: white;
+    padding: 4px 4px;
+    color: #a2bdae;
     text-align : center;
     font-size : 18px;
 }
 
 .rightMenu a:hover{
-    color : #c1e0c9;
+    /*color : #c1e0c9;*/
+    color: white;
 }
+
+
+

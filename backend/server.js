@@ -34,6 +34,14 @@ app.use('/auth', authAPI());
 app.use('/expense', expenseAPI());
 app.use('/product', productAPI());
 
+// http://localhost:8070/products
+const ProductRouter = require('./src/routes/ProductRoute.js');
+app.use('/products', ProductRouter);
+
+// http://localhost:8070/cart
+const CartRouter = require('./src/routes/CartRoute.js');
+app.use('/cart', CartRouter);
+
 app.listen(PORT, () => {
     console.log(`server is up and running in port ${PORT}`);
 });
