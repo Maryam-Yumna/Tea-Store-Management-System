@@ -11,6 +11,9 @@ const cartSchema = new Schema( {
     },
     description: {
         type: String
+    },
+    photo: {
+        type: String
     }
 });
 

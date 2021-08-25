@@ -48,7 +48,7 @@ function Cart(){
                        <div className="card mb-3 shadow" >
                          <div className="row g-0">
                           <div className="col-md-4">
-                            <img  src={CardImage} className="card-img-top img-fluid" />
+                            <img  src={input.photo} className="card-img-top img-fluid" />
                           </div>
                            <div className="col-md-8">
                               <div className="card-body">

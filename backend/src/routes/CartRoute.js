@@ -7,12 +7,14 @@ router.route("/").post((req , res) =>{
     const productName = req.body.productName;
     const price = req.body.price;
     const description = req.body.description;
+    const photo = req.body.photo;
 
     const newProduct = new Cart();
 
     newProduct.productName = productName;
     newProduct.price = price;
     newProduct.description = description;
+    newProduct.photo = photo;
 
     newProduct.save().then(()=> {
             res.json("product added to cart")
