@@ -11,7 +11,7 @@ function Header(props){
                     <div className = 'row '>
                         <div className = 'me-auto col' >
                             <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
-                                <img src= {TeaBack} className="img-fluid" style={{width: '100%' , height:400 ,backgroundSize: 'cover'}}/>
+                                <img src= {TeaBack} className="img-fluid" style={{width: '100%'  ,backgroundSize: 'cover'}}/>
                             </Link>
                         </div>
 
