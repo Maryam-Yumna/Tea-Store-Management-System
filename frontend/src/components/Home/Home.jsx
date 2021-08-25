@@ -28,7 +28,7 @@ function Home(){
                        <div className = "col-3">
                            <div className="card shadow" >
                              <div >
-                                <img style={{width: '100%' , height: 300 }} src={input.photo} className="card-img-top img-fluid" />
+                                <img  style={{width: '100%' , height:300}} src={input.photo} className="card-img-top img-fluid" />
                              </div>
                              <div className="card-body">
                                <h5 class="fw-bold">{input.productName}</h5><br/>
