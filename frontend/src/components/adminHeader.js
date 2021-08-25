@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class adminHeader extends Component {
   constructor(props) {
@@ -91,58 +92,70 @@ class adminHeader extends Component {
           <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
               <li class="nav-item">
-                <a
-                  href="#"
+                <Link
+                  to="/adminHome"
                   class="nav-link link-dark px-2 active"
                   aria-current="page"
                 >
                   {" "}
                   Home |
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="/adminHome" class="nav-link link-dark px-2">
+                <Link to="/adminHome" class="nav-link link-dark px-2">
                   Products |
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="/addProducts" class="nav-link link-dark px-2">
+                <Link to="/addProducts" class="nav-link link-dark px-2">
                   Add Products |
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="/allOrders" class="nav-link link-dark px-2">
+                <Link to="/allOrders" class="nav-link link-dark px-2">
                   Orders |
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="expenses" class="nav-link link-dark px-2">
+                <Link to="/expenses" class="nav-link link-dark px-2">
                   Expenses | 
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="addExpenses" class="nav-link link-dark px-2">
+                <Link to="/addExpenses" class="nav-link link-dark px-2">
                   Add Expenses | 
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="searchUser" class="nav-link link-dark px-2">
+                <Link to="/searchUser" class="nav-link link-dark px-2">
                   Users | 
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link link-dark px-2">
+                <Link to="/#" class="nav-link link-dark px-2">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
-            <ul class="nav">
+            {/* <ul class="nav">
               <li class="nav-item">
-                <a href="#" class="nav-link link-dark px-2">
+                <Link to="#" class="nav-link link-dark px-2">
                   {" "}
                   Reports{" "}
-                </a>
+                </Link>
               </li>
+            </ul> */}
+            <ul class="nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:"black"}}>
+                Reports
+              </a>
+              <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><Link class="dropdown-item" to="#">User Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Reports</Link></li>
+              </ul>
+            </li>
             </ul>
           </div>
         </nav>
