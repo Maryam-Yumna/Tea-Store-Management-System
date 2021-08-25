@@ -31,7 +31,8 @@ function DetailProduct(props){
         const newProduct = {
             productName : Product.productName,
             price : Product.price,
-            description : Product.description
+            description : Product.description,
+            photo : Product.photo
         }
 
         axios.post('http://localhost:8070/cart' , newProduct); //passing the newNote to the url given within single quotes
@@ -58,7 +59,7 @@ function DetailProduct(props){
 
         <div className = "row gap-4 " gutter={[16 , 16]}>
             <div className = "col-3 " lg={12} xs={24}>
-                <img src={CardImage} className="card-img-top img-fluid" />
+                <img style={{width: '100%' , height: 300 }} src={Product.photo} className="card-img-top img-fluid" />
             </div>
 
             <div className = "col-3 " lg={12} xs={24}>
