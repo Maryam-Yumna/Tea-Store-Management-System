@@ -46,10 +46,13 @@ class Login extends Component {
                 });
                 if (userType === "admin"){
                     window.location.href = '/adminHome'
+                    // this.props.history.push('/adminHome');
                 }else if(userType === "customer"){
                     window.location.href = '/'
+                    // this.props.history.push('/');
                 }else {
                     window.location.href = '/'
+                    // this.props.history.push('/');
                 }
             }
             console.log("userType", userType);    
@@ -80,7 +83,7 @@ class Login extends Component {
                                     className="form-control rounded-4" 
                                     id="floatingInput" 
                                     placeholder="name@example.com"
-                                    vale={this.state.email} 
+                                    value={this.state.email} 
                                     name ="email"
                                     onChange={this.onChange}
                                     required/>
@@ -92,7 +95,7 @@ class Login extends Component {
                                     className="form-control rounded-4" 
                                     id="floatingPassword" 
                                     placeholder="Password"
-                                    vale={this.state.password} 
+                                    value={this.state.password} 
                                     name ="password"
                                     onChange={this.onChange}
                                     required/>
