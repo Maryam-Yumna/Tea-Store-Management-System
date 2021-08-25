@@ -10,6 +10,8 @@ class AllExpenses extends Component{
         }
 
         this.getExpenses = this.getExpenses.bind(this);
+        this.editExpense= this.editExpense.bind(this);
+        this.convertDate = this.convertDate.bind(this);
     }
 
     componentDidMount(){
@@ -28,11 +30,38 @@ class AllExpenses extends Component{
             console.error(err);
         });
     }
+
+    editExpense(id){
+        this.props.history.push({
+            pathname: '/editExpense',
+            state: { data: id }
+          })
+        // window.location = `/editExpense/${id}`;
+    }
+
+    convertDate(date){
+        
+        var date1 = new Date(date);
+        console.log(date1)
+        var year = date1.getFullYear();
+        var month =(date1.getMonth() + 1);
+        if(month<10){
+            month = "0"+(month);
+        }
+        
+        var day = date1.getDate();
+        if(day<10){
+            day = "0"+(day);
+        }
+        console.log("date.getDate()", date1.getDate());
+        var convertedDate = year + '-' + month + '-' + day;
+        console.log("payment date", convertedDate);
+        return(convertedDate);
+    }
     render(){
         return(
             
             <div className="">
-                <AdminHeader />
                 <div className="container w-100 p-3 text-center" id="expenses">
                         <h2>Expenses</h2>
                         <button id='btnAddNewExpense' type="button" className="btn btn-success">Add New Expense</button>
@@ -54,7 +83,8 @@ class AllExpenses extends Component{
                                             <tr key={expense._id}>
                                                 <td id ='expenseType'>{expense.type}</td>
                                                 <td id ='trAmount'>{expense.amount}</td>
-                                                <td id ='trPaymentDate'>{expense.paymentDate}</td>
+                                                {/* <td id ='trPaymentDate'>{expense.paymentDate}</td> */}
+                                                <td id ='trPaymentDate'>{this.convertDate(expense.paymentDate)}</td>
                                                 <td id ='trDescription'>{expense.description}</td>
                                                 <td id ='trAction'><button id='btnEdit' type="button" className="btn btn-success" onClick={()=>this.editExpense(expense._id)}>Edit</button></td>
                                             </tr>
