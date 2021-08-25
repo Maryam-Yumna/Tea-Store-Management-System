@@ -18,14 +18,17 @@ import AllExpenses from './components/Expenses/AllExpenses';
 import AddExpenses from './components/AddExpenses/AddExpenses';
 import SearchUser from './components/SearchUser/SearchUser';
 import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import EditExpense from './components/EditExpense/EditExpense';
+import UserProfile from './components/UserProfile/UserProfile';
+import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
 
 
 class App extends Component {
   render() {
       return (
           <Router>
-              <Header/>
-              <Navbar/>
+              <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
                   <Route path="/cart" exact component={Cart}/>
@@ -41,6 +44,9 @@ class App extends Component {
                   <Route path = "/addExpenses" exact component={AddExpenses}></Route>
                   <Route path = "/searchUser" exact component={SearchUser}></Route>
                   <Route path = "/login" exact component={Login}></Route>
+                  <Route path = "/register" exact component={Register}></Route>
+                  <Route path = "/editExpense" exact component={EditExpense}></Route>
+                  <Route path = "/myAccount" exact component={UserProfile}></Route>
               </Switch>
               <Footer/>
           </Router>
