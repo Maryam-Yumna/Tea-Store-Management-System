@@ -42,6 +42,7 @@ function Cart(){
 
     return <div className= 'container '>
            <br/> <br/>
+           <h3 className ="text-decoration-underline">Shopping Cart</h3><br/>
                <section className="mt-2 ">
                    <div className = "row g-0 " >
                    {inputs.map(input =>
@@ -92,7 +93,10 @@ function Cart(){
                    )}
                    </div>
               </section>
-
+                <br/><br/>
+                <h3 className ="text-decoration-underline">Summary</h3><br/>
+                <div className = "fs-4">Total : US$7.20</div>
+                <br/><br/>
                 <div className ="row">
                     <div className = "col">
                         <Link to="/" className = "btn btn-success btn-lg">Next</Link>
