@@ -56,24 +56,19 @@ function DetailProduct(props){
 
     return (
     <div className = "postPage" style={{width: '100%'  , padding: '3rem 4rem'}}>
-
         <div className = "row gap-4 " gutter={[16 , 16]}>
             <div className = "col-3 " lg={12} xs={24}>
                 <img style={{width: '100%' , height: 300 }} src={Product.photo} className="card-img-top img-fluid" />
             </div>
 
-            <div className = "col-3 " lg={12} xs={24}>
-                <h1 onChange={handleChange} name = "productName" value = {Product.productName} >{Product.productName}</h1>
-                <p onChange={handleChange} name = "price"  value = {Product.price} className="card-text">{Product.price}</p>
+            <div className = "col " lg={12} xs={24}>
+                <h3 onChange={handleChange} name = "productName" value = {Product.productName} >{Product.productName}</h3>
+                <p onChange={handleChange} name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
                 <p onChange={handleChange} name = "description" value={Product.description} className="card-text">{Product.description}</p>
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
-
         </div>
-
-
-
     </div>
     )
 }
