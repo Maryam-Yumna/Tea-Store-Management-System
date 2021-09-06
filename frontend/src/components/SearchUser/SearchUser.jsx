@@ -30,7 +30,6 @@ class SearchUser extends Component {
     render() {
         return (
             <div>
-                <AdminHeader/>
                 <div>
                 <div className="container w-100 p-3 text-center" id="users">
                         <h2>Search User</h2>
@@ -44,7 +43,7 @@ class SearchUser extends Component {
                     <div className="container w-75 p-3">
                         {this.state.Users.length !== 0 ?  
                             // <table className="table table-dark table-striped table-hover" >
-                            <table className="table table-success table-striped table-hover" >
+                            <table className="table table-info table-striped table-hover" >
                                 <thead>
                                     <tr>
                                         <th scope="col" id ='fullName'>Expense Type</th>
