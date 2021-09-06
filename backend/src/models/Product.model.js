@@ -7,7 +7,7 @@ const itemSchema = new Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   description: {
@@ -24,7 +24,7 @@ const itemSchema = new Schema({
   },
 
   quantity: {
-    type: Number,
+    type: String,
   },
 
   photo: {
