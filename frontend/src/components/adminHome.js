@@ -31,7 +31,7 @@ class adminHome extends Component {
   render() {
     return (
       <div>
-        <AdminHeader />
+        
         <div class="row">
           <div class="col-sm-2">
             <div
