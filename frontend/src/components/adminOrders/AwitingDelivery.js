@@ -97,10 +97,12 @@ class AwaitingDelivery extends Component {
               <thead>
                 <tr>
                   <th scope="col"></th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                  <th scope="col">First</th>
+                  <th scope="col">OrderId</th>
+                  <th scope="col">Customer </th>
+                  <th scope="col">Phone number</th>
+                  <th scope="col">Delivery Address</th>
+                  <th scope="col">psotal code</th>
+                  <th scope="col">District</th>
                   <th scope="col">Delivery Status</th>
                   <th scope="col"></th>
                 </tr>
@@ -108,10 +110,12 @@ class AwaitingDelivery extends Component {
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td></td>
+                  <td>97298579</td>
+                  <td>P.P pepere</td>
+                  <td>095735372</td>
+                  <td>No 34 glboda rd , Kandy</td>
+                  <td>2001</td>
+                  <td>Kandy</td>
                   <td>
                     {" "}
                     <form>
@@ -126,17 +130,190 @@ class AwaitingDelivery extends Component {
                 </tr>
                 <tr>
                   <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>057059</td>
+                  <td>kal mark</td>
+                  <td>095735372</td>
+                  <td>No 59 glboda rd , Colombo2</td>
+                  <td>2001</td>
+                  <td>Colombo</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
                 </tr>
                 <tr>
                   <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
+                  <td>57302</td>
+                  <td>sara plais</td>
+                  <td>095735372</td>
+                  <td>no 45 pera Rd ,Balngoda</td>
+                  <td>4562</td>
+                  <td>Bangoda</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
                 </tr>
-              </tbody>
+           
+          
+                <tr>
+                  <th scope="row">4</th>
+                  <td>97298579</td>
+                  <td>P.P pepere</td>
+                  <td>095735372</td>
+                  <td>No 34 glboda rd , Kandy</td>
+                  <td>2001</td>
+                  <td>Kandy</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>057059</td>
+                  <td>kal mark</td>
+                  <td>095735372</td>
+                  <td>No 59 glboda rd , Colombo2</td>
+                  <td>2001</td>
+                  <td>Colombo</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>57302</td>
+                  <td>sara plais</td>
+                  <td>095735372</td>
+                  <td>no 45 pera Rd ,Balngoda</td>
+                  <td>4562</td>
+                  <td>Bangoda</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                
+                <tr>
+                  <th scope="row">4</th>
+                  <td>97298579</td>
+                  <td>P.P pepere</td>
+                  <td>095735372</td>
+                  <td>No 34 glboda rd , Kandy</td>
+                  <td>2001</td>
+                  <td>Kandy</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>057059</td>
+                  <td>kal mark</td>
+                  <td>095735372</td>
+                  <td>No 59 glboda rd , Colombo2</td>
+                  <td>2001</td>
+                  <td>Colombo</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+             
+              
+              <tr>
+                  <th scope="row">4</th>
+                  <td>97298579</td>
+                  <td>P.P pepere</td>
+                  <td>095735372</td>
+                  <td>No 34 glboda rd , Kandy</td>
+                  <td>2001</td>
+                  <td>Kandy</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>057059</td>
+                  <td>kal mark</td>
+                  <td>095735372</td>
+                  <td>No 59 glboda rd , Colombo2</td>
+                  <td>2001</td>
+                  <td>Colombo</td>
+                  <td>
+                    {" "}
+                    <form>
+                      <select class="form-select" id="country" required>
+                        <option value="">Pending</option>
+                       
+                        <option>Completed</option>
+                      </select>
+                    </form>
+                  </td>
+                  <td><button type="button" class="btn btn-success">Save</button></td>
+                </tr>
+                </tbody>
             </table>
           </div>
         </div>

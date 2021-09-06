@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 class adminHeader extends Component {
   constructor(props) {
@@ -138,10 +139,20 @@ class adminHeader extends Component {
             </ul>
             <ul class="nav">
               <li class="nav-item">
-                <a href="#" class="nav-link link-dark px-2">
-                  {" "}
-                  Reports{" "}
-                </a>
+              <ul class="nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:"black"}}>
+                Reports
+              </a>
+              <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><Link class="dropdown-item" to="#">User Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
+                <li><Link class="dropdown-item" to="/Income">Income Reports</Link></li>
+                <li><Link class="dropdown-item" to="/Income">Reports</Link></li>
+               
+              </ul>
+            </li>
+            </ul>
               </li>
             </ul>
           </div>
