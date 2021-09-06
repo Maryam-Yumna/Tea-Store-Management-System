@@ -40,7 +40,7 @@ class Register extends Component {
                         <div className="modal-content rounded-5 shadow">
                         <div className="modal-header p-5 pb-4 border-bottom-0">
                             <h2 className="fw-bold mb-0">Register</h2>
-                            {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */}
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={(e)=>{this.props.history.push('/')}}></button>
                         </div>
 
                         <div className="modal-body p-5 pt-0">
@@ -125,7 +125,7 @@ class Register extends Component {
                                     </div>:
                                     <div></div>
                                 }
-                                <button className="w-100 mb-2 btn btn-lg rounded-4 btn-success" type="submit" >Login</button>
+                                <button className="w-100 mb-2 btn btn-lg rounded-4 btn-success" type="submit" >Register</button>
                             </form>
                         </div>
                         </div>
