@@ -36,7 +36,7 @@ class App extends Component {
   render() {
       return (
           <Router>
-
+ <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
                  
