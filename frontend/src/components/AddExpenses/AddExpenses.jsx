@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import AdminHeader from '../adminHeader';
 
 class AddExpenses extends Component {
     constructor(){
@@ -20,8 +19,25 @@ class AddExpenses extends Component {
         
     }
 
-    onSubmit(){
-        console.log("on submit");
+    onSubmit(e){
+        e.preventDefault();
+        let Expense ={
+            type:this.state.type,
+            amount: this.state.amount,
+            description: this.state.description,
+            paymentDate: this.state.paymentDate
+        }
+        axios.post('http://localhost:8070/expense/newExpense', Expense)
+        .then(response=>{
+            console.log(response.data);
+            this.props.history.push('/expenses')
+        })
+        .catch(error=>{
+            console.log(error.message)
+            this.setState({
+                error: true
+            })
+        })
     }
 
     onChange(e){
@@ -33,7 +49,6 @@ class AddExpenses extends Component {
     render() {
         return (
             <div>
-                <AdminHeader/>
                 <div className="container w-100 p-3 text-center">
                     <h1> Add New Expense</h1>
                 </div>
@@ -47,7 +62,7 @@ class AddExpenses extends Component {
                                 name="type"
                                 aria-label="Default select example" 
                                 onChange={this.onChange} 
-                                value={this.state.value}>
+                                value={this.state.type}>
                                 <option value="">select Type</option>
                                 <option value="Phone Bill">Phone Bill</option>
                                 <option value="Electricity Bill">Electricity Bill</option>
@@ -89,9 +104,9 @@ class AddExpenses extends Component {
                             <input 
                                 type="date" 
                                 className="form-control" 
-                                value={this.state.expenseDate} 
-                                name ="expenseDate" 
-                                id="expenseDate"
+                                value={this.state.paymentDate} 
+                                name ="paymentDate" 
+                                id="paymentDate"
                                 onChange={this.onChange}
                                 required
                             />
@@ -100,7 +115,7 @@ class AddExpenses extends Component {
                             <label htmlFor="description" className="form-label">Descripton</label>
                             <textarea
                                 name="description" 
-                                class="form-control" 
+                                className="form-control" 
                                 placeholder="Expense Description" 
                                 id="description"
                                 onChange={this.onChange}
@@ -108,7 +123,7 @@ class AddExpenses extends Component {
                             </textarea>
                         </div>
                         
-                        <button type="submit" className="btn btn-lg text-white" style={{backgroundColor:"#585c61"}}>Submit</button>
+                        <button type="submit" className="w-100 mb-2 btn btn-lg rounded-4 btn-success" >Submit</button>
                     </form>
                 </div>
             </div>
