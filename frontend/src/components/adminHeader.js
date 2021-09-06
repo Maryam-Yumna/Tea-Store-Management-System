@@ -151,9 +151,9 @@ class adminHeader extends Component {
                 Reports
               </a>
               <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><Link class="dropdown-item" to="#">User Reports</Link></li>
-                <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
-                <li><Link class="dropdown-item" to="#">Reports</Link></li>
+                <li><Link class="dropdown-item" to="/expenseReport">Expense Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Order Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Cart Reports</Link></li>
               </ul>
             </li>
             </ul>
