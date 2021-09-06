@@ -5,7 +5,7 @@ const initialState ={
     password:'',
     email:'',
     userType:'',
-    error: false
+    error: false,
 }
 
 class Login extends Component {
@@ -58,7 +58,6 @@ class Login extends Component {
             console.log("userType", userType);    
         })
         .catch(error=>{
-            console.log(error.message)
             this.setState({
                 error: true
             })
@@ -102,7 +101,7 @@ class Login extends Component {
                                 <label for="floatingPassword">Password</label>
                             </div>
                             {
-                                this.state.error== true?
+                                this.state.error?
                                 <div className="p-2">
                                     <label htmlFor="errorMessage" style={{color:"red"}}>Invalid email or password</label>
                                 </div>:
