@@ -94,34 +94,98 @@ class orders extends Component {
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col"></th>
+                  <th scope="col">Order Id</th>
+                  <th scope="col">Order Date</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Customer Number</th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total(LKR)</th>
+                  <th scope="col">paymnet status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>14872</td>
+                  <td>2020-07-06</td>
+                  <td>L.L peprea</td>
+                  <td>07067456345</td>
+                  <td>Earl Grey – 25 Tea Bag</td>
+                  <td>2</td>
+                  <td>500</td>
+                  <td>Paid</td>
+
+                  
                 </tr>
                 <tr>
                   <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>75432</td>
+                  <td>2020-07-06</td>
+                  <td>R.K disa</td>
+                  <td>07067456345</td>
+                  <td>Gereen tea – 25 Tea Bag</td>
+                  <td>1</td>
+                  <td>700</td>
+                  <td>Paid</td>
                 </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
+                <th scope="row">3</th>
+                  <td>64666</td>
+                  <td>2020-07-06</td>
+                  <td>P disa</td>
+                  <td>07067456345</td>
+                  <td>Ayurvedic Herbal Tea</td>
+                  <td>1</td>
+                  <td>200o</td>
+                  <td>Paid</td>
                 </tr>
+                <tr>
+                <th scope="row">4</th>
+                  <td>64666</td>
+                  <td>2020-07-06</td>
+                  <td>charls gomus</td>
+                  <td>07067456345</td>
+                  <td>Kalk Herbal Tea -800g</td>
+                  <td>1</td>
+                  <td>2004</td>
+                  <td>Paid</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>75432</td>
+                  <td>2020-07-06</td>
+                  <td>Pdisa</td>
+                  <td>07067456345</td>
+                  <td>Gereen tea – 25 Tea Bag</td>
+                  <td>1</td>
+                  <td>700</td>
+                  <td>Pending</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>75432</td>
+                  <td>2020-07-06</td>
+                  <td>L.L disa</td>
+                  <td>07067456345</td>
+                  <td>Gereen tea – 25 Tea Bag</td>
+                  <td>1</td>
+                  <td>700</td>
+                  <td>Paid</td>
+                </tr>
+                <tr>
+                <th scope="row">7</th>
+                  <td>64666</td>
+                  <td>2020-07-06</td>
+                  <td>Ishi dan</td>
+                  <td>07067456345</td>
+                  <td>Ayurvedic Herbal Tea</td>
+                  <td>1</td>
+                  <td>200o</td>
+                  <td>Paid</td>
+                </tr>
+               
               </tbody>
             </table>
           </div>

@@ -4,10 +4,10 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import adminHome from './components/adminHome'
 import Home from "./components/Home/Home";
 import Navbar from "./components/nav bar/Navbar";
-import Cart from "./components/ShoppingCart/Cart";
+
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import DetailProduct from "./components/DetailProduct/DetailProduct";
+
 import AddProductForm from "./components/ShoppingCart/AddProductForm";
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
@@ -18,24 +18,36 @@ import AllExpenses from './components/Expenses/AllExpenses';
 import AddExpenses from './components/AddExpenses/AddExpenses';
 import SearchUser from './components/SearchUser/SearchUser';
 import Login from './components/Login/Login';
+
+import EditProducts from "./components/products/editproduct"
+import BlackTea from "./components/Categories/balckTea"
+import GreenTea from "./components/Categories/GreenTea"
+import Loosen from "./components/Categories/looseLeaf"
+import report from "./components/adminOrders/report"
+
 import Register from './components/Register/Register';
 import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
 
 
+
 class App extends Component {
   render() {
       return (
           <Router>
-              <ApplicationHeader/>
+ <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
-                  <Route path="/cart" exact component={Cart}/>
+                 
                   <Route path="/products" exact component={AddProductForm}/>
-                  <Route path="/products/:productId" exact component={DetailProduct}/>                  
                   <Route path = "/adminHome" component = {adminHome}></Route>
+                  <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
+                  <Route path = "/blackTea" component = {BlackTea}></Route>
+                  <Route path = "/GreenTea" component = {GreenTea }></Route>
+                  <Route path = "/LoosenTea" component = {Loosen}></Route>
+                  <Route path = "/Income" component = {report}></Route>
                   <Route path = "/allOrders" component = {AdminOrders}></Route>
                   <Route path = "/awaitingPayments" component = {AwaitingPayments}></Route>
                   <Route path = "/awaitingDelivery" component = {AwaitingDelivery}></Route>
