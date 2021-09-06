@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { Link } from 'react-router-dom'
+
 
 class adminHeader extends Component {
   constructor(props) {
@@ -139,10 +141,12 @@ class adminHeader extends Component {
             </ul>
             {/* <ul class="nav">
               <li class="nav-item">
+
                 <Link to="#" class="nav-link link-dark px-2">
                   {" "}
                   Reports{" "}
                 </Link>
+
               </li>
             </ul> */}
             <ul class="nav">
@@ -153,7 +157,8 @@ class adminHeader extends Component {
               <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><Link class="dropdown-item" to="#">User Reports</Link></li>
                 <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
-                <li><Link class="dropdown-item" to="#">Reports</Link></li>
+                <li><Link class="dropdown-item" to="/Income">Income Reports</Link></li>
+                <li><Link class="dropdown-item" to="/Income">Reports</Link></li>
               </ul>
             </li>
             </ul>

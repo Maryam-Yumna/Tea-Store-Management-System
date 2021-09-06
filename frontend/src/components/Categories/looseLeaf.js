@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AdminHeader from "./adminHeader";
+import AdminHeader from "../adminHeader";
 import { Link } from 'react-router-dom'
 
-class adminHome extends Component {
+class LoosenTea extends Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +12,8 @@ class adminHome extends Component {
     };
   }
 
-  async componentDidMount() {
-    const response = await fetch(`http://localhost:8070/product/`);
+  async componentDidMount()  {
+    const response = await fetch(`http://localhost:8070/product/getCategory/`+"Loosen Tea Leaf");
     const data = await response
       .json()
       .then((data) => {
@@ -31,7 +31,7 @@ class adminHome extends Component {
   render() {
     return (
       <div>
-        {/* <AdminHeader /> */}
+        <AdminHeader />
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -215,4 +215,4 @@ let updateItem = (id)=>{
 
 }
 
-export default adminHome;
+export default LoosenTea;
