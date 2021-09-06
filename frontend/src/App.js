@@ -9,7 +9,7 @@ import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
-import AddProductForm from "./components/ShoppingCart/AddProductForm";
+
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
 import AwaitingPayments from './components/adminOrders/AwitingPayments';
@@ -42,7 +42,7 @@ class App extends Component {
                   <Route path="/" exact component={Home}/>
                   <Route path = "/products/:productId" exact component={DetailProduct}/>
                  
-                  <Route path="/products" exact component={AddProductForm}/>
+                  
                   <Route path = "/adminHome" component = {adminHome}></Route>
                   <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
