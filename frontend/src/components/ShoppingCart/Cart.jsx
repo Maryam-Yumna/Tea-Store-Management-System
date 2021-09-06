@@ -42,18 +42,19 @@ function Cart(){
 
     return <div className= 'container '>
            <br/> <br/>
+           <h3 className ="text-decoration-underline">Shopping Cart</h3><br/>
                <section className="mt-2 ">
                    <div className = "row g-0 " >
                    {inputs.map(input =>
                        <div className="card mb-3 shadow" >
                          <div className="row g-0">
-                          <div className="col-md-4">
-                            <img  src={input.photo} className="card-img-top img-fluid" />
+                          <div className="col-md-4" >
+                            <img style={{width: '100%' , height:400}} src={input.photo} className="card-img-top img-fluid" />
                           </div>
                            <div className="col-md-8">
                               <div className="card-body">
                                 <h5 className="fw-bold">{input.productName}</h5><br/>
-                               <p className="card-text">{input.price}</p>
+                               <p className="card-text fst-italic"><label>LKR {input.price}.00</label></p>
                                <p className="card-text">{input.description}</p>
                                <br/> <br/>
                                 <div className ="row">
@@ -92,7 +93,10 @@ function Cart(){
                    )}
                    </div>
               </section>
-
+                <br/><br/>
+                <h3 className ="text-decoration-underline">Summary</h3><br/>
+                <div className = "fs-4 fst-italic">Total : LKR 7000.00</div>
+                <br/><br/>
                 <div className ="row">
                     <div className = "col">
                         <Link to="/" className = "btn btn-success btn-lg">Next</Link>
