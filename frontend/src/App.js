@@ -4,11 +4,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import adminHome from './components/adminHome'
 import Home from "./components/Home/Home";
 import Navbar from "./components/nav bar/Navbar";
+import DetailProduct from "./components/DetailProduct/DetailProduct";
+import Cart from "./components/ShoppingCart/Cart";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
-import AddProductForm from "./components/ShoppingCart/AddProductForm";
+
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
 import AwaitingPayments from './components/adminOrders/AwitingPayments';
@@ -39,8 +41,10 @@ class App extends Component {
  <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
+                  <Route path = "/products/:productId" exact component={DetailProduct}/>
+                  <Route path = "/cart" exact component={Cart}/>
                  
-                  <Route path="/products" exact component={AddProductForm}/>
+
                   <Route path = "/adminHome" component = {adminHome}></Route>
                   <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
