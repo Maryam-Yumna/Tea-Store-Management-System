@@ -64,12 +64,12 @@ class UserProfile extends Component {
                                     <input type="text" readonly class="form-control-plaintext" id="staticAddress" value={this.state.user.address}/>
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
+                                {/* <div class="mb-3 row">
                                     <label for="staticPassword" class="col-sm-3 col-form-label">Password</label>
                                     <div class="col-sm-7">
                                     <input type="password" readonly class="form-control-plaintext" id="staticPassword" value="rose"/>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div class="mb-3 row">
                                     <div class="col-sm-6">
                                         <button class="btn btn-success mb-3" onClick={(e)=>{this.props.history.push('/editUserProfile')}}> Edit </button>

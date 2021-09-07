@@ -1,29 +1,76 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class EditUserProfile extends Component {
 
     constructor(props){
         super(props);
         this.state={
-           firstName:"Rose",
-           lastName: "Anne",
-           address:"41, Park Lane, Colombo",
-           email:"rose@gmail.com",
-           password:"rose"  
+           firstName:"",
+           lastName: "",
+           address:"",
+           email:"",
+           password:"" 
         }
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
     componentDidMount(){
+        let token = localStorage.getItem("token");
+        if(token){
+            this.setState({
+                logged: "true"
+            });
+            axios.get(`http://localhost:8070/auth/loggedUser`, {
+            headers:{
+                'authorization':token
+            } 
+        })
+        .then((data)=>{
+            
+            this.setState({
+                id: data.data._id,
+                firstName: data.data.firstName,
+                lastName: data.data.lastName,
+                address: data.data.address,
+                email:data.data.email,
 
+            });
+        })
+        .catch(err=>{
+            console.error(err);
+        });
+        }
     }
 
-    onSubmit(){
-
+    onSubmit(e){
+        e.preventDefault();
+        let User ={
+            firstName:this.state.firstName,
+            lastName: this.state.lastName,
+            address: this.state.address
+        }
+        let token = localStorage.getItem("token");
+        axios.put('http://localhost:8070/auth/updateUser', User, {
+            headers:{
+                'authorization':token
+            } 
+        })
+        .then(response=>{
+            this.props.history.push('/myAccount')
+        })
+        .catch(error=>{
+            console.log(error.message)
+            this.setState({
+                error: true
+            })
+        })
     }
-    onChange(){
-
+    onChange(e){
+        this.setState({
+            [e.target.name] : e.target.value
+        });
     }
     render() {
         return (
@@ -91,7 +138,7 @@ class EditUserProfile extends Component {
                                     />
                                 <label htmlFor="floatingInput">Address</label>
                             </div>
-                            <div className="form-floating mb-3">
+                            {/* <div className="form-floating mb-3">
                                 <input 
                                     type="password" 
                                     className="form-control rounded-4" 
@@ -103,7 +150,7 @@ class EditUserProfile extends Component {
                                     required
                                     />
                                 <label htmlFor="floatingInput">Password</label>
-                            </div>
+                            </div> */}
                             <button className="w-100 mb-2 btn btn-lg rounded-4 btn-success" type="submit">Save Changes</button>
                             
                             </form>
