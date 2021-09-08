@@ -5,11 +5,12 @@ const initialState ={
     firstName:'',
     lastName:'',
     password:'',
-    confirmpassword:'',
+    confirmPassword:'',
     address:'',
     email:'',
     userType:'',
-    error: false
+    error: false,
+    message:""
 }
 
 class Register extends Component {
@@ -18,19 +19,65 @@ class Register extends Component {
         this.state = initialState;
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.isValid = this.isValid.bind(this);
 
     }
     componentDidMount(){
 
     }
 
-    onSubmit(){
+    onSubmit(e){
+        e.preventDefault();
 
+        let User ={
+            firstName:this.state.firstName,
+            lastName: this.state.lastName,
+            address: this.state.address,
+            password: this.state.password,
+            email: this.state.email
+        }
+
+        const valid = this.isValid();        
+        if(valid)
+        {
+            console.log("submitted")
+            axios.post('http://localhost:8070/user/register', User)
+            .then(response=>{
+                localStorage.setItem('token', response.data.token);
+                window.location.href = '/';
+            })
+            .catch(error=>{
+                console.log(error.message)
+                alert(error.message);
+            });
+        }
     }
     onChange(e){
         this.setState({
             [e.target.name] : e.target.value
         })
+    }
+
+    isValid(){
+        if(this.state.password.length < 8 ){
+            this.setState({
+                error:true,
+                message:"Password should contain more than 7 characters"
+            });
+            return false;
+        } else if(this.state.password !== this.state.confirmPassword){
+            this.setState({
+                error: true,
+                message:"Password and confirm password does not match. Please check again"
+            });
+            return false;
+        }else{
+            this.setState({
+                error: false,
+                message: ""
+            });
+            return true;
+        }
     }
 
     render() {
@@ -99,7 +146,7 @@ class Register extends Component {
                                     className="form-control rounded-4" 
                                     id="floatingPassword" 
                                     placeholder="Password"
-                                    value={this.state.confirmpassword} 
+                                    value={this.state.confirmPassword} 
                                     name ="confirmPassword"
                                     onChange={this.onChange}
                                     required/>
@@ -121,7 +168,7 @@ class Register extends Component {
                                 {
                                     this.state.error== true?
                                     <div className="p-2">
-                                        <label htmlFor="errorMessage" style={{color:"red"}}>Invalid email or password</label>
+                                        <label htmlFor="errorMessage" style={{color:"red"}}>{this.state.message}</label>
                                     </div>:
                                     <div></div>
                                 }
