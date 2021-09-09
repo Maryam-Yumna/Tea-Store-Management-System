@@ -8,7 +8,8 @@ const initialState ={
     confirmPassword:'',
     address:'',
     email:'',
-    userType:'',
+    userType:'customer',
+    phone: '',
     error: false,
     message:""
 }
@@ -34,7 +35,9 @@ class Register extends Component {
             lastName: this.state.lastName,
             address: this.state.address,
             password: this.state.password,
-            email: this.state.email
+            email: this.state.email,
+            userType: this.state.userType,
+            phone: this.state.phone
         }
 
         const valid = this.isValid();        
@@ -44,11 +47,18 @@ class Register extends Component {
             axios.post('http://localhost:8070/user/register', User)
             .then(response=>{
                 localStorage.setItem('token', response.data.token);
+                console.log(response.data);
                 window.location.href = '/';
+        
             })
             .catch(error=>{
-                console.log(error.message)
-                alert(error.message);
+                if(error.response.data.errorMessage === "User exist"){
+                    this.setState({
+                        error:true,
+                        message: "A account with the given email already exist"
+                    })
+                }
+                console.log(error.response.data)
             });
         }
     }
@@ -59,6 +69,8 @@ class Register extends Component {
     }
 
     isValid(){
+        var regex = /^\d{10}$/;
+        console.log(regex.test('9995484545'));
         if(this.state.password.length < 8 ){
             this.setState({
                 error:true,
@@ -69,6 +81,12 @@ class Register extends Component {
             this.setState({
                 error: true,
                 message:"Password and confirm password does not match. Please check again"
+            });
+            return false;
+        }else if(!regex.test(this.state.phone)){
+            this.setState({
+                error: true,
+                message:"Plese enter a valid phone number"
             });
             return false;
         }else{
@@ -96,7 +114,7 @@ class Register extends Component {
                                     <input 
                                         type="text" 
                                         className="form-control rounded-4" 
-                                        id="floatingInput" 
+                                        id="firstName" 
                                         placeholder="First Name"
                                         value={this.state.firstName} 
                                         name ="firstName"
@@ -108,7 +126,7 @@ class Register extends Component {
                                     <input 
                                         type="text" 
                                         className="form-control rounded-4" 
-                                        id="floatingInput" 
+                                        id="lastName" 
                                         placeholder="Last Name"
                                         value={this.state.lastName} 
                                         name ="lastName"
@@ -120,7 +138,7 @@ class Register extends Component {
                                     <input 
                                         type="email" 
                                         className="form-control rounded-4" 
-                                        id="floatingInput" 
+                                        id="email" 
                                         placeholder="name@example.com"
                                         value={this.state.email} 
                                         name ="email"
@@ -132,7 +150,7 @@ class Register extends Component {
                                     <input 
                                         type="password" 
                                         className="form-control rounded-4" 
-                                        id="floatingPassword" 
+                                        id="password" 
                                         placeholder="Password"
                                         value={this.state.password} 
                                         name ="password"
@@ -144,7 +162,7 @@ class Register extends Component {
                                 <input 
                                     type="password" 
                                     className="form-control rounded-4" 
-                                    id="floatingPassword" 
+                                    id="confirmPassword" 
                                     placeholder="Password"
                                     value={this.state.confirmPassword} 
                                     name ="confirmPassword"
@@ -156,13 +174,25 @@ class Register extends Component {
                                     <input 
                                         type="text" 
                                         className="form-control rounded-4" 
-                                        id="floatingInput" 
+                                        id="address" 
                                         placeholder="Address"
                                         value={this.state.address} 
                                         name ="address"
                                         onChange={this.onChange}
                                         required/>
                                     <label for="floatingInput">Address</label>
+                                </div>
+                                <div className="form-floating mb-3">
+                                    <input 
+                                        type="text" 
+                                        className="form-control rounded-4" 
+                                        id="phone" 
+                                        placeholder="phone"
+                                        value={this.state.phone} 
+                                        name ="phone"
+                                        onChange={this.onChange}
+                                        required/>
+                                    <label for="floatingInput">Phone</label>
                                 </div>
                                 
                                 {
