@@ -7,6 +7,15 @@ const auth = require('../../middleware/auth');
 //http://localhost:8070/user/register
 //register a new user
 const register = async(req, res)=> {
+
+    await User.findOne({email : req.body.email})
+    .then(user=>{
+        if(user) return res.status(400).json({errorMessage: 'User exist'});
+
+    })
+    .catch((err)=>{
+            console.log(err);
+    })  
     const user = req.body;
     const newUser = new User();
 
@@ -33,6 +42,7 @@ const register = async(req, res)=> {
         }).catch((err)=>{
             console.log(err)
     })
+
 }
 
 //http://localhost:8070/user/
