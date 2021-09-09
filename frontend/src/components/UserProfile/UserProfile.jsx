@@ -5,7 +5,14 @@ class UserProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user:{},
+            user:{
+                firstName: '',
+                lastName:'',
+                phone: '',
+                email: '',
+                address: ''
+
+            },
         }
     }
     componentDidMount(){
@@ -43,33 +50,33 @@ class UserProfile extends Component {
                                 <div class="mb-3 row">
                                     <label for="staticFirstName" class="col-sm-3 col-form-label">First Name</label>
                                     <div class="col-sm-7">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticFirstName" value={this.state.user.firstName}/>
+                                    <input type="text" readOnly class="form-control-plaintext" id="staticFirstName" value={this.state.user.firstName}/>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="staticLastName" class="col-sm-3 col-form-label">Last Name</label>
                                     <div class="col-sm-7">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticLastName" value={this.state.user.lastName}/>
+                                    <input type="text" readOnly class="form-control-plaintext" id="staticLastName" value={this.state.user.lastName}/>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
                                     <div class="col-sm-7">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={this.state.user.email}/>
+                                    <input type="text" readOnly class="form-control-plaintext" id="staticEmail" value={this.state.user.email}/>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="staticPhone" class="col-sm-3 col-form-label">Phone</label>
+                                    <div class="col-sm-7">
+                                    <input type="text" readOnly class="form-control-plaintext" id="staticPhone" value={this.state.user.phone}/>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="staticAddress" class="col-sm-3 col-form-label">Address</label>
                                     <div class="col-sm-7">
-                                    <input type="text" readonly class="form-control-plaintext" id="staticAddress" value={this.state.user.address}/>
+                                    <input type="text" readOnly class="form-control-plaintext" id="staticAddress" value={this.state.user.address}/>
                                     </div>
                                 </div>
-                                {/* <div class="mb-3 row">
-                                    <label for="staticPassword" class="col-sm-3 col-form-label">Password</label>
-                                    <div class="col-sm-7">
-                                    <input type="password" readonly class="form-control-plaintext" id="staticPassword" value="rose"/>
-                                    </div>
-                                </div> */}
                                 <div class="mb-3 row">
                                     <div class="col-sm-6">
                                         <button class="btn btn-success mb-3" onClick={(e)=>{this.props.history.push('/editUserProfile')}}> Edit </button>
