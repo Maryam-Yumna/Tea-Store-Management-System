@@ -82,7 +82,7 @@ class AwaitingPayments extends Component {
             >
               <div class="row">
                 <div class="col">
-                  <h4> Awaiting Payments</h4>
+                  <h4> Awaiting Payments Orders</h4>
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
