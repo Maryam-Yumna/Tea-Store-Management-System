@@ -8,6 +8,7 @@ router.route("/").post((req , res) =>{
     const price = req.body.price;
     const description = req.body.description;
     const photo = req.body.photo;
+    const count = req.body.count;
 
     const newProduct = new Cart();
 
@@ -15,6 +16,7 @@ router.route("/").post((req , res) =>{
     newProduct.price = price;
     newProduct.description = description;
     newProduct.photo = photo;
+    newProduct.count = count;
 
     newProduct.save().then(()=> {
             res.json("product added to cart")

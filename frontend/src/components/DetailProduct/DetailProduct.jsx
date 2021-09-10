@@ -9,9 +9,7 @@ toast.configure()
 function DetailProduct(props){
 
     const [input , setInput] = useState({
-        productName : '',
-        price : '',
-        description : ''
+        count : ''
     })
 
     function handleChange(event){
@@ -32,7 +30,8 @@ function DetailProduct(props){
             productName : Product.productName,
             price : Product.price,
             description : Product.description,
-            photo : Product.photo
+            photo : Product.photo,
+            count : input.count
         }
 
         axios.post('http://localhost:8070/cart' , newProduct); //passing the newNote to the url given within single quotes
@@ -62,9 +61,10 @@ function DetailProduct(props){
             </div>
 
             <div className = "col " lg={12} xs={24}>
-                <h3 onChange={handleChange} name = "productName" value = {Product.productName} >{Product.productName}</h3>
-                <p onChange={handleChange} name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
-                <p onChange={handleChange} name = "description" value={Product.description} className="card-text">{Product.description}</p>
+                <h3 /*onChange={handleChange}*/ name = "productName" value = {Product.productName} >{Product.productName}</h3>
+                <p /*onChange={handleChange}*/ name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
+                <p /*onChange={handleChange}*/ name = "description" value={Product.description} className="card-text">{Product.description}</p>
+                {/*<input onChange={handleChange} name = "count"  value = {input.count} autocomplete = "off" className = "form-control" placeholder = "count"/>*/}
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
