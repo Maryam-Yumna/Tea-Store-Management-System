@@ -10,7 +10,7 @@ function Cart(){
     const[inputs , setInput] = useState([{
             productName : "",
             price : "",
-            description : "",
+            description : ""
     }])
 
     useEffect(() =>{
