@@ -69,7 +69,7 @@ class adminHeader extends Component {
         <br />
 
 <div >
-  <b>  Choose a month to get expence Report        </b>
+  <b>  Choose a month to get Income Report        </b>
         <input style = {{height:"30px" , width:"500px"}} type="month"></input>
         </div>
     
