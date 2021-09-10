@@ -102,7 +102,7 @@ function Cart(){
                         <Link to="/" className = "btn btn-success btn-lg">Next</Link>
                     </div>
                     <div className ="col">
-                        <Link to="/" className = "btn btn-outline-secondary btn-lg">Cancel</Link>
+                        <a href ="/" className = "btn btn-outline-secondary btn-lg">Cancel</a>
                     </div>
                 </div>
 
