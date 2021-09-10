@@ -108,7 +108,7 @@ class orders extends Component {
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>14872</td>
+                  <td>1487222</td>
                   <td>2020-07-06</td>
                   <td>L.L peprea</td>
                   <td>07067456345</td>
