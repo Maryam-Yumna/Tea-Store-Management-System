@@ -82,7 +82,7 @@ class AwaitingDelivery extends Component {
             >
               <div class="row">
                 <div class="col">
-                  <h4> Awaiting Delivery</h4>
+                  <h4> Awaiting Delivery Orders</h4>
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
