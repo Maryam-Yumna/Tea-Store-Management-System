@@ -14,7 +14,13 @@ function Cart(){
     }])
 
     useEffect(() =>{
-        fetch("http://localhost:8070/cart").then(res =>{
+//         fetch("http://localhost:8070/cart").then(res =>{
+//             if(res.ok){
+//                 return res.json();
+//             }
+//         }).then(jsonRes => setInput(jsonRes))
+        let token = localStorage.getItem("token");
+        fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
             if(res.ok){
                 return res.json();
             }
