@@ -8,7 +8,7 @@
 
 | Name                  | Student ID    | Username        |
 | -------------         |:-------------:| ---------------:|
-| M. Y. B. Shafi        | IT19055404    | Maryam-Yumna    |
+| Shafi M. Y. B         | IT19055404    | Maryam-Yumna    |
 | Dananjana W.G.W.M.I   | IT19033006    | Isini-Dananjana |
 | Kularatne B. M. U. S. | IT19029528    | upulka          |
 | Senevirathna D.M.S.   | IT19024882    | shriasi         |
