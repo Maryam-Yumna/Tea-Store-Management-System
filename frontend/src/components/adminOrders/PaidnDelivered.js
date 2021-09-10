@@ -109,7 +109,7 @@ class Paid extends Component {
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>14872</td>
+                  <td>14872765</td>
                   <td>2020-07-06</td>
                   <td>L.L peprea</td>
                   <td>07067456345</td>
@@ -123,7 +123,7 @@ class Paid extends Component {
                 </tr>
                 <tr>
                   <th scope="row">2</th>
-                  <td>75432</td>
+                  <td>7543277</td>
                   <td>2020-07-06</td>
                   <td>R.K disa</td>
                   <td>07067456345</td>
