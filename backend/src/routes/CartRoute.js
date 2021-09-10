@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require("../models/CartModel");
+const auth = require("../../middleware/auth");
 
 //Add products to the cart
-router.route("/").post((req , res) =>{
+router.route("/").post(auth, (req , res) =>{
     const productName = req.body.productName;
     const price = req.body.price;
     const description = req.body.description;
     const photo = req.body.photo;
     const count = req.body.count;
+    const user = req.user.id;
 
     const newProduct = new Cart();
 
@@ -17,6 +19,7 @@ router.route("/").post((req , res) =>{
     newProduct.description = description;
     newProduct.photo = photo;
     newProduct.count = count;
+    newProduct.user = user;
 
     newProduct.save().then(()=> {
             res.json("product added to cart")
@@ -34,7 +37,13 @@ router.route('/').get((req, res)=>{
         console.log(err)
     })
 })
-
+router.route('/user').get(auth, (req, res)=>{
+    Cart.find({user: req.user.id}).then((products)=>{
+        res.json(products)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
 //delete a product from the cart
 router.delete("/delete/:id", (req, res) => {
   Cart.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
