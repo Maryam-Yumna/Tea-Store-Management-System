@@ -1,5 +1,7 @@
+/* order model */
 import mongoose from 'mongoose'
 
+/* order schema */
 const orderSchema = mongoose.Schema(
   {
     user: {
