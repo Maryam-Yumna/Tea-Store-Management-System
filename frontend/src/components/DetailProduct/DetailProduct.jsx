@@ -33,8 +33,8 @@ function DetailProduct(props){
             photo : Product.photo,
             count : input.count
         }
-
-        axios.post('http://localhost:8070/cart' , newProduct); //passing the newNote to the url given within single quotes
+        let token = localStorage.getItem("token");
+        axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}}); //passing the newNote to the url given within single quotes
 
         toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
 
