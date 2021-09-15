@@ -11,7 +11,7 @@ const save = async(req, res)=> {
         const deletedUser = new DeletedUser(req.body);
     await deletedUser.save().then((user)=> {
           res.status(200).send(user);
-          console.log("Insereted Success");
+        //   console.log("Insereted Success");
         
         }).catch((err)=>{
             console.log(err)
