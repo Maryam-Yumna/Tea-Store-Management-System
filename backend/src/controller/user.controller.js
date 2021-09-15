@@ -66,8 +66,22 @@ const getUserByID = async(req, res)=>{
     })
 }
 
+const deleteUser = async (req, res) => {
+    let id = req.user.id;
+    await User.findByIdAndDelete(id)
+      .then(() => {
+        res.status(200).send({ status: "User deleted" });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ status: "error with deleting" });
+      });
+  };
+  
+
 module.exports = {
     register,
     getAllUsers,
-    getUserByID
+    getUserByID,
+    deleteUser
 };
