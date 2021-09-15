@@ -33,7 +33,7 @@ function Home(){
                              <div className="card-body">
                                <h5 class="fw-bold">{input.productName}</h5><br/>
                                <p className="card-text fst-italic"><label>LKR {input.price}.00</label></p>
-                               <p className="card-text">{input.description}</p>
+                               {/*<p className="card-text">{input.description}</p>*/}
                                <Link to={`/products/${input._id}`} className="btn btn-dark font-size-09 text-light">Read More...</Link>
                              </div>
                            </div><br/>
