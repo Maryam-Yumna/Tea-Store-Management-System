@@ -8,5 +8,6 @@ module.exports = function () {
     router.get('/', controller.getAllUsers);
     router.get('/:id', controller.getUserByID);
     router.delete('/',auth, controller.deleteUser);
+    router.get('/search/:keyword', controller.searchUser);
     return router;    
 }

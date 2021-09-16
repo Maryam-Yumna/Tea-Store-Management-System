@@ -77,11 +77,25 @@ const deleteUser = async (req, res) => {
         res.status(500).send({ status: "error with deleting" });
       });
   };
+
+  const searchUser = async(req, res)=>{
+      let keyword = req.params.keyword;
+      await User.find(
+          {$or: [
+              { 'firstName' : { '$regex' : req.params.keyword, '$options' : 'i' } },
+              { 'lastName' : { '$regex' : req.params.keyword, '$options' : 'i' } } ]}
+        ).then((user)=>{
+        res.status(200).send(user)
+    }).catch((err)=>{
+        res.status(500).send({status: "Error with get item", error:err.message});
+    })
+  }
   
 
 module.exports = {
     register,
     getAllUsers,
     getUserByID,
-    deleteUser
+    deleteUser,
+    searchUser
 };
