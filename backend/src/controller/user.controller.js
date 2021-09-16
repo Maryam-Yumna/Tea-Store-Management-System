@@ -60,7 +60,7 @@ const getAllUsers = async(req, res)=>{
 const getUserByID = async(req, res)=>{
     let id = req.params.id;
     await User.findById(id).then((user)=>{
-        res.status(200).send({user: user})
+        res.status(200).send(user)
     }).catch((err)=>{
         res.status(500).send({status: "Error with get user", error:err.message});
     })
