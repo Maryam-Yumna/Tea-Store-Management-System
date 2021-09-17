@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 
 function Home(){
 
+    //Retrieve products to the home page
     const[inputs , setInput] = useState([{
             productName : "",
             price : "",
@@ -20,7 +21,12 @@ function Home(){
         }).then(jsonRes => setInput(jsonRes))
     })
 
+    //Implementing the search feature
+
+
     return <div className= 'container'>
+           <br/> <br/>
+
            <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
