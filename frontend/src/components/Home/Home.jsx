@@ -3,10 +3,11 @@ import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
 import AboutUs from '../AboutUs/AboutUs';
 import {Link} from 'react-router-dom';
+import Search from '../SearchProductClientSide/Search';
 
 function Home(){
 
-    //Retrieve products to the home page
+    //Retrieve all products to the home page
     const[inputs , setInput] = useState([{
             productName : "",
             price : "",
@@ -22,11 +23,21 @@ function Home(){
     })
 
     //Implementing the search feature
+    const[searchTerms , setSearchTerms] = useState("")
 
+    const updateSearchTerms = (newSearchTerm) =>{
+        setSearchTerms(newSearchTerm);
+
+        console.log(newSearchTerm);
+    }
 
     return <div className= 'container'>
            <br/> <br/>
-
+           <div>
+                <Search
+                    refreshFunction = {updateSearchTerms}
+                />
+           </div>
            <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
