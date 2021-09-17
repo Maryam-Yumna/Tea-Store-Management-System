@@ -2,28 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product.model");
 
-//creating a new note and insert it into the database
-router.route("/").post((req, res) => {
-  const productName = req.body.productName;
-  const price = req.body.price;
-  const description = req.body.description;
-
-  const newProduct = new Product();
-
-  newProduct.productName = productName;
-  newProduct.price = price;
-  newProduct.description = description;
-
-  newProduct
-    .save()
-    .then(() => {
-      res.json("product added ");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 //retrieve the products
 router.route("/").get((req, res) => {
   Product.find()
