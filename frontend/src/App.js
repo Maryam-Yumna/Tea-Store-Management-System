@@ -23,6 +23,7 @@ import BlackTea from "./components/Categories/balckTea"
 import GreenTea from "./components/Categories/GreenTea"
 import Loosen from "./components/Categories/looseLeaf"
 import report from "./components/adminOrders/report"
+import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader'
 
 
 
@@ -31,7 +32,7 @@ class App extends Component {
   render() {
       return (
           <Router>
-             
+         <ApplicationHeader/>    
               
               <Switch>
                   <Route path="/" exact component={Home}/>

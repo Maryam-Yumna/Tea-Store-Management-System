@@ -9,6 +9,7 @@ const userAPI = require('./src/api/user.api');
 const authAPI = require('./src/api/auth.api');
 const expenseAPI = require('./src/api/expense.api');
 const productAPI = require('./src/api/product.api');
+const orderAPI = require('./src/api/order.api');
 
 const PORT = process.env.PORT || 8070;
 
@@ -33,6 +34,7 @@ app.use('/user', userAPI());
 app.use('/auth', authAPI());
 app.use('/expense', expenseAPI());
 app.use('/product', productAPI());
+app.use('/order', orderAPI());
 
 // http://localhost:8070/products
 const ProductRouter = require('./src/routes/ProductRoute.js');
