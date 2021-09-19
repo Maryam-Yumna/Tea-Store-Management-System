@@ -3,6 +3,7 @@ import axios from 'axios';
 import CardImage from 'url:../../../public/images/cardImage.jpg';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import {Link} from 'react-router-dom';
 
 
 toast.configure()
@@ -68,6 +69,8 @@ function DetailProduct(props){
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
+            <br/>
+            <Link to="/" class="fs-4 link-success fst-italic">Go back</Link>
         </div>
     </div>
     )
