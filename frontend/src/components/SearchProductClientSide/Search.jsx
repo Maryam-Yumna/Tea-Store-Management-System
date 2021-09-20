@@ -21,7 +21,7 @@ function Search(props){
                     value = {searchTerms}
                 />
                 <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+        </form>
     </div>
 }
 
