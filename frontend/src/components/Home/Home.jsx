@@ -33,55 +33,7 @@ function Home(){
        })
     })
 
-///////////////////////////////////////////////////////////////////////////////////////////
-    //Implementing the search feature
-    /*const[searchTerms , setSearchTerms] = useState("")
 
-    const updateSearchTerms = (newSearchTerm) =>{
-        setSearchTerms(newSearchTerm);
-        console.log(newSearchTerm);
-
-        const variable = {
-            skip : 0,
-            limit : Limit,
-            filters : Filters,
-            searchTerm : newSearchTerm
-        }
-
-        setSkip(0);
-        setSearchTerms(newSearchTerm)
-        //getProducts(variable)
-
-        axios.get('http://localhost:8070/products').then(response => {
-            setInput(response.data)
-        })
-
-    }*/
-    /////////////////////////////////////////////////////////////////////
-
-    /*function filterContent(inputs , searchTerm){
-        toast.warn(searchTerm , {position: toast.POSITION.TOP_CENTER});
-        const result = inputs.filter((input)=>input.productName.includes(searchTerm));
-        setInput({
-            inputs:result
-        });//----------------------------
-    }
-
-    //function handleTextSearch(event){
-    const handleTextSearch = (event) => {
-        const searchTerm = event.currentTarget.value;
-
-        axios.get('http://localhost:8070/products').then(response => {
-            if(response.data.success){
-                filterContent(response.data.inputs , searchTerm);
-                toast.success(searchTerm , {position: toast.POSITION.TOP_CENTER});
-                //setInput(response.data);
-            }
-        })
-
-        console.log(event.currentTarget.value);
-
-    }*/
 
 
     return <div className= 'container'>
