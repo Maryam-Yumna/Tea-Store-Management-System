@@ -88,13 +88,6 @@ function Home(){
     return <div className= 'container'>
            <br/> <br/>
            <div>
-                {/*<Search
-                    //Update search data into the parent component
-                    //refreshFunction = {updateSearchTerms}
-                />*/}
-           </div>
-           <br/> <br/>
-           <div>
                 <input
                     className="form-control me-2"
                     type="search"
@@ -107,6 +100,7 @@ function Home(){
                     //onChange = {handleTextSearch}
                 />
            </div>
+           <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
                    {inputs.filter((input)=> {
