@@ -6,16 +6,15 @@ class Paid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       currentDateTime: new Date().toLocaleString(),
       Orders: [],
     };
-
-    
   }
 
   async componentDidMount() {
-    const response = await fetch(`http://localhost:8070/order/PaidandDelivered/`+"Completed");
+    const response = await fetch(
+      `http://localhost:8070/order/PaidandDelivered/` + "Completed"
+    );
     const data = await response
       .json()
       .then((data) => {
@@ -32,7 +31,6 @@ class Paid extends Component {
   render() {
     return (
       <div>
-       
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -95,30 +93,26 @@ class Paid extends Component {
           </div>
           <div class="col-sm-10">
             <br />
-            <div
-              class="container"
-              style={{ background: "", padding: "5px" }}
-            >
+            <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
                 <div class="col-2">
-                  <img style={{ width: "200px" }} src = "https://i.ibb.co/4jbKtXw/undraw-approve-qwp7.png"/>
-                  
+                  <img
+                    style={{ width: "200px" }}
+                    src="https://i.ibb.co/4jbKtXw/undraw-approve-qwp7.png"
+                  />
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
-                  <h4> Paid and Delivered orders</h4>
+                    <h4> Paid and Delivered orders</h4>
                     Today: {this.state.currentDateTime}
                   </h6>
                 </div>
               </div>
             </div>
 
-       
-         
             <table class="table">
               <thead>
-              <tr>
-               
+                <tr>
                   <th scope="col">Order Date</th>
                   <th scope="col">Customer</th>
                   <th scope="col">Contact and delivery Details</th>
@@ -130,28 +124,26 @@ class Paid extends Component {
                 </tr>
               </thead>
               <tbody>
-           
-              {this.state.Orders.map((order) => (
-                <tr>
-                 
-             
-                  <td>{order.orderdate}</td>
-                  <td>{order.firstName}</td>
-                  <td>{order.email}<br /> 
-                   {order.phone}<br /> {order.address}</td>
-                  <td>{order.productName}</td>
-                  <td>{order.qty}</td>
-                  <td>{order.total}</td>
-                  <td>{order.paymentStatus}</td>
-                  <td>{order.deliveryStatus}</td>
-                  
-                </tr>
-              ))}
+                {this.state.Orders.map((order) => (
+                  <tr>
+                    <td>{order.orderdate}</td>
+                    <td>{order.firstName}</td>
+                    <td>
+                      {order.email}
+                      <br />
+                      {order.phone}
+                      <br /> {order.address}
+                    </td>
+                    <td>{order.productName}</td>
+                    <td>{order.qty}</td>
+                    <td>{order.total}</td>
+                    <td>{order.paymentStatus}</td>
+                    <td>{order.deliveryStatus}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
-            
           </div>
-          
         </div>
       </div>
     );
