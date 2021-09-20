@@ -105,7 +105,7 @@ function Home(){
                    {inputs.filter((input)=> {
                         if(searchTerm == ""){
                             return input;
-                        }else if(input.productName.toLowerCase().includes(searchTerm.toLowerCase())){
+                        }else if(input.productName.toLowerCase().includes(searchTerm.toLowerCase()) || input.price.includes(searchTerm)){
                             return input;
                         }
                    }).map(input =>
