@@ -3,7 +3,6 @@ import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
 import AboutUs from '../AboutUs/AboutUs';
 import {Link} from 'react-router-dom';
-import Search from '../SearchProductClientSide/Search';
 import {toast} from 'react-toastify';
 
 toast.configure()
