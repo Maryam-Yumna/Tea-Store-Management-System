@@ -67,7 +67,18 @@ const updateOrder = async (req, res) => {
     });
 };
 
-
+const getOrderByID = async (req, res) => {
+    const id = req.params.id;
+    await Order.findById(id)
+      .then((order) => {
+        res.status(200).send(order);
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .send({ status: "Error with get Order", error: err.message });
+      });
+  };
 
 const getAwaitingPayments = async (req, res) => {
   let paymentStatus
@@ -103,11 +114,30 @@ const getAwaitingDelivery = async (req, res) => {
     });
   };
 
+  const PaidnDelivered = async (req, res) => {
+    let deliveryStatus
+    = req.params.deliveryStatus
+    ;
+    Order.find({ deliveryStatus
+        : deliveryStatus
+    }, function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).send(docs);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
 module.exports = {
     addNewOrder ,
     getOrders,
     getAwaitingPayments,
     getAwaitingDelivery,
-    updateOrder
+    updateOrder,
+    PaidnDelivered,
+    getOrderByID
 
 };

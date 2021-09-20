@@ -13,7 +13,7 @@ class BlackTea extends Component {
   }
 
   async componentDidMount() {
-    <AdminHeader />
+    
     const response = await fetch(`http://localhost:8070/product/getCategory/`+"Black Tea");
     const data = await response
       .json()
@@ -32,7 +32,7 @@ class BlackTea extends Component {
   render() {
     return (
       <div>
-        <AdminHeader />
+     
         <div class="row">
           <div class="col-sm-2">
             <div
