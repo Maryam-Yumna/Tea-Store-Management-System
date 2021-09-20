@@ -13,6 +13,7 @@ router.route("/").get((req, res) => {
     });
 });
 
+//Retrieve a single product
 //?id=${productId}&type=single
 router.route("/products_by_id").get((req, res) => {
   let type = req.query.type;
