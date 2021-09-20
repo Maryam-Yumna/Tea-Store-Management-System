@@ -3,9 +3,7 @@ import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
 import AboutUs from '../AboutUs/AboutUs';
 import {Link} from 'react-router-dom';
-import {toast} from 'react-toastify';
 
-toast.configure()
 function Home(){
 
     //Retrieve all products to the home page
@@ -32,9 +30,6 @@ function Home(){
             setInput(response.data);
        })
     })
-
-
-
 
     return <div className= 'container'>
            <br/> <br/>
