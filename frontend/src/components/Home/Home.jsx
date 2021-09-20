@@ -48,7 +48,6 @@ function Home(){
                     onChange = {event =>{
                         setSearchTerm(event.target.value);
                     }}
-                    //onChange = {handleTextSearch}
                 />
            </div>
            <br/> <br/>
