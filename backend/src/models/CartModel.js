@@ -23,6 +23,7 @@ const cartSchema = new Schema( {
         type: Number
         //required: true
     },
+    //User's token
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/Product.model");
 
-//retrieve the products
+//Retrieve the products
 router.route("/").get((req, res) => {
   Product.find()
     .then((products) => {
@@ -31,7 +31,7 @@ router.route("/products_by_id").get((req, res) => {
 
   console.log("productIds", productIds);
 
-  //find the product information belongs to a product id
+  //Find the product information belongs to a product id
   Product.find({ _id: { $in: productIds } })
     .populate("writer")
     .exec((err, product) => {

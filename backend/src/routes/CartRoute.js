@@ -29,7 +29,7 @@ router.route("/").post(auth, (req , res) =>{
 })
 
 
-//retrieve the products which are added to the cart
+//Retrieve all the products which are added to the cart
 router.route('/').get((req, res)=>{
     Cart.find().then((products)=>{
         res.json(products)
@@ -37,6 +37,7 @@ router.route('/').get((req, res)=>{
         console.log(err)
     })
 })
+
 router.route('/user').get(auth, (req, res)=>{
     Cart.find({user: req.user.id}).then((products)=>{
         res.json(products)
@@ -44,7 +45,8 @@ router.route('/user').get(auth, (req, res)=>{
         console.log(err)
     })
 })
-//delete a product from the cart
+
+//Delete a product from the cart
 router.delete("/delete/:id", (req, res) => {
   Cart.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
     if (error) {
