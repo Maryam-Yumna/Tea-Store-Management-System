@@ -9,6 +9,7 @@ function Header(props){
             <div className = 'text-white ' class ='header'>
                 <div >
                     <div className = 'row '>
+                        {/*Cover page*/}
                         <div className = 'me-auto col' >
                             <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
                                 <img src= {TeaBack} className="img-fluid" style={{width: '100%'  ,backgroundSize: 'cover'}}/>
@@ -19,12 +20,12 @@ function Header(props){
                             <ul>
                                 {/* <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
                                 <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li> */}
-                                {props.logged ==="true"?(<div>
+                                {props.logged ==="true"?(<div>{/*When the user logged in*/}
                                     <li class="nav-item navbar-brand "><Link to = "/myAccount">My Account</Link></li>
                                     <li class="nav-item navbar-brand " onClick={props.logout}><Link to = "/">Logout</Link></li>
                                     <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
                                 </div>):
-                                <div>
+                                <div>{/*When the user logged out*/}
                                     <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
                                     <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
                                     <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>

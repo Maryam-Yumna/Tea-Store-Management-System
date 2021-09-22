@@ -37,6 +37,7 @@ function DetailProduct(props){
         let token = localStorage.getItem("token");
         axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}}); //passing the newNote to the url given within single quotes
 
+        //Taost message when the product is added to the shopping cart
         toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
 
     }
@@ -45,6 +46,7 @@ function DetailProduct(props){
     const productId = props.match.params.productId;
     const [Product , setProduct] = useState([]);
 
+    //Accessing a single product
     useEffect(() =>{
 
        axios.get('http://localhost:8070/products' + `/products_by_id?id=${productId}&type=single`).then(response => {

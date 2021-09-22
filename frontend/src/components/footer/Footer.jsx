@@ -8,6 +8,7 @@ function Footer(){
         <section>
             <div className = 'text-white ' class ='header'>
                 <div className ="row">
+                    {/*Company Name itself*/}
                     <div className = "col"><br/><br/>
                         <a href ="#" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
                                SerineTea
@@ -32,6 +33,7 @@ function Footer(){
                         </Link>
                     </div>
                     <div className ="col"><br/><br/>
+                        {/*Social Media*/}
                         <label className = 'fw-bolder nav-link text-white fs-5 '>
                                FIND US ON
                         </label>

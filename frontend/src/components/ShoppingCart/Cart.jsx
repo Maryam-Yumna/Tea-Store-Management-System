@@ -34,6 +34,7 @@ function Cart(){
         });
     }
 
+    //Feedback when the user clicks on "Cancel"
     function cancel(event){
         toast('Good Choice!' , {position: toast.POSITION.TOP_CENTER});
     }
@@ -64,13 +65,14 @@ function Cart(){
                                <p className="card-text">{input.description}</p>
                                <br/> <br/>
                                 <div className ="row">
+                                    {/*Remove button*/}
                                     <div className = "col">
                                         <button className = "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button>
                                     </div>
                                     <div className ="col">
-                                        <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>
+                                        <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
                                         <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = "1" disabled="true"/>
-                                        <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>
+                                        <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>{/*Decrement*/}
                                         {/*Confirmation pop up box*/}
                                         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div className="modal-dialog">

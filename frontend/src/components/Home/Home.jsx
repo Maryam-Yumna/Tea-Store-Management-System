@@ -6,13 +6,14 @@ import {Link} from 'react-router-dom';
 
 function Home(){
 
-    //Retrieve all products to the home page
+    //Initialize the attributes to retrieve all the products to the home page
     const[inputs , setInput] = useState([{
             productName : "",
             price : "",
             description : "",
     }])
 
+    //Initialize the attributes to search a product
     const[searchTerm , setSearchTerm] = useState('')
 
     //Method 1 of accessing all products
@@ -33,6 +34,7 @@ function Home(){
 
     return <div className= 'container'>
            <br/> <br/>
+           {/*Search function*/}
            <div>
                 <input
                     className="form-control me-2"
@@ -48,7 +50,7 @@ function Home(){
            <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
-                   {inputs.filter((input)=> {
+                   {inputs.filter((input)=> {//Filter the search bar
                         if(searchTerm == ""){
                             return input;
                         }else if(input.productName.toLowerCase().includes(searchTerm.toLowerCase()) || input.price.includes(searchTerm)){
@@ -57,7 +59,7 @@ function Home(){
                    }).map(input =>
                        <div className = "col-3">
                            <div className="card shadow" >
-                             <div >
+                             <div >{/*Image of the card*/}
                                 <img  style={{width: '100%' , height:300}} src={input.photo} className="card-img-top img-fluid" />
                              </div>
                              <div className="card-body">
