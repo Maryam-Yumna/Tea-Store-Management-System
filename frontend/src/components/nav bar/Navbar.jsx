@@ -31,7 +31,7 @@ function Navbar(){
                    {/*Contact Us*/}
                    <li className="nav-item">
                       <Link  className="navbar-brand " aria-current="page" to="/">
-                        Contact Us 
+                        Contact Us
                       </Link>
                    </li>
                  </ul>
