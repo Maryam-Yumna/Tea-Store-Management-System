@@ -38,6 +38,7 @@ router.route('/').get((req, res)=>{
     })
 })
 
+//Retrieve all the products which are added to the cart according to the user who logged in
 router.route('/user').get(auth, (req, res)=>{
     Cart.find({user: req.user.id}).then((products)=>{
         res.json(products)
