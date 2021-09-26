@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../../App.css';
 import TeaBack from 'url:../../../public/images/TeaBack.jpg';
+import cartIcon from 'url:../../../public/Icons/ic_cart.svg';
 
 function Header(props){
     return<div>
@@ -23,12 +24,20 @@ function Header(props){
                                 {props.logged ==="true"?(<div>{/*When the user logged in*/}
                                     <li class="nav-item navbar-brand "><Link to = "/myAccount">My Account</Link></li>
                                     <li class="nav-item navbar-brand " onClick={props.logout}><Link to = "/">Logout</Link></li>
-                                    <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
+                                    <li class="nav-item navbar-brand ">
+                                        <Link to = "/cart">
+                                            <img src = {cartIcon} alt="" width = "20"/>  My Cart
+                                        </Link>
+                                    </li>
                                 </div>):
                                 <div>{/*When the user logged out*/}
                                     <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
                                     <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
-                                    <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
+                                    <li class="nav-item navbar-brand ">
+                                        <Link to = "/cart">
+                                            <img src = {cartIcon} alt="" width = "20"/>  My Cart
+                                        </Link>
+                                    </li>
                                 </div>}
                                 
                             </ul>
