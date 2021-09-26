@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import homeIcon from 'url:../../../public/Icons/ic_home.svg';
 
 function Navbar(){
     return <nav className="navbar navbar-expand-lg navbar-dark bg-success bg-opacity-75">
              <div className="container-fluid">
                 {/*Home*/}
-               <Link className="navbar-brand " to="/" >Home  |</Link>
+               <Link className="navbar-brand " to="/" >
+                    <img src = {homeIcon} alt="" width = "34"/>   |
+               </Link>
                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                  <span className="navbar-toggler-icon"></span>
                </button>
