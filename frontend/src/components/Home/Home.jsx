@@ -3,6 +3,7 @@ import axios from "axios";
 import CardImage from 'url:../../../public/images/cardImage.jpg';
 import AboutUs from '../AboutUs/AboutUs';
 import {Link} from 'react-router-dom';
+import SearchBarIcon from 'url:../../../public/Icons/ic_search.svg';
 
 function Home(){
 
@@ -35,7 +36,7 @@ function Home(){
     return <div className= 'container'>
            <br/> <br/>
            {/*Search function*/}
-           <div>
+           <div className="input-group mb-3">
                 <input
                     className="form-control me-2"
                     type="search"
@@ -46,7 +47,11 @@ function Home(){
                         setSearchTerm(event.target.value);
                     }}
                 />
+                <span class="input-group-text" id="basic-addon2">
+                    <img src = {SearchBarIcon} alt="" width = "30"/>
+                </span>
            </div>
+
            <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
