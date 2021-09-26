@@ -1,6 +1,9 @@
 import React from 'react';
 import '../../App.css';
 import {Link} from 'react-router-dom';
+import facebook from 'url:../../../public/Icons/ic_facebook.svg';
+import twitter from 'url:../../../public/Icons/ic_twitter.svg';
+import instagram from 'url:../../../public/Icons/ic_instagram.svg';
 
 function Footer(){
     return<div>
@@ -38,13 +41,13 @@ function Footer(){
                                FIND US ON
                         </label>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
-                               Facebook
+                               <img src = {facebook} alt="" width = "16"/> Facebook
                         </Link>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
-                               Twitter
+                               <img src = {twitter} alt="" width = "16"/> Twitter
                         </Link>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
-                               Instagram
+                               <img src = {instagram} alt="" width = "16"/> Instagram
                         </Link>
                     </div>
                 </div>
