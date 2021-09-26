@@ -5,7 +5,7 @@ function Navbar(){
     return <nav className="navbar navbar-expand-lg navbar-dark bg-success bg-opacity-75">
              <div className="container-fluid">
                 {/*Home*/}
-               <Link className="navbar-brand " to="/" >Home</Link>
+               <Link className="navbar-brand " to="/" >Home  |</Link>
                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                  <span className="navbar-toggler-icon"></span>
                </button>
@@ -25,13 +25,13 @@ function Navbar(){
                     {/*About Us*/}
                    <li  className="nav-item">
                       <Link className="navbar-brand " aria-current="page" to="/">
-                        About Us
+                        | About Us |
                       </Link>
                    </li>
                    {/*Contact Us*/}
                    <li className="nav-item">
                       <Link  className="navbar-brand " aria-current="page" to="/">
-                        Contact Us
+                        Contact Us 
                       </Link>
                    </li>
                  </ul>
