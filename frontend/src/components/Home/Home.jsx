@@ -8,7 +8,7 @@ import SearchBarIcon from 'url:../../../public/Icons/ic_search.svg';
 function Home(){
 
     //Initialize the attributes to retrieve all the products to the home page
-    const[inputs , setInput] = useState([{
+    const[products , setProduct] = useState([{
             productName : "",
             price : "",
             description : "",
@@ -23,13 +23,13 @@ function Home(){
             if(res.ok){
                 return res.json();
             }
-        }).then(jsonRes => setInput(jsonRes))
+        }).then(jsonRes => setProduct(jsonRes))
     })*/
 
     //Method 2 of accessing all products
     useEffect(() =>{
        axios.get('http://localhost:8070/products').then(response => {
-            setInput(response.data);
+            setProduct(response.data);
        })
     })
 
@@ -55,25 +55,25 @@ function Home(){
            <br/> <br/>
                <section className="mt-2 ">
                    <div className = "row" >
-                   {inputs.filter((input)=> {//Filter the search bar
+                   {products.filter((input)=> {//Filter the search bar
                         if(searchTerm == ""){
                             return input;
                         }else if(input.productName.toLowerCase().includes(searchTerm.toLowerCase()) || input.price.includes(searchTerm)){
                             return input;
                         }
-                   }).map(input =>
+                   }).map(product =>
                        <div className = "col-3">
                            <div className="card shadow" >
                              <div >{/*Image of the card*/}
-                                <Link to={`/products/${input._id}`}>
-                                    <img  style={{width: '100%' , height:300}} src={input.photo} className="card-img-top img-fluid" />
+                                <Link to={`/products/${product._id}`}>
+                                    <img  style={{width: '100%' , height:300}} src={product.photo} className="card-img-top img-fluid" />
                                 </Link>
                              </div>
                              <div className="card-body">
-                               <h5 class="fw-bold">{input.productName}</h5><br/>
-                               <p className="card-text fst-italic"><label>LKR {input.price}.00</label></p>
-                               {/*<p className="card-text">{input.description}</p>*/}
-                               <Link to={`/products/${input._id}`} className="btn btn-dark font-size-09 text-light">Read More...</Link>
+                               <h5 class="fw-bold">{product.productName}</h5><br/>
+                               <p className="card-text fst-italic"><label>LKR {product.price}.00</label></p>
+                               {/*<p className="card-text">{product.description}</p>*/}
+                               <Link to={`/products/${product._id}`} className="btn btn-dark font-size-09 text-light">Read More...</Link>
                              </div>
                            </div><br/>
                        </div>

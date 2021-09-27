@@ -8,7 +8,7 @@ import DeleteIcon from 'url:../../../public/Icons/ic_delete.svg';
 
 toast.configure()
 function Cart(){
-    const[inputs , setInput] = useState([{
+    const[products , setProduct] = useState([{
             productName : "",
             price : "",
             description : ""
@@ -19,13 +19,13 @@ function Cart(){
 //             if(res.ok){
 //                 return res.json();
 //             }
-//         }).then(jsonRes => setInput(jsonRes))
+//         }).then(jsonRes => setProduct(jsonRes))
         let token = localStorage.getItem("token");
         fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
             if(res.ok){
                 return res.json();
             }
-        }).then(jsonRes => setInput(jsonRes))
+        }).then(jsonRes => setProduct(jsonRes))
     })
 
     //removeFromCart = (id) => {
@@ -54,17 +54,17 @@ function Cart(){
             <div className ='col'>
                <section className="mt-2 ">
                    <div className = "row g-0 " >
-                   {inputs.map(input =>
+                   {products.map(product =>
                        <div className="card mb-3 shadow" >
                          <div className="row g-0">
                           <div className="col-md-4" >
-                            <img style={{width: '100%' , height:400}} src={input.photo} className="card-img-top img-fluid" />
+                            <img style={{width: '100%' , height:400}} src={product.photo} className="card-img-top img-fluid" />
                           </div>
                            <div className="col-md-8">
                               <div className="card-body">
-                                <h5 className="fw-bold">{input.productName}</h5><br/>
-                               <p className="card-text fst-italic"><label>LKR {input.price}.00</label></p>
-                               <p className="card-text">{input.description}</p>
+                                <h5 className="fw-bold">{product.productName}</h5><br/>
+                               <p className="card-text fst-italic"><label>LKR {product.price}.00</label></p>
+                               <p className="card-text">{product.description}</p>
                                <br/> <br/>
                                 <div className ="row">
                                     {/*Remove button*/}
@@ -89,7 +89,7 @@ function Cart(){
                                                 Do you want to Remove the Product?
                                               </div>
                                               <div className="modal-footer">
-                                                <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(input._id)}>Confirm</button>
+                                                <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(product._id)}>Confirm</button>
                                                 <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick ={cancel}>Cancel</button>
                                               </div>
                                             </div>
