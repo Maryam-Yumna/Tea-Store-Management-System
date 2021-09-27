@@ -4,6 +4,7 @@ import CardImage from 'url:../../../public/images/cardImage.jpg';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import {Link} from 'react-router-dom';
+import DeleteIcon from 'url:../../../public/Icons/ic_delete.svg';
 
 toast.configure()
 function Cart(){
@@ -68,7 +69,9 @@ function Cart(){
                                 <div className ="row">
                                     {/*Remove button*/}
                                     <div className = "col">
-                                        <button className = "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button>
+                                        <button className = "btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <img src = {DeleteIcon} alt="" width = "16"/> Remove
+                                        </button>
                                     </div>
                                     <div className ="col">
                                         <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
