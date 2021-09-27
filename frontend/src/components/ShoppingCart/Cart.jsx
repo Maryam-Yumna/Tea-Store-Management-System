@@ -47,9 +47,10 @@ function Cart(){
         toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
     }
 
-    return <div className= 'container '>
+    return <div className= 'container row'>
            <br/> <br/>
            <h3 className ="text-decoration-underline">Shopping Cart</h3><br/>
+            <div className ='col'>
                <section className="mt-2 ">
                    <div className = "row g-0 " >
                    {inputs.map(input =>
@@ -101,19 +102,26 @@ function Cart(){
                    )}
                    </div>
               </section>
-                <br/><br/>
-                <h3 className ="text-decoration-underline">Summary</h3><br/>
-                <div className = "fs-4 fst-italic">Total : LKR 7000.00</div>
-                <br/><br/>
-                <div className ="row">
-                    <div className = "col">
-                        <Link to="/" className = "btn btn-success btn-lg">Next</Link>
-                    </div>
-                    <div className ="col">
-                        <a href ="/" className = "btn btn-outline-secondary btn-lg">Cancel</a>
-                    </div>
+            </div>
+            <div className='col-2'>
+              <br/><br/>
+              <h3 className ="text-decoration-underline">Summary</h3><br/>
+                <div>
+                    <p className = "fs-4 fst-italic">Total Amount :
+                    <br/><br/>
+                    LKR 7000.00
+                    </p>
                 </div>
-
+              <br/><br/>
+            </div>
+              <div className ="row text-center">
+                  <div className = "col">
+                      <Link to="/" className = "btn btn-success btn-lg">Next</Link>
+                  </div>
+                  <div className ="col">
+                      <a href ="/" className = "btn btn-outline-secondary btn-lg">Cancel</a>
+                  </div>
+              </div>
       </div>
 }
 
