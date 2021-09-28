@@ -12,6 +12,10 @@ function Cart(){
 
     const [cartItems , setCartItems] = useState([]);
 
+    const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
+    //const discount = itemsPrice > 2000 ? 0 : 50;
+    //const total = itemsPrice - discount;
+
     useEffect(() =>{
 //         fetch("http://localhost:8070/cart").then(res =>{
 //             if(res.ok){
@@ -78,7 +82,8 @@ function Cart(){
 
     }
 
-    return <div className= 'container'>
+    return <div className= 'cartbgimg'>
+     <div className= 'container'>
            <br/> <br/>
            <div className ='text-center'>
             {cartItems.length === 0 &&
@@ -92,7 +97,7 @@ function Cart(){
 
            {cartItems.length !== 0 &&
            <div className = 'row' >
-                <h3 className ="fw-bold fst-italic text-secondary">Shopping Cart</h3><br/>
+                <h3 className ="fw-bold fst-italic text-white">Shopping Cart</h3><br/>
                 <hr></hr>
                     <div className ='col'>
                        <section className="mt-2 ">
@@ -149,15 +154,15 @@ function Cart(){
                            </div>
                       </section>
                     </div>
-                    <div className='col-2'>
+                    <div className=' col-2'>
                       <br/><br/>
-                      <h3 className = "text-secondary" >Summary</h3>
-                      <hr></hr><br/>
-                        <div>
-                            <p className = "fs-4 fst-italic">Total Amount :
+                      <h3 className = "fs-4 text-white text-decoration-underline" >Summary</h3>
+                      <hr ></hr><br/>
+                        <div className = "bg-light"><br/>
+                            <p className = "fs-5 fst-italic text-dark fw-bold">Total Amount :
                             <br/><br/>
                             LKR 7000.00
-                            </p>
+                            </p><br/>
                         </div>
                       <br/><br/>
                     </div>
@@ -166,11 +171,12 @@ function Cart(){
                               <Link to="/" className = "btn btn-success btn-lg">Next</Link>
                           </div>
                           <div className ="col"><br/><br/>
-                              <a href ="/" className = "btn btn-outline-secondary btn-lg">Cancel</a>
+                              <a href ="/" className = "btn btn-outline-light btn-lg">Cancel</a>
                           </div>
                       </div>
            </div>
            }
+      </div><br/><br/>
       </div>
 }
 
