@@ -4,6 +4,7 @@ import CardImage from 'url:../../../public/images/cardImage.jpg';
 import AboutUs from '../AboutUs/AboutUs';
 import {Link} from 'react-router-dom';
 import SearchBarIcon from 'url:../../../public/Icons/ic_search.svg';
+import '../../App.css';
 
 function Home(){
 
@@ -33,7 +34,8 @@ function Home(){
        })
     })
 
-    return <div className= 'container'>
+    return <div className= 'homebgimg'>
+     <div className= 'container'>
            <br/> <br/>
            {/*Search function*/}
            <div className="input-group mb-3">
@@ -81,6 +83,7 @@ function Home(){
                    </div>
               </section>
                 <AboutUs/>
+      </div>
       </div>
 }
 
