@@ -4,22 +4,25 @@ const Cart = require("../models/CartModel");
 const auth = require("../../middleware/auth");
 
 //Add products to the cart
-router.route("/").post(auth, (req , res) =>{
+//router.route("/").post(auth, (req , res) =>{
+router.route("/").post( (req , res) =>{
+    const _id = req.body._id;
     const productName = req.body.productName;
     const price = req.body.price;
     const description = req.body.description;
     const photo = req.body.photo;
-    const count = req.body.count;
-    const user = req.user.id;
+    const qty = req.body.qty;
+    //const user = req.user.id;
 
     const newProduct = new Cart();
 
+    newProduct._id = _id;
     newProduct.productName = productName;
     newProduct.price = price;
     newProduct.description = description;
     newProduct.photo = photo;
-    newProduct.count = count;
-    newProduct.user = user;
+    newProduct.qty = qty;
+    //newProduct.user = user;
 
     newProduct.save().then(()=> {
             res.json("product added to cart")
@@ -39,13 +42,13 @@ router.route('/').get((req, res)=>{
 })
 
 //Retrieve all the products which are added to the cart according to the user who logged in
-router.route('/user').get(auth, (req, res)=>{
+/*router.route('/user').get(auth, (req, res)=>{
     Cart.find({user: req.user.id}).then((products)=>{
         res.json(products)
     }).catch((err)=>{
         console.log(err)
     })
-})
+})*/
 
 //Delete a product from the cart
 router.delete("/delete/:id", (req, res) => {
@@ -55,6 +58,25 @@ router.delete("/delete/:id", (req, res) => {
     }
     return res.json(deletedItem);
   });
+});
+
+//Update query to update the count of the products in the shopping cart
+router.put("/put/:id" , (req , res) =>{
+    const updatedItem = {
+        qty : req.body.qty
+    }
+
+    Cart.findByIdAndUpdate(
+        {_id : req.params.id},
+        {$set : updatedItem },
+        (req , res , err) => {
+            if(!err){
+                console.log("updated");
+            }else{
+                console.log(err)
+            }
+        }
+    );
 });
 
 module.exports = router;
