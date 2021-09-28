@@ -17,8 +17,9 @@ function Cart(){
 //                 return res.json();
 //             }
 //         }).then(jsonRes => setCartItems(jsonRes))
-        let token = localStorage.getItem("token");
-        fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
+        //let token = localStorage.getItem("token");
+        //fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
+        fetch("http://localhost:8070/cart").then(res =>{
             if(res.ok){
                 return res.json();
             }
@@ -56,6 +57,7 @@ function Cart(){
                 </div>
             }
            </div>
+
            {cartItems.length !== 0 &&
            <div className = 'row' >
                 <h3 className ="text-decoration-underline">Shopping Cart</h3><br/>
@@ -73,6 +75,7 @@ function Cart(){
                                         <h5 className="fw-bold">{cartItem.productName}</h5><br/>
                                        <p className="card-text fst-italic"><label>LKR {cartItem.price}.00</label></p>
                                        <p className="card-text">{cartItem.description}</p>
+                                       <h1 className="card-text">{cartItem.qty}</h1>
                                        <br/> <br/>
                                         <div className ="row">
                                             {/*Remove button*/}
@@ -83,7 +86,7 @@ function Cart(){
                                             </div>
                                             <div className ="col">
                                                 <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
-                                                <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = "1" disabled="true"/>
+                                                <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = {cartItem.qty} disabled="true"/>
                                                 <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>{/*Decrement*/}
                                                 {/*Confirmation pop up box*/}
                                                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,7 +119,8 @@ function Cart(){
                     </div>
                     <div className='col-2'>
                       <br/><br/>
-                      <h3 className ="text-decoration-underline">Summary</h3><br/>
+                      <h3>Summary</h3>
+                      <hr></hr><br/>
                         <div>
                             <p className = "fs-4 fst-italic">Total Amount :
                             <br/><br/>
@@ -126,10 +130,10 @@ function Cart(){
                       <br/><br/>
                     </div>
                       <div className ="row text-center">
-                          <div className = "col">
+                          <div className = "col"><br/><br/>
                               <Link to="/" className = "btn btn-success btn-lg">Next</Link>
                           </div>
-                          <div className ="col">
+                          <div className ="col"><br/><br/>
                               <a href ="/" className = "btn btn-outline-secondary btn-lg">Cancel</a>
                           </div>
                       </div>

@@ -54,7 +54,7 @@ function Header(props){
                                         </Link>
                                     </li>
                                     <li class="nav-item navbar-brand ">
-                                        <Link to = "/login">
+                                        <Link to = "/cart">
                                             <img src = {cartIcon} alt="" width = "20"/>  My Cart
                                         </Link>
                                     </li>
