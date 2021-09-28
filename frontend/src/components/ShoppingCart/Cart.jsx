@@ -9,7 +9,8 @@ import BrokenHeart from 'url:../../../public/Icons/ic_brokenheart.svg';
 
 toast.configure()
 function Cart(){
-    const[cartItems , setCartItems] = useState([]);
+
+    const [cartItems , setCartItems] = useState([]);
 
     useEffect(() =>{
 //         fetch("http://localhost:8070/cart").then(res =>{
@@ -38,12 +39,28 @@ function Cart(){
         toast('Good Choice!' , {position: toast.POSITION.TOP_CENTER});
     }
 
-    function decrementCount(event){
-        toast('Product count is decreased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+    function decrementCount(id){
+
+        
+
     }
 
-    function incrementCount(event){
-        toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+    //Update the count by increasing the qty by 1
+    function incrementCount(id){
+
+        const exist = cartItems.find((item) => item._id === id);
+
+        if(exist){
+            const newQty = {
+                qty:exist.qty + 1
+            };
+
+            axios.put('http://localhost:8070/cart' + `/put/${id}`, newQty);
+
+            //Display a toast message
+            toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+        }
+
     }
 
     return <div className= 'container'>
@@ -85,9 +102,9 @@ function Cart(){
                                                 </button>
                                             </div>
                                             <div className ="col">
-                                                <button onClick ={decrementCount}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
+                                                <button onClick ={() => decrementCount(cartItem._id)}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
                                                 <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = {cartItem.qty} disabled="true"/>
-                                                <button onClick ={incrementCount}  className = "fs-4 btn btn-dark">+</button>{/*Decrement*/}
+                                                <button onClick ={() => incrementCount(cartItem._id)} className = "fs-4 btn btn-dark">+</button>{/*Decrement*/}
                                                 {/*Confirmation pop up box*/}
                                                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                   <div className="modal-dialog">

@@ -46,8 +46,10 @@ function DetailProduct(props){
 
             axios.put('http://localhost:8070/cart' + `/put/${Product._id}`, newQty);
 
+            //Display a toast message
+            toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+
         }else{
-            //setCartItems([...cartItems , {...Product , qty:1}]);
             const newProduct = {
                 _id : Product._id,
                 productName : Product.productName,
