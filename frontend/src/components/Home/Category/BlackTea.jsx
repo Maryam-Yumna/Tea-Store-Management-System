@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../../../App.css';
 
 class BlackTea extends Component {
   constructor(props) {
@@ -29,9 +30,10 @@ class BlackTea extends Component {
 
   render() {
     return (
+      <div class="homebgimg">
       <div class="container">
         <br/> <br/>
-        <h2 className = "text-center fst-italic text-warning">Black Tea</h2>
+        <h2 className = "text-center fst-italic text-secondary">Black Tea</h2>
         <hr></hr>
         <br/>
         <div className = "row">
@@ -53,6 +55,7 @@ class BlackTea extends Component {
               </div>
             ))}
         </div>
+      </div>
       </div>
     );
   }
