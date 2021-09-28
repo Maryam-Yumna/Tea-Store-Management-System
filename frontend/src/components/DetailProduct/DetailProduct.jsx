@@ -34,11 +34,6 @@ function DetailProduct(props){
         const exist = cartItems.find((item) => item._id === Product._id);
 
         if(exist){
-            /*setCartItems(
-                cartItems.map((item) =>
-                    item._id === Product.id ? {...exist , qty: exist.qty +1} : item
-                )
-            );*/
 
             const newQty = {
                 qty:exist.qty + 1
@@ -86,9 +81,12 @@ function DetailProduct(props){
             </div>
 
             <div className = "col " lg={12} xs={24}>
-                <h3 /*onChange={handleChange}*/ name = "productName" value = {Product.productName} >{Product.productName}</h3>
-                <p /*onChange={handleChange}*/ name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
-                <p /*onChange={handleChange}*/ name = "description" value={Product.description} className="card-text">{Product.description}</p>
+                <h3 name = "productName" value = {Product.productName} >{Product.productName}</h3>
+                <hr></hr>
+                <p name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
+                <p name = "description" value={Product.description} className="card-text">{Product.description}</p>
+                <p name = "category" value={Product.category} className="card-text">Belongs to the category of <label className = "text-success">{Product.category}</label></p>
+                <p name = "deliverywithin" value={Product.deliverywithin} className="card-text">Deliver within <label className = "text-success">{Product.deliverywithin}</label></p>
                 {/*<input onChange={handleChange} name = "count"  value = {input.count} autocomplete = "off" className = "form-control" placeholder = "count"/>*/}
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
