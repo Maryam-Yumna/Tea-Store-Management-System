@@ -8,43 +8,63 @@ import {Link} from 'react-router-dom';
 toast.configure()
 function DetailProduct(props){
 
-    const [input , setInput] = useState({
-        count : ''
-    })
+    const productId = props.match.params.productId;
+    const [Product , setProduct] = useState([]);
+    const [cartItems , setCartItems] = useState([]);
 
-    function handleChange(event){
-        const {name , value} = event.target;
-
-        setInput(prevInput =>{
-            return{
-                ...prevInput,
-                [name] : value
+    useEffect(() =>{
+//         fetch("http://localhost:8070/cart").then(res =>{
+//             if(res.ok){
+//                 return res.json();
+//             }
+//         }).then(jsonRes => setCartItems(jsonRes))
+        //let token = localStorage.getItem("token");
+        //fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
+        fetch("http://localhost:8070/cart").then(res =>{
+            if(res.ok){
+                return res.json();
             }
-        })
-    }
+        }).then(jsonRes => setCartItems(jsonRes))
+    })
 
     //Add to cart function
      function addToCartHandler(event){
         event.preventDefault();
 
-        const newProduct = {
-            productName : Product.productName,
-            price : Product.price,
-            description : Product.description,
-            photo : Product.photo,
-            count : input.count
-        }
-        let token = localStorage.getItem("token");
-        axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}}); //passing the newNote to the url given within single quotes
+        const exist = cartItems.find((item) => item._id === Product._id);
 
-        //Taost message when the product is added to the shopping cart
-        toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
+        if(exist){
+            /*setCartItems(
+                cartItems.map((item) =>
+                    item._id === Product.id ? {...exist , qty: exist.qty +1} : item
+                )
+            );*/
+
+            const newQty = {
+                qty:exist.qty + 1
+            };
+
+            axios.put('http://localhost:8070/cart' + `/put/${Product._id}`, newQty);
+
+        }else{
+            //setCartItems([...cartItems , {...Product , qty:1}]);
+            const newProduct = {
+                _id : Product._id,
+                productName : Product.productName,
+                price : Product.price,
+                description : Product.description,
+                photo : Product.photo,
+                qty : 1
+            }
+            //let token = localStorage.getItem("token");
+            //axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}});
+            axios.post('http://localhost:8070/cart' , newProduct);
+
+            //Taost message when the product is added to the shopping cart
+            toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
+        }
 
     }
-
-
-    const productId = props.match.params.productId;
-    const [Product , setProduct] = useState([]);
 
     //Accessing a single product
     useEffect(() =>{
