@@ -67,8 +67,22 @@
     color: white;
 }
 
-.bgimg{
-    background : url("../src/images/clientBackground.jpg");
+.detailproductbgimg{
+    background : url("../src/images/detailedProduct.jpg");
+    opacity : 1;
+    background-size :cover;
+    height : auto;
+}
+
+.homebgimg{
+    background : url("../src/images/clientHome.jpg");
+    opacity : 1;
+    background-size :cover;
+    height : auto;
+}
+
+.cartbgimg{
+    background : url("../src/images/cartBackground.png");
     opacity : 1;
     background-size :cover;
     height : auto;
