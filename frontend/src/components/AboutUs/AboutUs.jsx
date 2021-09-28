@@ -3,9 +3,11 @@ import React from 'react';
 function AboutUs(){
     return <div>
         <br/> <br/> <br/>  <br/>
-        <div  className = "text-center" id="aboutus">
+        <div  className = "text-center text-success" id="aboutus">
+            <hr></hr>
             <h2>About SerineTea</h2>
-            <div className ="fs-4">
+            <hr></hr>
+            <div className ="fs-4 ">
                 <p>Sri Lankan family tea company SerineTea, today the world's most experienced
                 tea maker, has championed quality, authenticity and variety in tea.
                 SerineTea pioneered the concept of Single Origin Tea in 2020 when the family
@@ -16,6 +18,7 @@ function AboutUs(){
                    SerineTea is Ethical Tea, in that all packaging profits are retained in
                    Sri Lanka. We believe that Business is a Matter of Human Service.</p>
             </div>
+            <hr></hr>
         </div>
     </div>
 
