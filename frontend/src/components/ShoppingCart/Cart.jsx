@@ -41,7 +41,22 @@ function Cart(){
 
     function decrementCount(id){
 
-        
+        const exist = cartItems.find((item) => item._id === id);
+
+        if(exist){
+            const newQty = {
+                qty:exist.qty - 1
+            };
+
+            if( exist.qty === 1 ){
+                removeFromCart(id);
+            }else{
+                axios.put('http://localhost:8070/cart' + `/put/${id}`, newQty);
+            }
+
+            //Display a toast message
+            toast('Product count is decreased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
+        }
 
     }
 
