@@ -32,6 +32,11 @@ import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
 
+import ClientBlackTea from "./components/Home/Category/BlackTea"
+import ClientFlavouredTea from "./components/Home/Category/FlavouredTea"
+import ClientGreenTea from "./components/Home/Category/GreenTea"
+import ClientLoosenTea from "./components/Home/Category/LoosenTea"
+
 
 
 class App extends Component {
@@ -43,8 +48,10 @@ class App extends Component {
                   <Route path="/" exact component={Home}/>
                   <Route path = "/products/:productId" exact component={DetailProduct}/>
                   <Route path = "/cart" exact component={Cart}/>
-                 
-
+                  <Route path = "/clientBlackTea" exact component={ClientBlackTea}/>
+                  <Route path = "/clientFlavouredTea" exact component={ClientFlavouredTea}/>
+                  <Route path = "/clientGreenTea" exact component={ClientGreenTea}/>
+                  <Route path = "/clientLoosenTea" exact component={ClientLoosenTea}/>
                   <Route path = "/adminHome" component = {adminHome}></Route>
                   <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
