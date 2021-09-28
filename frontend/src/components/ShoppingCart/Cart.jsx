@@ -103,7 +103,7 @@ function Cart(){
                        <section className="mt-2 ">
                            <div className = "row g-0 " >
                            {cartItems.map(cartItem =>
-                               <div className="card mb-3 shadow" >
+                               <div className="card mb-3 card shadow" >
                                  <div className="row g-0">
                                   <div className="col-md-4" >
                                     <img style={{width: '100%' , height:400}} src={cartItem.photo} className="card-img-top img-fluid" />
