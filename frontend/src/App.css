@@ -67,5 +67,12 @@
     color: white;
 }
 
+.bgimg{
+    background : url("../src/images/clientBackground.jpg");
+    opacity : 1;
+    background-size :cover;
+    height : auto;
+}
+
 
 

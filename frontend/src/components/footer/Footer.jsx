@@ -7,7 +7,7 @@ import instagram from 'url:../../../public/Icons/ic_instagram.svg';
 
 function Footer(){
     return<div>
-        <br/><br/>
+
         <section>
             <div className = 'text-white ' class ='header'>
                 <div className ="row">
