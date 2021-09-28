@@ -75,7 +75,7 @@ function DetailProduct(props){
 
 
     return (
-    <div className = " bgimg postPage" style={{width: '100%'  , padding: '3rem 4rem' }}>
+    <div className = " detailproductbgimg postPage" style={{width: '100%'  , padding: '3rem 4rem' }}>
         <div className = "row gap-4 " gutter={[16 , 16]}>
             <div className = "col-3 " lg={12} xs={24}>
                 <img style={{width: '100%' , height: 300 }} src={Product.photo} className="card-img-top img-fluid" />
@@ -93,7 +93,7 @@ function DetailProduct(props){
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
             <br/>
-            <Link to="/" class="fs-4 link-success fw-bold fst-italic text-end"> Go back</Link>
+            <Link to="/" class="fs-4 link-success fw-bold fst-italic"> Go back</Link>
         </div>
     </div>
     )
