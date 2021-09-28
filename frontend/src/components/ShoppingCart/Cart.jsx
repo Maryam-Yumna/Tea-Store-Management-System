@@ -87,7 +87,7 @@ function Cart(){
            <br/> <br/>
            <div className ='text-center'>
             {cartItems.length === 0 &&
-                <div className = 'fs-4 fst-italic '><br/> <br/>
+                <div className = 'fs-4 fst-italic text-white'><br/> <br/>
                     Shopping Cart is empty at the moment
                     <br/><br/>
                     <img src = {BrokenHeart} alt="" width = "300"/>
@@ -159,9 +159,9 @@ function Cart(){
                       <h3 className = "fs-4 text-white text-decoration-underline" >Summary</h3>
                       <hr ></hr><br/>
                         <div className = "bg-light"><br/>
-                            <p className = "fs-5 fst-italic text-dark fw-bold">Total Amount :
+                            <p className = "text-center fs-5 fst-italic text-dark fw-bold">Total Amount :
                             <br/><br/>
-                            LKR 7000.00
+                            {itemsPrice}
                             </p><br/>
                         </div>
                       <br/><br/>
