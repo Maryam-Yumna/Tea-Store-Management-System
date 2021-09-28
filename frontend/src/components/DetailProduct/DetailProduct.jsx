@@ -4,6 +4,7 @@ import CardImage from 'url:../../../public/images/cardImage.jpg';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import {Link} from 'react-router-dom';
+import '../../App.css';
 
 toast.configure()
 function DetailProduct(props){
@@ -74,7 +75,7 @@ function DetailProduct(props){
 
 
     return (
-    <div className = "postPage" style={{width: '100%'  , padding: '3rem 4rem'}}>
+    <div className = " bgimg postPage" style={{width: '100%'  , padding: '3rem 4rem' }}>
         <div className = "row gap-4 " gutter={[16 , 16]}>
             <div className = "col-3 " lg={12} xs={24}>
                 <img style={{width: '100%' , height: 300 }} src={Product.photo} className="card-img-top img-fluid" />
@@ -83,16 +84,16 @@ function DetailProduct(props){
             <div className = "col " lg={12} xs={24}>
                 <h3 name = "productName" value = {Product.productName} >{Product.productName}</h3>
                 <hr></hr>
-                <p name = "price"  value = {Product.price} className="card-text fst-italic"><label>LKR {Product.price}.00</label></p>
-                <p name = "description" value={Product.description} className="card-text">{Product.description}</p>
-                <p name = "category" value={Product.category} className="card-text">Belongs to the category of <label className = "text-success">{Product.category}</label></p>
-                <p name = "deliverywithin" value={Product.deliverywithin} className="card-text">Deliver within <label className = "text-success">{Product.deliverywithin}</label></p>
+                <p name = "price"  value = {Product.price} className="fs-5 fw-bold card-text fst-italic"><label>LKR {Product.price}.00</label></p>
+                <p name = "description" value={Product.description} className="fw-normal fs-5 font-monospace card-text">{Product.description}</p>
+                <p name = "category" value={Product.category} className="fs-5 card-text">Belongs to the category of <label className = "text-success">{Product.category}</label></p>
+                <p name = "deliverywithin" value={Product.deliverywithin} className="fs-5 card-text">Deliver within <label className = "text-success">{Product.deliverywithin}</label></p>
                 {/*<input onChange={handleChange} name = "count"  value = {input.count} autocomplete = "off" className = "form-control" placeholder = "count"/>*/}
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>
             <br/>
-            <Link to="/" class="fs-4 link-success fst-italic">Go back</Link>
+            <Link to="/" class="fs-4 link-success fw-bold fst-italic text-end"> Go back</Link>
         </div>
     </div>
     )
