@@ -20,10 +20,10 @@ function Navbar(){
                        Categories
                      </Link>
                      <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                       <li><Link className="dropdown-item" to="/">Black Tea</Link></li>
-                       <li><Link className="dropdown-item" to="/">Green Tea</Link></li>
-                       <li><Link className="dropdown-item" to="/">Loosen Tea Leaf</Link></li>
-                       <li><Link className="dropdown-item" to="/">Flavoured Tea</Link></li>
+                       <li><Link className="dropdown-item" to="/clientBlackTea">Black Tea</Link></li>
+                       <li><Link className="dropdown-item" to="/clientGreenTea">Green Tea</Link></li>
+                       <li><Link className="dropdown-item" to="/clientLoosenTea">Loosen Tea Leaf</Link></li>
+                       <li><Link className="dropdown-item" to="/clientFlavouredTea">Flavoured Tea</Link></li>
                      </ul>
                    </li>
                     {/*About Us*/}
