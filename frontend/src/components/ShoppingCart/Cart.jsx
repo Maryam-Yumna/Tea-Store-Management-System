@@ -92,7 +92,8 @@ function Cart(){
 
            {cartItems.length !== 0 &&
            <div className = 'row' >
-                <h3 className ="text-decoration-underline">Shopping Cart</h3><br/>
+                <h3 className ="fw-bold fst-italic text-secondary">Shopping Cart</h3><br/>
+                <hr></hr>
                     <div className ='col'>
                        <section className="mt-2 ">
                            <div className = "row g-0 " >
@@ -107,7 +108,6 @@ function Cart(){
                                         <h5 className="fw-bold">{cartItem.productName}</h5><br/>
                                        <p className="card-text fst-italic"><label>LKR {cartItem.price}.00</label></p>
                                        <p className="card-text">{cartItem.description}</p>
-                                       <h1 className="card-text">{cartItem.qty}</h1>
                                        <br/> <br/>
                                         <div className ="row">
                                             {/*Remove button*/}
@@ -118,7 +118,7 @@ function Cart(){
                                             </div>
                                             <div className ="col">
                                                 <button onClick ={() => decrementCount(cartItem._id)}  className = "fs-4 btn btn-dark">-</button>{/*Decrement*/}
-                                                <input  className="text-center fs-5" name = "qty" style={{width:30 , height:30}} value = {cartItem.qty} disabled="true"/>
+                                                <label  className="text-center fs-5 fw-bolder" name = "qty" style={{width:30 , height:30}} value = {cartItem.qty} >{cartItem.qty}</label>
                                                 <button onClick ={() => incrementCount(cartItem._id)} className = "fs-4 btn btn-dark">+</button>{/*Decrement*/}
                                                 {/*Confirmation pop up box*/}
                                                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +151,7 @@ function Cart(){
                     </div>
                     <div className='col-2'>
                       <br/><br/>
-                      <h3>Summary</h3>
+                      <h3 className = "text-secondary" >Summary</h3>
                       <hr></hr><br/>
                         <div>
                             <p className = "fs-4 fst-italic">Total Amount :
