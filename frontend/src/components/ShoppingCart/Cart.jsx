@@ -12,9 +12,15 @@ function Cart(){
 
     const [cartItems , setCartItems] = useState([]);
 
-    //const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
-    //const discount = itemsPrice > 2000 ? 0 : 50;
+    const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
+    let discount = 0//itemsPrice > 2000 ? 0 : 50;
     //const total = itemsPrice - discount;
+
+    if(itemsPrice > 2000){
+        discount = itemsPrice * 0.25;
+    }
+
+    let total = itemsPrice - discount;
 
     useEffect(() =>{
 //         fetch("http://localhost:8070/cart").then(res =>{
@@ -35,7 +41,7 @@ function Cart(){
     function removeFromCart(id){
         let token = localStorage.getItem("token");
         axios.delete('http://localhost:8070/cart' + `/delete/${id}`, {headers: {'authorization':token}}).then((res) => {
-             toast.warn('Product is Removed from My Cart successfully!' , {position: toast.POSITION.BOTTOM_CENTER});
+             toast.warn('Product is Removed from My Cart successfully!', {position: toast.POSITION.BOTTOM_CENTER});
         });
     }
 
@@ -54,7 +60,7 @@ function Cart(){
             };
 
             if( exist.qty === 1 ){
-                removeFromCart(id);
+                removeFromCart(exist.item);
             }else{
                 axios.put('http://localhost:8070/cart' + `/put/${id}`, newQty);
             }
@@ -84,6 +90,16 @@ function Cart(){
     return <div className= 'cartbgimg'>
      <div className= 'container'>
            <br/> <br/>
+           <div className ='text-center'>{/*****************************************/}
+               {cartItems.length === 0 &&
+                   <div className = 'fs-4 fst-italic text-white'><br/> <br/>
+                       Shopping Cart is empty at the moment
+                       <br/><br/>
+                       <img src = {BrokenHeart} alt="" width = "300"/>
+                   </div>
+               }
+           </div>{/*****************************************/}
+           {cartItems.length !== 0 &&
            <div className = 'row' >
                 <h3 className ="fw-bold fst-italic text-white">Shopping Cart</h3><br/>
                 <hr></hr>
@@ -143,15 +159,14 @@ function Cart(){
                            </div>
                       </section>
                     </div>
-                    <div className=' col-2'>
+                    <div className=' col-3'>
                       <br/><br/>
                       <h3 className = "fs-4 text-white text-decoration-underline" >Summary</h3>
                       <hr ></hr><br/>
                         <div className = "bg-light"><br/>
-                            <p className = "text-center fs-5 fst-italic text-dark fw-bold">Total Amount :
-                            <br/><br/>
-                            {/*itemsPrice*/}
-                            </p><br/>
+                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold">Total Amount : {itemsPrice}</p>
+                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold" >Discount : {discount}</p>
+                            <p className = "p-3 fs-5 fst-italic text-success fw-bold" >Finale Amount : {total}</p><br/>
                         </div>
                       <br/><br/>
                     </div>
@@ -163,8 +178,8 @@ function Cart(){
                               <a href ="/" className = "btn btn-outline-light btn-lg">Cancel</a>
                           </div>
                       </div>
-                      </div>
-
+           </div>
+           }
       </div><br/><br/>
       </div>
 }
