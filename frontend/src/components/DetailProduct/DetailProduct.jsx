@@ -19,9 +19,9 @@ function DetailProduct(props){
 //                 return res.json();
 //             }
 //         }).then(jsonRes => setCartItems(jsonRes))
-        //let token = localStorage.getItem("token");
-        //fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
-        fetch("http://localhost:8070/cart").then(res =>{
+        let token = localStorage.getItem("token");
+        fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
+//         fetch("http://localhost:8070/cart").then(res =>{
             if(res.ok){
                 return res.json();
             }
@@ -31,8 +31,9 @@ function DetailProduct(props){
     //Add to cart function
      function addToCartHandler(event){
         event.preventDefault();
-
-        const exist = cartItems.find((item) => item._id === Product._id);
+        console.log("CartIts",cartItems);
+        const exist = cartItems.find((item) => item.item === Product._id);
+        //const exist = cartItems.find((item) => item._id === Product._id);
 
         if(exist){
 
@@ -40,23 +41,27 @@ function DetailProduct(props){
                 qty:exist.qty + 1
             };
 
-            axios.put('http://localhost:8070/cart' + `/put/${Product._id}`, newQty);
+            //let token = localStorage.getItem("token");
+            //axios.put('http://localhost:8070/cart' + `/put/${Product._id}`, newQty , {headers: {'authorization':token}});
+            axios.put('http://localhost:8070/cart' + `/put/${exist._id}`, newQty);
 
             //Display a toast message
             toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
 
         }else{
             const newProduct = {
-                _id : Product._id,
+//                 _id : Product._id,
+                item : Product._id,
                 productName : Product.productName,
                 price : Product.price,
                 description : Product.description,
                 photo : Product.photo,
                 qty : 1
             }
-            //let token = localStorage.getItem("token");
-            //axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}});
-            axios.post('http://localhost:8070/cart' , newProduct);
+
+            let token = localStorage.getItem("token");
+            axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}});
+//             axios.post('http://localhost:8070/cart' , newProduct);
 
             //Taost message when the product is added to the shopping cart
             toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
