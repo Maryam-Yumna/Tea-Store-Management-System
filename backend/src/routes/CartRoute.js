@@ -5,8 +5,6 @@ const auth = require("../../middleware/auth");
 
 //Add products to the cart
 router.route("/").post(auth, (req , res) =>{
-//router.route("/").post( (req , res) =>{
-//    const _id = req.body._id;
     const item = req.body.item;
     const productName = req.body.productName;
     const price = req.body.price;
@@ -17,7 +15,6 @@ router.route("/").post(auth, (req , res) =>{
 
     const newProduct = new Cart();
 
-//    newProduct._id = _id;
     newProduct.item = item;
     newProduct.productName = productName;
     newProduct.price = price;
@@ -54,13 +51,6 @@ router.route('/user').get(auth, (req, res)=>{
 
 //Delete a product from the cart
 router.delete("/delete/:id", auth, (req, res) => {
-//router.delete("/delete/:id", (req, res) => {
-//  Cart.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
-//    if (error) {
-//      res.send(error);
-//    }
-//    return res.json(deletedItem);
-//  });
     Cart.find({item: req.params.id, user: req.user.id})
     .then((item)=>{
         if(item){
@@ -72,21 +62,12 @@ router.delete("/delete/:id", auth, (req, res) => {
            .catch((err)=>{
                    console.log(err);
                });
-//               return res.json(deletedItem);
-
         }
 
     })
     .catch((err)=>{
         console.log(err);
     });
-
-//    Cart.findByIdAndRemove(req.params.id).exec((error, deletedItem) => {
-//        if (error) {
-//          res.send(error);
-//        }
-//        return res.json(deletedItem);
-//    });
 });
 
 //Update query to update the count of the products in the shopping cart
