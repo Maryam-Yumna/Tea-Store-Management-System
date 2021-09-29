@@ -12,7 +12,7 @@ function Cart(){
 
     const [cartItems , setCartItems] = useState([]);
 
-    const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
+    //const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
     //const discount = itemsPrice > 2000 ? 0 : 50;
     //const total = itemsPrice - discount;
 
@@ -22,18 +22,20 @@ function Cart(){
 //                 return res.json();
 //             }
 //         }).then(jsonRes => setCartItems(jsonRes))
-        //let token = localStorage.getItem("token");
-        //fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
-        fetch("http://localhost:8070/cart").then(res =>{
+        let token = localStorage.getItem("token");
+        fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
+        //fetch("http://localhost:8070/cart").then(res =>{
             if(res.ok){
                 return res.json();
+                console.log(cartItems);
             }
         }).then(jsonRes => setCartItems(jsonRes))
     })
 
     //removeFromCart = (id) => {
     function removeFromCart(id){
-        axios.delete('http://localhost:8070/cart' + `/delete/${id}`).then((res) => {
+        let token = localStorage.getItem("token");
+        axios.delete('http://localhost:8070/cart' + `/delete/${id}`, {headers: {'authorization':token}}).then((res) => {
              toast.warn('Product is Removed from My Cart successfully!' , {position: toast.POSITION.BOTTOM_CENTER});
         });
     }
@@ -85,17 +87,17 @@ function Cart(){
     return <div className= 'cartbgimg'>
      <div className= 'container'>
            <br/> <br/>
-           <div className ='text-center'>
-            {cartItems.length === 0 &&
-                <div className = 'fs-4 fst-italic text-white'><br/> <br/>
-                    Shopping Cart is empty at the moment
-                    <br/><br/>
-                    <img src = {BrokenHeart} alt="" width = "300"/>
-                </div>
-            }
-           </div>
+{/*            <div className ='text-center'> */}
+{/*             {cartItems.length === 0 ? */}
+{/*                 <div className = 'fs-4 fst-italic text-white'><br/> <br/> */}
+{/*                     Shopping Cart is empty at the moment */}
+{/*                     <br/><br/> */}
+{/*                     <img src = {BrokenHeart} alt="" width = "300"/> */}
+{/*                 </div> */}
+{/*                 : <div></div>          } */}
+{/*            </div> */}
 
-           {cartItems.length !== 0 &&
+{/*            {cartItems.length !== 0 ? */}
            <div className = 'row' >
                 <h3 className ="fw-bold fst-italic text-white">Shopping Cart</h3><br/>
                 <hr></hr>
@@ -137,7 +139,8 @@ function Cart(){
                                                         Do you want to Remove the Product?
                                                       </div>
                                                       <div className="modal-footer">
-                                                        <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(cartItem._id)}>Confirm</button>
+                                                        <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(cartItem.item)}>Confirm</button>
+                                                      {/* <button type="button" className="btn btn-outline-danger" data-bs-dismiss="modal" onClick ={() => removeFromCart(cartItem._id)}>Confirm</button> */}
                                                         <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick ={cancel}>Cancel</button>
                                                       </div>
                                                     </div>
@@ -161,7 +164,7 @@ function Cart(){
                         <div className = "bg-light"><br/>
                             <p className = "text-center fs-5 fst-italic text-dark fw-bold">Total Amount :
                             <br/><br/>
-                            {itemsPrice}
+                            {/*itemsPrice*/}
                             </p><br/>
                         </div>
                       <br/><br/>
@@ -174,8 +177,8 @@ function Cart(){
                               <a href ="/" className = "btn btn-outline-light btn-lg">Cancel</a>
                           </div>
                       </div>
-           </div>
-           }
+                      </div>
+
       </div><br/><br/>
       </div>
 }
