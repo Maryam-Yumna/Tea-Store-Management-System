@@ -7,6 +7,15 @@ const auth = require('../../middleware/auth');
 //http://localhost:8070/user/register
 //register a new user
 const register = async(req, res)=> {
+
+    await User.findOne({email : req.body.email})
+    .then(user=>{
+        if(user) return res.status(400).json({errorMessage: 'User exist'});
+
+    })
+    .catch((err)=>{
+            console.log(err);
+    })  
     const user = req.body;
     const newUser = new User();
 
@@ -33,6 +42,7 @@ const register = async(req, res)=> {
         }).catch((err)=>{
             console.log(err)
     })
+
 }
 
 //http://localhost:8070/user/
@@ -50,14 +60,42 @@ const getAllUsers = async(req, res)=>{
 const getUserByID = async(req, res)=>{
     let id = req.params.id;
     await User.findById(id).then((user)=>{
-        res.status(200).send({user: user})
+        res.status(200).send(user)
     }).catch((err)=>{
         res.status(500).send({status: "Error with get user", error:err.message});
     })
 }
 
+const deleteUser = async (req, res) => {
+    let id = req.user.id;
+    await User.findByIdAndDelete(id)
+      .then(() => {
+        res.status(200).send({ status: "User deleted" });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send({ status: "error with deleting" });
+      });
+  };
+
+  const searchUser = async(req, res)=>{
+      let keyword = req.params.keyword;
+      await User.find(
+          {$or: [
+              { 'firstName' : { '$regex' : req.params.keyword, '$options' : 'i' } },
+              { 'lastName' : { '$regex' : req.params.keyword, '$options' : 'i' } } ]}
+        ).then((user)=>{
+        res.status(200).send(user)
+    }).catch((err)=>{
+        res.status(500).send({status: "Error with get item", error:err.message});
+    })
+  }
+  
+
 module.exports = {
     register,
     getAllUsers,
-    getUserByID
+    getUserByID,
+    deleteUser,
+    searchUser
 };

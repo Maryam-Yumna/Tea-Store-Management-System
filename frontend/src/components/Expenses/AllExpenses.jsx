@@ -63,8 +63,10 @@ class AllExpenses extends Component{
             
             <div className="">
                 <div className="container w-100 p-3 text-center" id="expenses">
-                        <h2>Expenses</h2>
-                        <button id='btnAddNewExpense' type="button" className="btn btn-success">Add New Expense</button>
+                        <h2 className="fw-bold mb-0">Expenses</h2>
+                        <div className="m-4">
+                            <button id='btnAddNewExpense' type="button" className="btn btn-success" onClick={(e)=>{this.props.history.push('/addExpenses')}}>Add New Expense</button>
+                        </div>
                     <div className="container w-75 p-3">
                         {this.state.Expenses.length !== 0 ?  
                             <table className="table table-info table-striped table-hover" >

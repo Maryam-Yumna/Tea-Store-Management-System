@@ -6,7 +6,7 @@ import TeaBack from 'url:../../../public/images/TeaBack.jpg';
 function Header(props){
     return<div>
         <section>
-            <div className = 'text-white ' class ='header'>
+            <div className = 'text-white ' className ='header'>
                 <div >
                     <div className = 'row '>
                         <div className = 'me-auto col' >
@@ -15,19 +15,19 @@ function Header(props){
                             </Link>
                         </div>
 
-                        <div class = "rightMenu">
+                        <div className = "rightMenu">
                             <ul>
-                                {/* <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
-                                <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li> */}
+                                {/* <li className="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
+                                <li className="nav-item navbar-brand "><Link to = "/register">Register</Link></li> */}
                                 {props.logged ==="true"?(<div>
-                                    <li class="nav-item navbar-brand "><Link to = "/myAccount">My Account</Link></li>
-                                    <li class="nav-item navbar-brand " onClick={props.logout}><Link to = "/">Logout</Link></li>
-                                    <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
+                                    <li className="nav-item navbar-brand "><Link to = "/myAccount">My Account</Link></li>
+                                    <li className="nav-item navbar-brand " onClick={props.logout}><Link to = "/">Logout</Link></li>
+                                    <li className="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
                                 </div>):
                                 <div>
-                                    <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
-                                    <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
-                                    <li class="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
+                                    <li className="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
+                                    <li className="nav-item navbar-brand "><Link to = "/register">Register</Link></li>
+                                    <li className="nav-item navbar-brand "><Link to = "/cart">My Cart</Link></li>
                                 </div>}
                                 
                             </ul>
