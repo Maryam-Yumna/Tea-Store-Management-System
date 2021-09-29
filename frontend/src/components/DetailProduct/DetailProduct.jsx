@@ -21,7 +21,6 @@ function DetailProduct(props){
 //         }).then(jsonRes => setCartItems(jsonRes))
         let token = localStorage.getItem("token");
         fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
-//         fetch("http://localhost:8070/cart").then(res =>{
             if(res.ok){
                 return res.json();
             }
@@ -33,7 +32,6 @@ function DetailProduct(props){
         event.preventDefault();
         console.log("CartIts",cartItems);
         const exist = cartItems.find((item) => item.item === Product._id);
-        //const exist = cartItems.find((item) => item._id === Product._id);
 
         if(exist){
 
@@ -41,8 +39,6 @@ function DetailProduct(props){
                 qty:exist.qty + 1
             };
 
-            //let token = localStorage.getItem("token");
-            //axios.put('http://localhost:8070/cart' + `/put/${Product._id}`, newQty , {headers: {'authorization':token}});
             axios.put('http://localhost:8070/cart' + `/put/${exist._id}`, newQty);
 
             //Display a toast message
@@ -50,7 +46,6 @@ function DetailProduct(props){
 
         }else{
             const newProduct = {
-//                 _id : Product._id,
                 item : Product._id,
                 productName : Product.productName,
                 price : Product.price,
@@ -61,7 +56,7 @@ function DetailProduct(props){
 
             let token = localStorage.getItem("token");
             axios.post('http://localhost:8070/cart' , newProduct, {headers: {'authorization':token}});
-//             axios.post('http://localhost:8070/cart' , newProduct);
+
 
             //Taost message when the product is added to the shopping cart
             toast.success('Product is Added to My Cart successfully!' , {position: toast.POSITION.TOP_CENTER});
@@ -93,7 +88,6 @@ function DetailProduct(props){
                 <p name = "description" value={Product.description} className="fw-normal fs-5 font-monospace card-text">{Product.description}</p>
                 <p name = "category" value={Product.category} className="fs-5 card-text">Belongs to the category of <label className = "text-success">{Product.category}</label></p>
                 <p name = "deliverywithin" value={Product.deliverywithin} className="fs-5 card-text">Deliver within <label className = "text-success">{Product.deliverywithin}</label></p>
-                {/*<input onChange={handleChange} name = "count"  value = {input.count} autocomplete = "off" className = "form-control" placeholder = "count"/>*/}
                 <br/>
                 <button onClick ={addToCartHandler} className = "btn btn-success">Add To Cart</button>
             </div>

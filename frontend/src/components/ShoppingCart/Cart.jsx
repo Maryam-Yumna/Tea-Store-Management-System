@@ -24,7 +24,6 @@ function Cart(){
 //         }).then(jsonRes => setCartItems(jsonRes))
         let token = localStorage.getItem("token");
         fetch("http://localhost:8070/cart/user",{headers: {'authorization':token}}).then(res =>{
-        //fetch("http://localhost:8070/cart").then(res =>{
             if(res.ok){
                 return res.json();
                 console.log(cartItems);
@@ -63,7 +62,6 @@ function Cart(){
             //Display a toast message
             toast('Product count is decreased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
         }
-
     }
 
     //Update the count by increasing the qty by 1
@@ -81,23 +79,11 @@ function Cart(){
             //Display a toast message
             toast('Product count is increased by 1' , {position: toast.POSITION.BOTTOM_RIGHT});
         }
-
     }
 
     return <div className= 'cartbgimg'>
      <div className= 'container'>
            <br/> <br/>
-{/*            <div className ='text-center'> */}
-{/*             {cartItems.length === 0 ? */}
-{/*                 <div className = 'fs-4 fst-italic text-white'><br/> <br/> */}
-{/*                     Shopping Cart is empty at the moment */}
-{/*                     <br/><br/> */}
-{/*                     <img src = {BrokenHeart} alt="" width = "300"/> */}
-{/*                 </div> */}
-{/*                 : <div></div>          } */}
-{/*            </div> */}
-
-{/*            {cartItems.length !== 0 ? */}
            <div className = 'row' >
                 <h3 className ="fw-bold fst-italic text-white">Shopping Cart</h3><br/>
                 <hr></hr>
