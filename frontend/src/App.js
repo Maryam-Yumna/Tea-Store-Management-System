@@ -4,11 +4,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import adminHome from './components/adminHome'
 import Home from "./components/Home/Home";
 import Navbar from "./components/nav bar/Navbar";
+import DetailProduct from "./components/DetailProduct/DetailProduct";
+import Cart from "./components/ShoppingCart/Cart";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
-import AddProductForm from "./components/ShoppingCart/AddProductForm";
+
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
 import AwaitingPayments from './components/adminOrders/AwitingPayments';
@@ -18,6 +20,7 @@ import AllExpenses from './components/Expenses/AllExpenses';
 import AddExpenses from './components/AddExpenses/AddExpenses';
 import SearchUser from './components/SearchUser/SearchUser';
 import Login from './components/Login/Login';
+
 import EditProducts from "./components/products/editproduct"
 import BlackTea from "./components/Categories/balckTea"
 import GreenTea from "./components/Categories/GreenTea"
@@ -25,8 +28,17 @@ import Loosen from "./components/Categories/looseLeaf"
 import report from "./components/adminOrders/report"
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader'
 
+
 import EditPayment from './components/adminOrders/ChnagePaymentstatus'
 import EditDelivery from './components/adminOrders/ChangeDeliverystatus'
+
+import Register from './components/Register/Register';
+import EditExpense from './components/EditExpense/EditExpense';
+import UserProfile from './components/UserProfile/UserProfile';
+import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
+import EditUserProfile from './components/UserProfile/EditUserProfile';
+import ExpenseReport from './components/ExpenseReports/ExpenseReport';
+
 
 
 
@@ -34,12 +46,15 @@ class App extends Component {
   render() {
       return (
           <Router>
+
          <ApplicationHeader/>    
               
               <Switch>
                   <Route path="/" exact component={Home}/>
+                  <Route path = "/products/:productId" exact component={DetailProduct}/>
+                  <Route path = "/cart" exact component={Cart}/>
                  
-                  <Route path="/products" exact component={AddProductForm}/>
+
                   <Route path = "/adminHome" component = {adminHome}></Route>
                   <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
@@ -58,6 +73,11 @@ class App extends Component {
                   <Route path = "/addExpenses" exact component={AddExpenses}></Route>
                   <Route path = "/searchUser" exact component={SearchUser}></Route>
                   <Route path = "/login" exact component={Login}></Route>
+                  <Route path = "/register" exact component={Register}></Route>
+                  <Route path = "/editExpense" exact component={EditExpense}></Route>
+                  <Route path = "/myAccount" exact component={UserProfile}></Route>
+                  <Route path = "/editUserProfile" exact component={EditUserProfile}></Route>
+                  <Route path="/expenseReport" exact component ={ExpenseReport}/>
               </Switch>
               <Footer/>
           </Router>

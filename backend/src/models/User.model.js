@@ -26,7 +26,8 @@ const userSchema = new Schema({
         unique: true
     },
     phone: {
-        type: String
+        type: String,
+        required: true
     },
     address:{
         type: String,
@@ -43,8 +44,12 @@ userSchema.methods.generateHash = function(password){
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 }
 //validate the encrypted password
-userSchema.methods.validPassword = function(password){
-    return bcrypt.compareSync(password, this.password);
+// userSchema.methods.validPassword = function(enteredPassword, encrypted){
+//     return bcrypt.compareSync(enteredPassword, encrypted);
+// }
+
+userSchema.methods.validPassword = function(enteredPassword, encrypted){
+    return bcrypt.compareSync(enteredPassword, encrypted)
 }
 const User = mongoose.model('User',userSchema);
 

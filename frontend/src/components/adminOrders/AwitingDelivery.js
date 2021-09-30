@@ -96,11 +96,13 @@ class AwaitingDelivery extends Component {
             <br />
             <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
+
                 <div class="col-2">
                   <img
                     style={{ width: "200px" }}
                     src="https://i.ibb.co/k02WsYQ/undraw-deliveries-131a.png"
                   />
+
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>

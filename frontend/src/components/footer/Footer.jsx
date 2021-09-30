@@ -9,21 +9,21 @@ function Footer(){
             <div className = 'text-white ' class ='header'>
                 <div className ="row">
                     <div className = "col"><br/><br/>
-                        <Link to ="/" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
+                        <a href ="#" className = 'fw-bold nav-link text-white fst-italic fs-1 '>
                                SerineTea
-                        </Link>
+                        </a>
                     </div>
 
                     <div className ="col"><br/><br/>
                         <label  className = 'fw-bolder nav-link text-white  fs-5 '>
                                MAIN MENU
                         </label>
-                        <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
+                        <a href ="#" className = 'nav-link text-white fst-italic fs-5 '>
                                Home
-                        </Link>
-                        <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
+                        </a>
+                        <a href ="#" className = 'nav-link text-white fst-italic fs-5 '>
                                Categories
-                        </Link>
+                        </a>
                         <Link to ="/" className = 'nav-link text-white fst-italic fs-5 '>
                                About Us
                         </Link>
