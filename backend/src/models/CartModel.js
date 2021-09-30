@@ -29,7 +29,11 @@ const cartSchema = new Schema( {
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+     addToCartDate: {
+         type: Date,
+         default: Date.now(),
+     }
 });
 
 const Cart = mongoose.model("Cart" , cartSchema);
