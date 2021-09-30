@@ -5,7 +5,7 @@ const initialState ={
     password:'',
     email:'',
     userType:'',
-    error: false
+    error: false,
 }
 
 class Login extends Component {
@@ -46,16 +46,18 @@ class Login extends Component {
                 });
                 if (userType === "admin"){
                     window.location.href = '/adminHome'
+                    // this.props.history.push('/adminHome');
                 }else if(userType === "customer"){
                     window.location.href = '/'
+                    // this.props.history.push('/');
                 }else {
                     window.location.href = '/'
+                    // this.props.history.push('/');
                 }
             }
             console.log("userType", userType);    
         })
         .catch(error=>{
-            console.log(error.message)
             this.setState({
                 error: true
             })
@@ -80,7 +82,7 @@ class Login extends Component {
                                     className="form-control rounded-4" 
                                     id="floatingInput" 
                                     placeholder="name@example.com"
-                                    vale={this.state.email} 
+                                    value={this.state.email} 
                                     name ="email"
                                     onChange={this.onChange}
                                     required/>
@@ -92,14 +94,14 @@ class Login extends Component {
                                     className="form-control rounded-4" 
                                     id="floatingPassword" 
                                     placeholder="Password"
-                                    vale={this.state.password} 
+                                    value={this.state.password} 
                                     name ="password"
                                     onChange={this.onChange}
                                     required/>
                                 <label for="floatingPassword">Password</label>
                             </div>
                             {
-                                this.state.error== true?
+                                this.state.error?
                                 <div className="p-2">
                                     <label htmlFor="errorMessage" style={{color:"red"}}>Invalid email or password</label>
                                 </div>:

@@ -104,6 +104,7 @@ class GreenTea extends Component {
           </div>
 
           <div class="col-sm-10">
+           
             <div class="album py-5 bg-light">
               <div class="container">
                 <form class="d-flex">
@@ -118,6 +119,9 @@ class GreenTea extends Component {
                   </button>
                 </form>
                 <br />
+                     <span class="fs-4" style={{ color: "#298a43" }}>
+                 Green Tea
+                </span>
 
                 {this.state.Products.map((item) => (
                   <div style={{ width: "23%", float: "left", margin: "10px" }}>

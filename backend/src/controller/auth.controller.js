@@ -1,5 +1,6 @@
 let User = require('../models/User.model');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const login = async(req, res)=> {
     
@@ -15,19 +16,24 @@ const login = async(req, res)=> {
         if(!user) return res.status(400).json({msg: 'User does not exist'});
 
         //vaidate password
-        if(!User.validate(password)) return res.status(400).json({msg: 'Invalid credentials'});
+        if(bcrypt.compareSync(password, user.password)) {
+            
+            jwt.sign(
+                {id: user._id, userType: user.userType}, 'jwtSecret', {expiresIn: '1d'},
+                (err, token)=>{
+                    if(err) throw err;
+                    res.json({
+                        user,
+                        token,
+                        message: "success"
+                    });
+                }
+            )
+        }else{
+            return res.status(400).json({msg: 'Invalid credentials'});
+        }
 
-        jwt.sign(
-            {id: user._id, userType: user.userType}, 'jwtSecret', {expiresIn: '1d'},
-            (err, token)=>{
-                if(err) throw err;
-                res.json({
-                    user,
-                    token,
-                    message: "success"
-                });
-            }
-        )
+        
         
     })
     .catch((err)=>{
@@ -44,7 +50,26 @@ const getLoggedUser = async(req, res)=>{
 })
 }
 
+const updateUser = async(req, res)=>{
+
+    const update = {
+            firstName: req.body.firstName, 
+            lastName: req.body.lastName, 
+            address: req.body.address
+        };
+
+        User.findOneAndUpdate({_id: req.user.id}, update,{new: true})
+        .then((user)=>{
+            res.json({message:"user details updated", user: user});
+        })
+        .catch((err)=>{
+            console.error(err);
+        })
+
+}
+
 module.exports = {
     login,
-    getLoggedUser
+    getLoggedUser,
+    updateUser
 };
