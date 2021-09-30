@@ -31,14 +31,14 @@ router.route("/").post(auth, (req , res) =>{
 })
 
 
-//Retrieve all the products which are added to the cart
-/*router.route('/').get((req, res)=>{
+//Retrieve all the products which are added to the cart (useful for the report)
+router.route('/allCartItems').get((req, res)=>{
     Cart.find().then((products)=>{
         res.json(products)
     }).catch((err)=>{
         console.log(err)
     })
-})*/
+})
 
 //Retrieve all the products which are added to the cart according to the user who logged in
 router.route('/user').get(auth, (req, res)=>{
