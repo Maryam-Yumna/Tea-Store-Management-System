@@ -14,7 +14,7 @@ class Incomereport extends Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.printReport= this.printReport.bind(this);
+    this.printReport = this.printReport.bind(this);
   }
   componentDidMount() {}
 
@@ -39,22 +39,18 @@ class Incomereport extends Component {
         income
       )
       .then((data) => {
-        this.setState(
-          { Income: data.data,
-          },
-          () => {
-            var sum = 0;
-            for (let i = 0; i < this.state.Income.length; i++) {
-              sum +=parseInt( this.state.Income[i].total);
-              console.log("sum", sum);
-            }
-           
-            this.setState({
-              grandtotal: sum,
-            });
-            console.log(this.state.Income);
+        this.setState({ Income: data.data }, () => {
+          var sum = 0;
+          for (let i = 0; i < this.state.Income.length; i++) {
+            sum += parseInt(this.state.Income[i].total);
+            console.log("sum", sum);
           }
-        );
+
+          this.setState({
+            grandtotal: sum,
+          });
+          console.log(this.state.Income);
+        });
       })
       .catch((err) => {
         console.error(err);
@@ -66,16 +62,15 @@ class Incomereport extends Component {
     });
   }
 
-
-printReport(){
-  var content = document.getElementById("printablediv");
-  var p = document.getElementById("ifmcontentstoprint").contentWindow;
-  p.document.open();
-  p.document.write(content.innerHTML);
-  p.document.close();
-  p.focus();
-  p.print();
-}
+  printReport() {
+    var content = document.getElementById("printablediv");
+    var p = document.getElementById("ifmcontentstoprint").contentWindow;
+    p.document.open();
+    p.document.write(content.innerHTML);
+    p.document.close();
+    p.focus();
+    p.print();
+  }
 
   render() {
     return (
@@ -96,7 +91,7 @@ printReport(){
                     name="firstDate"
                     placeholder="Choose a date"
                     value={this.state.firstDate}
-                                    onChange={this.onChange}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div class="col-4">
@@ -110,45 +105,47 @@ printReport(){
                     placeholder="Choose a date"
                     name="lastDate"
                     value={this.state.lastDate}
-                      onChange={this.onChange}
+                    onChange={this.onChange}
                   />
                 </div>
-                <div class="col-1">
-                
-                   </div>
+                <div class="col-1"></div>
 
-                   <div class="col-3">
-
-
-
-                   <div class="btn-group" role="group" aria-label="Basic example">
-                   <button
-                    style={{ background: "#298a43", float: "right", "font-size": "14px"  }}
-                    class=" btn btn-primary"
-                    type="submit"
+                <div class="col-3">
+                  <div
+                    class="btn-group"
+                    role="group"
+                    aria-label="Basic example"
                   >
-                    Generate Report
-                  </button>
-                  <button
-                    style={{ background: "#298a43", float: "right" ,"font-size": "14px"}}
-                    class=" btn btn-primary"
-                    onClick={() => this.printReport()} 
-                  >
-                    Print Report
-                  </button>
-  
-</div>
-                     
-                 
-               
-                   </div>
+                    <button
+                      style={{
+                        background: "#298a43",
+                        float: "right",
+                        "font-size": "14px",
+                      }}
+                      class=" btn btn-primary"
+                      type="submit"
+                    >
+                      Generate Report
+                    </button>
+                    <button
+                      style={{
+                        background: "#298a43",
+                        float: "right",
+                        "font-size": "14px",
+                      }}
+                      class=" btn btn-primary"
+                      onClick={() => this.printReport()}
+                    >
+                      Print Report
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </form>
         </div>
-
         <div></div>
-        <div class="container"  id="printablediv" >
+        <div class="container" id="printablediv">
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
@@ -159,9 +156,11 @@ printReport(){
                 </b>
               </center>
               <center>
-                <b>From  {this.state.firstDate}  to  {this.state.lastDate}</b>
+                <b>
+                  From {this.state.firstDate} to {this.state.lastDate}
+                </b>
               </center>
-              <br/> 
+              <br />
               <table class="table table-striped table-sm">
                 <thead>
                   <tr>
@@ -172,37 +171,44 @@ printReport(){
                   </tr>
                 </thead>
                 <tbody>
-                {this.state.Income.map((order) => (
-                  <tr>
-                    <td>{order.orderdate}</td>
-                    <td>{order.productName}</td>
-                    <td>{order.qty}</td>
-                    <td>{order.total}</td>
-                   
-                  </tr>
-                   ))}
+                  {this.state.Income.map((order) => (
+                    <tr>
+                      <td>{order.orderdate}</td>
+                      <td>{order.productName}</td>
+                      <td>{order.qty}</td>
+                      <td>{order.total}</td>
+                    </tr>
+                  ))}
 
-<tr>
+                  <tr>
                     <td></td>
                     <td></td>
-                  
-                    <td><b><h4>Total Income:</h4></b></td>
-                     <td><b><h4> {this.state.grandtotal}</h4></b></td>
+
+                    <td>
+                      <b>
+                        <h4>Total Income:</h4>
+                      </b>
+                    </td>
+                    <td>
+                      <b>
+                        <h4> {this.state.grandtotal}</h4>
+                      </b>
+                    </td>
                   </tr>
                 </tbody>
-           
               </table>
-              <iframe id="ifmcontentstoprint" style={{height: "0px", width: "0px", position: "absolute"}}></iframe>
+              <iframe
+                id="ifmcontentstoprint"
+                style={{ height: "0px", width: "0px", position: "absolute" }}
+              ></iframe>
             </div>
             <div class="col-sm-1">
               <br />
-             
             </div>
           </div>
         </div>
-        <br/> <br/>
-        <br/> <br/>
-        
+        <br /> <br />
+        <br /> <br />
       </div>
     );
   }
