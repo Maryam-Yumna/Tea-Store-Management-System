@@ -32,8 +32,7 @@ class AllExpenses extends Component{
         return(
             
             <div className="">
-                <AdminHeader />
-                <div className="container w-100 p-3 text-center" id="expenses">
+                     <div className="container w-100 p-3 text-center" id="expenses">
                         <h2>Expenses</h2>
                         <button id='btnAddNewExpense' type="button" className="btn btn-success">Add New Expense</button>
                     <div className="container w-75 p-3">

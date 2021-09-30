@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const orderSchema = new Schema({
     orderdate:{
-        type: String,
-        required: true
+        type: Date,
+        default: Date.now()
     },
     firstName: {
         type: String,

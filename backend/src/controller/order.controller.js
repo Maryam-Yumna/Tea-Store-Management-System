@@ -131,6 +131,32 @@ const getAwaitingDelivery = async (req, res) => {
     });
   };
 
+  const getordersForReport = async (req, res) => {
+    const startDate = req.params.startDate;
+    const endDate = req.params.endDate;
+   
+    ;
+    Order.find({
+      orderdate: {
+      $gte:startDate,
+      $lte: endDate
+  }, deliveryStatus
+: "Delivered"
+
+    }, function (err, docs) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.status(200).send(docs);
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+
+
+
 module.exports = {
     addNewOrder ,
     getOrders,
@@ -138,6 +164,7 @@ module.exports = {
     getAwaitingDelivery,
     updateOrder,
     PaidnDelivered,
-    getOrderByID
+    getOrderByID,
+    getordersForReport 
 
 };

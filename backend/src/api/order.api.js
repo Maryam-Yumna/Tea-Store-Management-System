@@ -10,6 +10,7 @@ module.exports = function () {
   router.get("/allOrders", controller.getOrders);
   router.put("/updateOrder/:id", controller.updateOrder);
   router.get("/getOrder/:id", controller.getOrderByID);
+  router.get("/getIncome/:startDate/:endDate" ,controller.getordersForReport);
 
 
   return router;

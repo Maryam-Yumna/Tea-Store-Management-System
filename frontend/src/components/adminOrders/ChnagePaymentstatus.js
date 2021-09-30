@@ -266,7 +266,7 @@ let EditPayment = (props) => {
                   </select>
                   <input
                     style={{ color: "#298a43" }}
-                    type="text"
+                    type="hidden"
                     class="form-control"
                     id="firstName"
                     value={"Completed"}
