@@ -6,12 +6,9 @@ class orders extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       currentDateTime: new Date().toLocaleString(),
       Orders: [],
     };
-
-    
   }
 
   async componentDidMount() {
@@ -32,7 +29,6 @@ class orders extends Component {
   render() {
     return (
       <div>
-       
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -95,31 +91,26 @@ class orders extends Component {
           </div>
           <div class="col-sm-10">
             <br />
-            <div
-              class="container"
-              style={{ background: "", padding: "5px" }}
-            >
+            <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
                 <div class="col-2">
-                  <img style={{ width: "200px" }} src = "https://i.ibb.co/SsrNRsw/undraw-healthy-options-sdo3.png"/>
-                  
+                  <img
+                    style={{ width: "200px" }}
+                    src="https://i.ibb.co/SsrNRsw/undraw-healthy-options-sdo3.png"
+                  />
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
-                  <h4> Customer Orders</h4>
+                    <h4> Customer Orders</h4>
                     Today: {this.state.currentDateTime}
                   </h6>
                 </div>
               </div>
             </div>
 
-       
-         
             <table class="table">
               <thead>
-              <tr>
-              
-                 
+                <tr>
                   <th scope="col">Order Date</th>
                   <th scope="col">Customer</th>
                   <th scope="col">Contact and delivery Details</th>
@@ -131,30 +122,26 @@ class orders extends Component {
                 </tr>
               </thead>
               <tbody>
-           
-              {this.state.Orders.map((order) => (
-                <tr>
-                  
-             
-                  <td>{order.orderdate}</td>
-                  <td>{order.firstName}</td>
-                  <td>{order.email}<br /> 
-                   {order.phone}<br /> {order.address}</td>
-                  <td>{order.productName}</td>
-                  <td>{order.qty}</td>
-                  <td>{order.total}</td>
-                  <td>{order.paymentStatus}</td>
-                  <td>
-                  {order.deliveryStatus}
-                  </td>
-              
-                </tr>
-              ))}
+                {this.state.Orders.map((order) => (
+                  <tr>
+                    <td>{order.orderdate}</td>
+                    <td>{order.firstName}</td>
+                    <td>
+                      {order.email}
+                      <br />
+                      {order.phone}
+                      <br /> {order.address}
+                    </td>
+                    <td>{order.productName}</td>
+                    <td>{order.qty}</td>
+                    <td>{order.total}</td>
+                    <td>{order.paymentStatus}</td>
+                    <td>{order.deliveryStatus}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
-            
           </div>
-          
         </div>
       </div>
     );
