@@ -159,14 +159,14 @@ function Cart(){
                            </div>
                       </section>
                     </div>
-                    <div className=' col-3'>
+                    <div className='col-4'>
                       <br/><br/>
                       <h3 className = "fs-4 text-white text-decoration-underline" >Summary</h3>
                       <hr ></hr><br/>
                         <div className = "bg-light"><br/>
-                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold">Total Amount : {itemsPrice}</p>
-                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold" >Discount : {discount}</p>
-                            <p className = "p-3 fs-5 fst-italic text-success fw-bold" >Finale Amount : {total}</p><br/>
+                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold">Total Amount : LKR {itemsPrice.toFixed(2)}</p>
+                            <p className = "p-3 fs-5 fst-italic text-secondary fw-bold" >Discount : LKR {discount.toFixed(2)}</p>
+                            <p className = "p-3 fs-5 fst-italic text-success fw-bold" >Finale Amount : LKR {total.toFixed(2)}</p><br/>
                         </div>
                       <br/><br/>
                     </div>
