@@ -7,15 +7,32 @@ class Paid extends Component {
     super(props);
     this.state = {
       currentDateTime: new Date().toLocaleString(),
+      Orders: [],
     };
   }
 
+  async componentDidMount() {
+    const response = await fetch(
+      `http://localhost:8070/order/PaidandDelivered/` + "Completed"
+    );
+    const data = await response
+      .json()
+      .then((data) => {
+        this.setState({
+          Orders: data,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    // this.setState({Items: data});
+    console.log(data);
+  }
   render() {
     return (
       <div>
-        <AdminHeader></AdminHeader>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div
               class="d-flex flex-column flex-shrink-0 p-3 bg-light"
               style={{ height: "100%" }}
@@ -74,126 +91,56 @@ class Paid extends Component {
               <hr />
             </div>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-10">
             <br />
-            <div
-              class="container"
-              style={{ background: "#b0ebc0", padding: "5px" }}
-            >
+            <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
-                <div class="col">
-                  <h3> Paid and Deliverd Orders</h3>
+                <div class="col-2">
+                  <img
+                    style={{ width: "200px" }}
+                    src="https://i.ibb.co/4jbKtXw/undraw-approve-qwp7.png"
+                  />
                 </div>
                 <div class="col">
-                  <h6 style={{ padding: "7px" }}>Today: {this.state.currentDateTime}</h6>
+                  <h6 style={{ padding: "7px" }}>
+                    <h4> Paid and Delivered orders</h4>
+                    Today: {this.state.currentDateTime}
+                  </h6>
                 </div>
               </div>
             </div>
 
-            <br />
             <table class="table">
-            <thead>
+              <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Order Id</th>
                   <th scope="col">Order Date</th>
                   <th scope="col">Customer</th>
-                  <th scope="col">Customer Number</th>
-                  <th scope="col">Item</th>
+                  <th scope="col">Contact and delivery Details</th>
+                  <th scope="col">Ordered Item</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Total(LKR)</th>
-                  <th scope="col">paymnet status</th>
+                  <th scope="col">Payment status</th>
                   <th scope="col">Delivery status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>14872765</td>
-                  <td>2020-07-06</td>
-                  <td>L.L peprea</td>
-                  <td>07067456345</td>
-                  <td>Earl Grey – 25 Tea Bag</td>
-                  <td>2</td>
-                  <td>500</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-
-                  
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>7543277</td>
-                  <td>2020-07-06</td>
-                  <td>R.K disa</td>
-                  <td>07067456345</td>
-                  <td>Gereen tea – 25 Tea Bag</td>
-                  <td>1</td>
-                  <td>700</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                  <td>64666</td>
-                  <td>2020-07-06</td>
-                  <td>P disa</td>
-                  <td>07067456345</td>
-                  <td>Ayurvedic Herbal Tea</td>
-                  <td>1</td>
-                  <td>200o</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-                <tr>
-                <th scope="row">4</th>
-                  <td>64666</td>
-                  <td>2020-07-06</td>
-                  <td>charls gomus</td>
-                  <td>07067456345</td>
-                  <td>Kalk Herbal Tea -800g</td>
-                  <td>1</td>
-                  <td>2004</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>75432</td>
-                  <td>2020-07-06</td>
-                  <td>Pdisa</td>
-                  <td>07067456345</td>
-                  <td>Gereen tea – 25 Tea Bag</td>
-                  <td>1</td>
-                  <td>700</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>75432</td>
-                  <td>2020-07-06</td>
-                  <td>L.L disa</td>
-                  <td>07067456345</td>
-                  <td>Gereen tea – 25 Tea Bag</td>
-                  <td>1</td>
-                  <td>700</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-                <tr>
-                <th scope="row">7</th>
-                  <td>64666</td>
-                  <td>2020-07-06</td>
-                  <td>Ishi dan</td>
-                  <td>07067456345</td>
-                  <td>Ayurvedic Herbal Tea</td>
-                  <td>1</td>
-                  <td>200o</td>
-                  <td>Paid</td>
-                  <td>completed</td>
-                </tr>
-               
+                {this.state.Orders.map((order) => (
+                  <tr>
+                    <td>{order.orderdate}</td>
+                    <td>{order.firstName}</td>
+                    <td>
+                      {order.email}
+                      <br />
+                      {order.phone}
+                      <br /> {order.address}
+                    </td>
+                    <td>{order.productName}</td>
+                    <td>{order.qty}</td>
+                    <td>{order.total}</td>
+                    <td>{order.paymentStatus}</td>
+                    <td>{order.deliveryStatus}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -202,5 +149,4 @@ class Paid extends Component {
     );
   }
 }
-
 export default Paid;
