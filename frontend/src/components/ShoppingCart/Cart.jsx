@@ -90,7 +90,7 @@ function Cart(){
     return <div className= 'cartbgimg'>
      <div className= 'container'>
            <br/> <br/>
-           <div className ='text-center'>{/*****************************************/}
+           <div className ='text-center'>
                {cartItems.length === 0 &&
                    <div className = 'fs-4 fst-italic text-white'><br/> <br/>
                        Shopping Cart is empty at the moment
@@ -98,7 +98,7 @@ function Cart(){
                        <img src = {BrokenHeart} alt="" width = "300"/>
                    </div>
                }
-           </div>{/*****************************************/}
+           </div>
            {cartItems.length !== 0 &&
            <div className = 'row' >
                 <h3 className ="fw-bold fst-italic text-white">Shopping Cart</h3><br/>
