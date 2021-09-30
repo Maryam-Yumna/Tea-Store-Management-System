@@ -122,6 +122,7 @@ class adminHome extends Component {
                   onKeyUp={(e) => this.searchTerm(e)}
                   type="text"
                   class="form-control me-2"
+                  placeholder="Search products..."
                 ></input>
                 <ul class="collapse-able">
                   {this.state.Products.filter((item) => {
