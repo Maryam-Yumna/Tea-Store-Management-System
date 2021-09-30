@@ -12,6 +12,7 @@ function Cart(){
 
     const [cartItems , setCartItems] = useState([]);
 
+    //'reduce()' function accepts two parameters. previous item and the current item
     const itemsPrice = cartItems.reduce((a , c) => a + c.price * c.qty , 0);
     let discount = 0//itemsPrice > 2000 ? 0 : 50;
     //const total = itemsPrice - discount;
