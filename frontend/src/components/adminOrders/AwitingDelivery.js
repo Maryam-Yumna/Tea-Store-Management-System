@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import AdminHeader from "../adminHeader";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class AwaitingDelivery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       currentDateTime: new Date().toLocaleString(),
       Orders: [],
     };
-
-    
   }
 
   async componentDidMount() {
-    const response = await fetch(`http://localhost:8070/order/awaitingdelivery/`+"Pending");
+    const response = await fetch(
+      `http://localhost:8070/order/awaitingdelivery/` + "Pending"
+    );
     const data = await response
       .json()
       .then((data) => {
@@ -33,7 +32,6 @@ class AwaitingDelivery extends Component {
   render() {
     return (
       <div>
-       
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -96,31 +94,26 @@ class AwaitingDelivery extends Component {
           </div>
           <div class="col-sm-10">
             <br />
-            <div
-              class="container"
-              style={{ background: "", padding: "5px" }}
-            >
+            <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
                 <div class="col-2">
-                  <img style={{ width: "200px" }} src = "https://i.ibb.co/k02WsYQ/undraw-deliveries-131a.png"/>
-                  
+                  <img
+                    style={{ width: "200px" }}
+                    src="https://i.ibb.co/k02WsYQ/undraw-deliveries-131a.png"
+                  />
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
-                  <h4> Awaiting Delivery </h4>
+                    <h4> Awaiting Delivery </h4>
                     Today: {this.state.currentDateTime}
                   </h6>
                 </div>
               </div>
             </div>
 
-       
-         
             <table class="table">
               <thead>
-              <tr>
-                 
-                 
+                <tr>
                   <th scope="col">Order Date</th>
                   <th scope="col">Customer</th>
                   <th scope="col">Contact and delivery Details</th>
@@ -132,29 +125,37 @@ class AwaitingDelivery extends Component {
                 </tr>
               </thead>
               <tbody>
-           
-              {this.state.Orders.map((order) => (
-                <tr>
-                 
-             
-                  <td>{order.orderdate}</td>
-                  <td>{order.firstName}</td>
-                  <td>{order.email}<br /> 
-                   {order.phone}<br /> {order.address}</td>
-                  <td>{order.productName}</td>
-                  <td>{order.qty}</td>
-                  <td>{order.total}</td>
-                  <td>{order.paymentStatus}</td>
-                  <td>{order.deliveryStatus}</td>
-              
-                  <td><button type="button" class="btn btn-success"><Link to={"/chnageDeliveryStatus/" + order._id} style={{textDecoration: 'none' ,color :"white" }}>Change Delivery Status</Link></button></td>
-                </tr>
-              ))}
+                {this.state.Orders.map((order) => (
+                  <tr>
+                    <td>{order.orderdate}</td>
+                    <td>{order.firstName}</td>
+                    <td>
+                      {order.email}
+                      <br />
+                      {order.phone}
+                      <br /> {order.address}
+                    </td>
+                    <td>{order.productName}</td>
+                    <td>{order.qty}</td>
+                    <td>{order.total}</td>
+                    <td>{order.paymentStatus}</td>
+                    <td>{order.deliveryStatus}</td>
+
+                    <td>
+                      <button type="button" class="btn btn-success">
+                        <Link
+                          to={"/chnageDeliveryStatus/" + order._id}
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          Change Delivery Status
+                        </Link>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
-            
           </div>
-          
         </div>
       </div>
     );
