@@ -10,7 +10,6 @@ import ClientLoosenTea from "./components/Home/Category/LoosenTea"
 import Navbar from "./components/nav bar/Navbar";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Cart from "./components/ShoppingCart/Cart";
-import Cart from "./components/ShoppingCart/Cart";
 import CartReportDash from "./components/ShoppingCart/CartReport";
 import CartHighestAmountReport from "./components/ShoppingCart/Reports/HighestAmountReport";
 import CartLowestAmountReport from "./components/ShoppingCart/Reports/LowestAmountReport";
@@ -36,7 +35,6 @@ import EditDelivery from './components/adminOrders/ChangeDeliverystatus'
 import Register from './components/Register/Register';
 import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
-import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
 import EditUserProfile from './components/UserProfile/EditUserProfile';
 import ExpenseReport from './components/ExpenseReports/ExpenseReport';
 
