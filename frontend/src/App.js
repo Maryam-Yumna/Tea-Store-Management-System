@@ -3,14 +3,18 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import adminHome from './components/adminHome'
 import Home from "./components/Home/Home";
+import ClientBlackTea from "./components/Home/Category/BlackTea"
+import ClientFlavouredTea from "./components/Home/Category/FlavouredTea"
+import ClientGreenTea from "./components/Home/Category/GreenTea"
+import ClientLoosenTea from "./components/Home/Category/LoosenTea"
 import Navbar from "./components/nav bar/Navbar";
 import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Cart from "./components/ShoppingCart/Cart";
-
+import CartReportDash from "./components/ShoppingCart/CartReport";
+import CartHighestAmountReport from "./components/ShoppingCart/Reports/HighestAmountReport";
+import CartLowestAmountReport from "./components/ShoppingCart/Reports/LowestAmountReport";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-
-
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
 import AwaitingPayments from './components/adminOrders/AwitingPayments';
@@ -20,13 +24,13 @@ import AllExpenses from './components/Expenses/AllExpenses';
 import AddExpenses from './components/AddExpenses/AddExpenses';
 import SearchUser from './components/SearchUser/SearchUser';
 import Login from './components/Login/Login';
-
 import EditProducts from "./components/products/editproduct"
 import BlackTea from "./components/Categories/balckTea"
 import GreenTea from "./components/Categories/GreenTea"
 import Loosen from "./components/Categories/looseLeaf"
 import report from "./components/adminOrders/report"
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader'
+
 
 
 import EditPayment from './components/adminOrders/ChnagePaymentstatus'
@@ -37,7 +41,6 @@ import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import EditUserProfile from './components/UserProfile/EditUserProfile';
 import ExpenseReport from './components/ExpenseReports/ExpenseReport';
-
 
 
 
@@ -52,8 +55,13 @@ class App extends Component {
                   <Route path="/" exact component={Home}/>
                   <Route path = "/products/:productId" exact component={DetailProduct}/>
                   <Route path = "/cart" exact component={Cart}/>
-                 
-
+                  <Route path = "/cartReportDash" exact component={CartReportDash}/>
+                  <Route path = "/cartHighestAmountReport" exact component={CartHighestAmountReport}/>
+                  <Route path = "/cartLowestAmountReport" exact component={CartLowestAmountReport}/>
+                  <Route path = "/clientBlackTea" exact component={ClientBlackTea}/>
+                  <Route path = "/clientFlavouredTea" exact component={ClientFlavouredTea}/>
+                  <Route path = "/clientGreenTea" exact component={ClientGreenTea}/>
+                  <Route path = "/clientLoosenTea" exact component={ClientLoosenTea}/>
                   <Route path = "/adminHome" component = {adminHome}></Route>
                   <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
