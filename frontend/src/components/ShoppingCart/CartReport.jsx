@@ -66,7 +66,7 @@ function CartReport(){
         <AdminHeader/>
         <div className = "container">
             <br/><br/>
-            <h4 className = "text-center text-decoration-underline">Generate Reports related Shopping Cart</h4>
+            <h4 className = "text-center text-success font-monospace">Generate Reports related Shopping Cart</h4>
             <br/><br/>
             <div className ="row text-center">
 {/*                 <div className = "col"> */}
@@ -78,10 +78,10 @@ function CartReport(){
 {/*                     <input type = "text" className = "form-control" /> */}
 {/*                 </div> */}
                 <div className = "col">
-                    <Link to="/cartHighestAmountReport" className="btn btn-success font-size-09 text-light">Report regarding the cart items with <b>High</b> prices</Link>
+                    <Link to="/cartHighestAmountReport" className="btn btn-success btn-lg font-size-09 text-light">Report regarding the cart items with <b>High</b> prices</Link>
                 </div>
                 <div className = "col">
-                    <Link to="/cartLowestAmountReport" className="btn btn-success font-size-09 text-light">Report regarding the cart items with <b>Low</b> prices</Link>
+                    <Link to="/cartLowestAmountReport" className="btn btn-success btn-lg font-size-09 text-light">Report regarding the cart items with <b>Low</b> prices</Link>
                 </div>
             </div>
             <br/>

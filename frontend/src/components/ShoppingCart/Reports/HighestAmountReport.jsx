@@ -25,7 +25,7 @@ function HighestAmountReport(){
           <AdminHeader/>
           <div className ="container">
                <br/>
-               <h4 className = "text-center text-decoration-underline">First 10 products with the highest price which were added to the Shopping Cart</h4>
+               <h4 className = "text-center text-secondary">First 10 products with the highest price which were added to the Shopping Cart</h4>
                <br/>
                <div className="table-responsive">
                    <table className="table">
