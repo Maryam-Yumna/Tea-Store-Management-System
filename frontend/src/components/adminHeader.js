@@ -136,6 +136,11 @@ class adminHeader extends Component {
                   About
                 </Link>
               </li>
+			  <li class="nav-item">
+                <Link to="/deliveryEmpdetails" class="nav-link link-dark px-2">
+                  Delivery Employees
+                </Link>
+              </li>
             </ul>
             {/* <ul class="nav">
               <li class="nav-item">
@@ -158,6 +163,7 @@ class adminHeader extends Component {
                 <li><Link class="dropdown-item" to="/cartReportDash">Cart Reports</Link></li>
                 <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
                 <li><Link class="dropdown-item" to="/Income">Income Reports</Link></li>
+				<li><Link class="dropdown-item" to="/employeeReport">Delivery Employee Reports</Link></li>
               </ul>
             </li>
             </ul>
