@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import registerImage from '../../images/signup.png'
 
 const initialState ={
     firstName:'',
@@ -70,7 +71,6 @@ class Register extends Component {
 
     isValid(){
         var regex = /^\d{10}$/;
-        console.log(regex.test('9995484545'));
         if(this.state.password.length < 8 ){
             this.setState({
                 error:true,
@@ -100,113 +100,120 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <div className="modal-dialog" role="document">
-                        <div className="modal-content rounded-5 shadow">
-                        <div className="modal-header p-5 pb-4 border-bottom-0">
-                            <h2 className="fw-bold mb-0">Register</h2>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={(e)=>{this.props.history.push('/')}}></button>
-                        </div>
+            <div className="container">
+               <div className="row">
+                   <div className="col"  style={{backgroundImage:"url("+registerImage+")", backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"contain", overflow:"hidden", width:"50%"}} >
 
-                        <div className="modal-body p-5 pt-0">
-                            <form className="loginForm" onSubmit={this.onSubmit}>
-                                <div className="form-floating mb-3">
-                                    <input 
-                                        type="text" 
-                                        className="form-control rounded-4" 
-                                        id="firstName" 
-                                        placeholder="First Name"
-                                        value={this.state.firstName} 
-                                        name ="firstName"
-                                        onChange={this.onChange}
-                                        required/>
-                                    <label for="floatingInput">First Name</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input 
-                                        type="text" 
-                                        className="form-control rounded-4" 
-                                        id="lastName" 
-                                        placeholder="Last Name"
-                                        value={this.state.lastName} 
-                                        name ="lastName"
-                                        onChange={this.onChange}
-                                        required/>
-                                    <label for="floatingInput">Last Name</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input 
-                                        type="email" 
-                                        className="form-control rounded-4" 
-                                        id="email" 
-                                        placeholder="name@example.com"
-                                        value={this.state.email} 
-                                        name ="email"
-                                        onChange={this.onChange}
-                                        required/>
-                                    <label for="floatingInput">Email </label>
-                                </div>
-                                <div className="form-floating mb-3">
+                   </div>
+                   <div className="col-8">
+                    <div className="modal-dialog" role="document">
+                            <div className="modal-content rounded-5 shadow">
+                            <div className="modal-header p-5 pb-4 border-bottom-0">
+                                <h2 className="fw-bold mb-0">Register</h2>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={(e)=>{this.props.history.push('/')}}></button>
+                            </div>
+
+                            <div className="modal-body p-5 pt-0">
+                                <form className="loginForm" onSubmit={this.onSubmit}>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            className="form-control rounded-4" 
+                                            id="firstName" 
+                                            placeholder="First Name"
+                                            value={this.state.firstName} 
+                                            name ="firstName"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingInput">First Name</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            className="form-control rounded-4" 
+                                            id="lastName" 
+                                            placeholder="Last Name"
+                                            value={this.state.lastName} 
+                                            name ="lastName"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingInput">Last Name</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="email" 
+                                            className="form-control rounded-4" 
+                                            id="email" 
+                                            placeholder="name@example.com"
+                                            value={this.state.email} 
+                                            name ="email"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingInput">Email </label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="password" 
+                                            className="form-control rounded-4" 
+                                            id="password" 
+                                            placeholder="Password"
+                                            value={this.state.password} 
+                                            name ="password"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
                                     <input 
                                         type="password" 
                                         className="form-control rounded-4" 
-                                        id="password" 
+                                        id="confirmPassword" 
                                         placeholder="Password"
-                                        value={this.state.password} 
-                                        name ="password"
+                                        value={this.state.confirmPassword} 
+                                        name ="confirmPassword"
                                         onChange={this.onChange}
                                         required/>
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                <input 
-                                    type="password" 
-                                    className="form-control rounded-4" 
-                                    id="confirmPassword" 
-                                    placeholder="Password"
-                                    value={this.state.confirmPassword} 
-                                    name ="confirmPassword"
-                                    onChange={this.onChange}
-                                    required/>
-                                <label for="floatingPassword">Confirm Password</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input 
-                                        type="text" 
-                                        className="form-control rounded-4" 
-                                        id="address" 
-                                        placeholder="Address"
-                                        value={this.state.address} 
-                                        name ="address"
-                                        onChange={this.onChange}
-                                        required/>
-                                    <label for="floatingInput">Address</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input 
-                                        type="text" 
-                                        className="form-control rounded-4" 
-                                        id="phone" 
-                                        placeholder="phone"
-                                        value={this.state.phone} 
-                                        name ="phone"
-                                        onChange={this.onChange}
-                                        required/>
-                                    <label for="floatingInput">Phone</label>
-                                </div>
-                                
-                                {
-                                    this.state.error== true?
-                                    <div className="p-2">
-                                        <label htmlFor="errorMessage" style={{color:"red"}}>{this.state.message}</label>
-                                    </div>:
-                                    <div></div>
-                                }
-                                <button className="w-100 mb-2 btn btn-lg rounded-4 btn-success" type="submit" >Register</button>
-                            </form>
-                        </div>
+                                    <label for="floatingPassword">Confirm Password</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            className="form-control rounded-4" 
+                                            id="address" 
+                                            placeholder="Address"
+                                            value={this.state.address} 
+                                            name ="address"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingInput">Address</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
+                                        <input 
+                                            type="text" 
+                                            className="form-control rounded-4" 
+                                            id="phone" 
+                                            placeholder="phone"
+                                            value={this.state.phone} 
+                                            name ="phone"
+                                            onChange={this.onChange}
+                                            required/>
+                                        <label for="floatingInput">Phone</label>
+                                    </div>
+                                    
+                                    {
+                                        this.state.error== true?
+                                        <div className="p-2">
+                                            <label htmlFor="errorMessage" style={{color:"red"}}>{this.state.message}</label>
+                                        </div>:
+                                        <div></div>
+                                    }
+                                    <button className="w-100 mb-2 btn btn-lg rounded-4 btn-success" type="submit" >Register</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                   </div>
+               </div>
             </div>
         );
     }
