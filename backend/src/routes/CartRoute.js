@@ -31,9 +31,18 @@ router.route("/").post(auth, (req , res) =>{
 })
 
 
-//Retrieve all the products which are added to the cart (useful for the report)
+//Retrieve all the cart items(useful for the report)
 router.route('/allCartItems').get((req, res)=>{
     Cart.find().then((products)=>{
+        res.json(products)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+//Retrieve all the products in a sorted order
+router.route('/sort/highest').get((req, res)=>{
+    Cart.find().sort({price : -1}).limit(10).then((products)=>{
         res.json(products)
     }).catch((err)=>{
         console.log(err)
