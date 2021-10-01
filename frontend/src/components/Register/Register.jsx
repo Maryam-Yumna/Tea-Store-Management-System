@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../../App.css';
 
 const initialState ={
     firstName:'',
@@ -100,7 +101,7 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
+            <div className= 'homebgimg'><br/>
                 <div className="modal-dialog" role="document">
                         <div className="modal-content rounded-5 shadow">
                         <div className="modal-header p-5 pb-4 border-bottom-0">
@@ -206,7 +207,7 @@ class Register extends Component {
                             </form>
                         </div>
                         </div>
-                    </div>
+                    </div><br/>
             </div>
         );
     }
