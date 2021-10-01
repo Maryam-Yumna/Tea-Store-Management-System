@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import AdminHeader from "../adminHeader";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class BlackTea extends Component {
   constructor(props) {
@@ -13,8 +13,9 @@ class BlackTea extends Component {
   }
 
   async componentDidMount() {
-    <AdminHeader />
-    const response = await fetch(`http://localhost:8070/product/getCategory/`+"Black Tea");
+    const response = await fetch(
+      `http://localhost:8070/product/getCategory/` + "Black Tea"
+    );
     const data = await response
       .json()
       .then((data) => {
@@ -32,7 +33,6 @@ class BlackTea extends Component {
   render() {
     return (
       <div>
-        <AdminHeader />
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -74,7 +74,7 @@ class BlackTea extends Component {
                 </li>
                 <li>
                   <a
-                   href="/GreenTea"
+                    href="/GreenTea"
                     style={{ float: "left" }}
                     class="nav-link link-dark"
                   >
@@ -105,6 +105,7 @@ class BlackTea extends Component {
           </div>
 
           <div class="col-sm-10">
+            
             <div class="album py-5 bg-light">
               <div class="container">
                 <form class="d-flex">
@@ -119,22 +120,30 @@ class BlackTea extends Component {
                   </button>
                 </form>
                 <br />
+                     <span class="fs-4" style={{ color: "#298a43" }}>
+                  Categories
+                </span>
 
                 {this.state.Products.map((item) => (
                   <div style={{ width: "23%", float: "left", margin: "10px" }}>
                     <div class="row">
                       <div class="col s12 m7">
-                        <div class="card"  style={{
-                              width: "17rem"  , padding:"3px"}}>
+                        <div
+                          class="card"
+                          style={{
+                            width: "17rem",
+                            padding: "3px",
+                          }}
+                        >
                           <div
                             className="card p-3 "
                             style={{
                               width: "16rem",
-                              color: "#298a43" ,
+                              color: "#298a43",
                               borderWidth: "2px",
-                              margin:"1px",
+                              margin: "1px",
                               backgroundColor: "#f2f2f2",
-                              padding:"3px"
+                              padding: "3px",
                             }}
                           >
                             <img
@@ -144,14 +153,17 @@ class BlackTea extends Component {
                               style={{ height: "186px" }}
                             />
                           </div>
-                          <span class="card-title" style={{ color: "black" , height:"40px" }}>
-                            
+                          <span
+                            class="card-title"
+                            style={{ color: "black", height: "40px" }}
+                          >
                             <b>{item.productName}</b>
                           </span>
                           <div class="card-content">
-                          
                             <p>{item.price} LKR</p>
-                            <p style={{color: "#298a43" ,}}><b>{item.availability}</b></p>
+                            <p style={{ color: "#298a43" }}>
+                              <b>{item.availability}</b>
+                            </p>
                             <p>{item.quantity} </p>
                             <p>Delivery within :{item.deliverywithin} </p>
                           </div>
@@ -160,14 +172,23 @@ class BlackTea extends Component {
                               <button
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary"
-                               
                               >
-                               <Link to={"/editProduct/" + item._id}  style={{textDecoration: 'none' ,color :"#787b80" }}>Edit</Link>
+                                <Link
+                                  to={"/editProduct/" + item._id}
+                                  style={{
+                                    textDecoration: "none",
+                                    color: "#787b80",
+                                  }}
+                                >
+                                  Edit
+                                </Link>
                               </button>
                               <button
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary"
-                                onClick={()=>{ deleteItem(item._id)}}
+                                onClick={() => {
+                                  deleteItem(item._id);
+                                }}
                               >
                                 Delete
                               </button>
@@ -188,32 +209,27 @@ class BlackTea extends Component {
   }
 }
 
+let deleteItem = (id) => {
+  axios
+    .delete("http://localhost:8070/product/deleteProduct/" + id)
+    .then((response) => {
+      console.log(response.data);
+      alert("Product details deleted ");
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
 
-let deleteItem = (id)=>{
-  axios.delete('http://localhost:8070/product/deleteProduct/'+id)
-.then(response => { 
-    console.log(response.data)
-    alert("Product details deleted ")
- 
-  })
-.catch(e=>{
-    console.log(e)
-    
-    
-});
-
-}
-
-let updateItem = (id)=>{
-  axios.delete('http://localhost:8070/product/updateProduct/'+id)
-.then(response => { 
-    console.log(response.data)
- 
-  })
-.catch(e=>{
-    console.log(e)
-});
-
-}
+let updateItem = (id) => {
+  axios
+    .delete("http://localhost:8070/product/updateProduct/" + id)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
 
 export default BlackTea;

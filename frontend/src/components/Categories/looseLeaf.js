@@ -31,7 +31,7 @@ class LoosenTea extends Component {
   render() {
     return (
       <div>
-        <AdminHeader />
+     
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -119,6 +119,9 @@ class LoosenTea extends Component {
                 </form>
                 <br />
 
+                       <span class="fs-4" style={{ color: "#298a43" }}>
+                 Loosen Tea Products
+                </span>
                 {this.state.Products.map((item) => (
                   <div style={{ width: "23%", float: "left", margin: "10px" }}>
                     <div class="row">

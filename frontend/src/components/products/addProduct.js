@@ -46,7 +46,7 @@ export default function AddProduct(){
  
     return (
       <div>
-        <AdminHeader></AdminHeader>
+       
         <br />
         <div class="row">
           <div class="col-sm-2"></div>
