@@ -33,7 +33,7 @@ class BlackTea extends Component {
       <div class="homebgimg">
       <div class="container">
         <br/> <br/>
-        <h2 className = "text-center fst-italic text-secondary">Black Tea</h2>
+        <h2 className = "text-center fst-italic text-white font-monospace">Black Tea</h2>
         <hr></hr>
         <br/>
         <div className = "row">
