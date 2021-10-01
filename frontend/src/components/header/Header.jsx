@@ -29,7 +29,7 @@ function Header(props){
                                             <img src = {userAccount} alt="" width = "20"/> Profile
                                         </Link>
                                     </li>
-                                    <li class="nav-item navbar-brand " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <li class="nav-item navbar-brand " data-bs-toggle="modal" data-bs-target="#logoutModel">
                                         <Link to = "/">
                                             <img src = {logoutIcon} alt="" width = "20"/> Logout
                                         </Link>
@@ -60,7 +60,7 @@ function Header(props){
                                 
                             </ul>
                         </div>
-                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal fade" id="logoutModel" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog modal-sm">
                                 <div className="modal-content">
                                 <div className="modal-header" style={{backgroundColor: "#f54e42", color: "white"}}>
