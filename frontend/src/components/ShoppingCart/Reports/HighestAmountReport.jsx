@@ -1,6 +1,5 @@
 import React , {useEffect , useState} from 'react';
 import axios from "axios";
-import AdminHeader from "../../adminHeader"
 
 function HighestAmountReport(){
 
@@ -22,7 +21,6 @@ function HighestAmountReport(){
 
     return (
         <div>
-          <AdminHeader/>
           <div className ="container">
                <br/>
                <h4 className = "text-center text-secondary">First 10 products with the highest price which were added to the Shopping Cart</h4>
