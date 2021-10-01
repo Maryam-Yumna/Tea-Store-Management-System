@@ -1,14 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import homeIcon from 'url:../../../public/Icons/ic_home.svg';
 
 function Navbar(){
     return <nav className="navbar navbar-expand-lg navbar-dark bg-success bg-opacity-75">
              <div className="container-fluid">
-                {/*Home*/}
-               <Link className="navbar-brand " to="/" >
-                    <img src = {homeIcon} alt="" width = "34"/>   |
-               </Link>
+               <Link className="navbar-brand " to="/" >Home</Link>
                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                  <span className="navbar-toggler-icon"></span>
                </button>
@@ -20,16 +16,15 @@ function Navbar(){
                        Categories
                      </Link>
                      <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                       <li><Link className="dropdown-item" to="/clientBlackTea">Black Tea</Link></li>
-                       <li><Link className="dropdown-item" to="/clientGreenTea">Green Tea</Link></li>
-                       <li><Link className="dropdown-item" to="/clientLoosenTea">Loosen Tea Leaf</Link></li>
-                       <li><Link className="dropdown-item" to="/clientFlavouredTea">Flavoured Tea</Link></li>
+                       <li><Link className="dropdown-item" to="/">Category 1</Link></li>
+                       <li><Link className="dropdown-item" to="/">Category 2</Link></li>
+                       <li><Link className="dropdown-item" to="/">Category 3</Link></li>
                      </ul>
                    </li>
                     {/*About Us*/}
                    <li  className="nav-item">
                       <Link className="navbar-brand " aria-current="page" to="/">
-                        | About Us |
+                        About Us
                       </Link>
                    </li>
                    {/*Contact Us*/}
@@ -39,6 +34,10 @@ function Navbar(){
                       </Link>
                    </li>
                  </ul>
+                 <form className="d-flex">
+                   <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                   <button className="btn btn-outline-light" type="submit">Search</button>
+                 </form>
                </div>
              </div>
            </nav>

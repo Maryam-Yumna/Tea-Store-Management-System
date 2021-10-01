@@ -120,7 +120,7 @@ console.log(props.match.params.id)
 
 return (
   <div>
-    <AdminHeader></AdminHeader>
+ 
     <br />
     <div class="row">
       <div class="col-sm-2"></div>

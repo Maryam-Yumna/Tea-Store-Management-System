@@ -51,9 +51,25 @@ const updateExpense = async(req, res)=>{
    
 }
 
+const getExpenseForMonth = async(req, res)=>{
+    const firstDate = req.params.firstDate;
+    const lastDate = req.params.lastDate;
+    await Expense.find({recordDate: {
+        $gte: firstDate, 
+        $lte: lastDate
+    }})
+    .then((expense)=>{
+        res.status(200).send(expense)
+    }).catch((err)=>{
+        res.status(500).send({status: "Error with get expense", error:err.message});
+    })
+
+}
+
 module.exports = {
     addNewExpense,
     getAllExpenses,
     getExpenseByID,
     updateExpense,
+    getExpenseForMonth
 };

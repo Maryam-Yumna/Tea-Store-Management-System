@@ -1,21 +1,39 @@
 import React, { Component } from "react";
 import axios from "axios";
 import AdminHeader from "../adminHeader";
+import { Link } from "react-router-dom";
 
 class AwaitingDelivery extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentDateTime: new Date().toLocaleString(),
+      Orders: [],
     };
   }
 
+  async componentDidMount() {
+    const response = await fetch(
+      `http://localhost:8070/order/awaitingdelivery/` + "Pending"
+    );
+    const data = await response
+      .json()
+      .then((data) => {
+        this.setState({
+          Orders: data,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    // this.setState({Items: data});
+    console.log(data);
+  }
   render() {
     return (
       <div>
-        <AdminHeader></AdminHeader>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div
               class="d-flex flex-column flex-shrink-0 p-3 bg-light"
               style={{ height: "100%" }}
@@ -74,246 +92,70 @@ class AwaitingDelivery extends Component {
               <hr />
             </div>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-10">
             <br />
-            <div
-              class="container"
-              style={{ background: "#b0ebc0", padding: "5px" }}
-            >
+            <div class="container" style={{ background: "", padding: "5px" }}>
               <div class="row">
-                <div class="col">
-                  <h4> Awaiting Delivery</h4>
+
+                <div class="col-2">
+                  <img
+                    style={{ width: "200px" }}
+                    src="https://i.ibb.co/k02WsYQ/undraw-deliveries-131a.png"
+                  />
+
                 </div>
                 <div class="col">
                   <h6 style={{ padding: "7px" }}>
+                    <h4> Awaiting Delivery </h4>
                     Today: {this.state.currentDateTime}
                   </h6>
                 </div>
               </div>
             </div>
 
-            <br />
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col"></th>
-                  <th scope="col">OrderId</th>
-                  <th scope="col">Customer </th>
-                  <th scope="col">Phone number</th>
-                  <th scope="col">Delivery Address</th>
-                  <th scope="col">psotal code</th>
-                  <th scope="col">District</th>
-                  <th scope="col">Delivery Status</th>
-                  <th scope="col"></th>
+                  <th scope="col">Order Date</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Contact and delivery Details</th>
+                  <th scope="col">Ordered Item</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total(LKR)</th>
+                  <th scope="col">Payment status</th>
+                  <th scope="col">Delivery status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>97298579</td>
-                  <td>P.P pepere</td>
-                  <td>095735372</td>
-                  <td>No 34 glboda rd , Kandy</td>
-                  <td>2001</td>
-                  <td>Kandy</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>057059</td>
-                  <td>kal mark</td>
-                  <td>095735372</td>
-                  <td>No 59 glboda rd , Colombo2</td>
-                  <td>2001</td>
-                  <td>Colombo</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>57302</td>
-                  <td>sara plais</td>
-                  <td>095735372</td>
-                  <td>no 45 pera Rd ,Balngoda</td>
-                  <td>4562</td>
-                  <td>Bangoda</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-           
-          
-                <tr>
-                  <th scope="row">4</th>
-                  <td>97298579</td>
-                  <td>P.P pepere</td>
-                  <td>095735372</td>
-                  <td>No 34 glboda rd , Kandy</td>
-                  <td>2001</td>
-                  <td>Kandy</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>057059</td>
-                  <td>kal mark</td>
-                  <td>095735372</td>
-                  <td>No 59 glboda rd , Colombo2</td>
-                  <td>2001</td>
-                  <td>Colombo</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>57302</td>
-                  <td>sara plais</td>
-                  <td>095735372</td>
-                  <td>no 45 pera Rd ,Balngoda</td>
-                  <td>4562</td>
-                  <td>Bangoda</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                
-                <tr>
-                  <th scope="row">4</th>
-                  <td>97298579</td>
-                  <td>P.P pepere</td>
-                  <td>095735372</td>
-                  <td>No 34 glboda rd , Kandy</td>
-                  <td>2001</td>
-                  <td>Kandy</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>057059</td>
-                  <td>kal mark</td>
-                  <td>095735372</td>
-                  <td>No 59 glboda rd , Colombo2</td>
-                  <td>2001</td>
-                  <td>Colombo</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-             
-              
-              <tr>
-                  <th scope="row">4</th>
-                  <td>97298579</td>
-                  <td>P.P pepere</td>
-                  <td>095735372</td>
-                  <td>No 34 glboda rd , Kandy</td>
-                  <td>2001</td>
-                  <td>Kandy</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>057059</td>
-                  <td>kal mark</td>
-                  <td>095735372</td>
-                  <td>No 59 glboda rd , Colombo2</td>
-                  <td>2001</td>
-                  <td>Colombo</td>
-                  <td>
-                    {" "}
-                    <form>
-                      <select class="form-select" id="country" required>
-                        <option value="">Pending</option>
-                       
-                        <option>Completed</option>
-                      </select>
-                    </form>
-                  </td>
-                  <td><button type="button" class="btn btn-success">Save</button></td>
-                </tr>
-                </tbody>
+                {this.state.Orders.map((order) => (
+                  <tr>
+                    <td>{order.orderdate}</td>
+                    <td>{order.firstName}</td>
+                    <td>
+                      {order.email}
+                      <br />
+                      {order.phone}
+                      <br /> {order.address}
+                    </td>
+                    <td>{order.productName}</td>
+                    <td>{order.qty}</td>
+                    <td>{order.total}</td>
+                    <td>{order.paymentStatus}</td>
+                    <td>{order.deliveryStatus}</td>
+
+                    <td>
+                      <button type="button" class="btn btn-success">
+                        <Link
+                          to={"/chnageDeliveryStatus/" + order._id}
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          Change Delivery Status
+                        </Link>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         </div>

@@ -50,7 +50,26 @@ const getLoggedUser = async(req, res)=>{
 })
 }
 
+const updateUser = async(req, res)=>{
+
+    const update = {
+            firstName: req.body.firstName, 
+            lastName: req.body.lastName, 
+            address: req.body.address
+        };
+
+        User.findOneAndUpdate({_id: req.user.id}, update,{new: true})
+        .then((user)=>{
+            res.json({message:"user details updated", user: user});
+        })
+        .catch((err)=>{
+            console.error(err);
+        })
+
+}
+
 module.exports = {
     login,
-    getLoggedUser
+    getLoggedUser,
+    updateUser
 };
