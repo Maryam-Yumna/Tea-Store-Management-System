@@ -4,11 +4,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import adminHome from './components/adminHome'
 import Home from "./components/Home/Home";
 import Navbar from "./components/nav bar/Navbar";
+import DetailProduct from "./components/DetailProduct/DetailProduct";
 import Cart from "./components/ShoppingCart/Cart";
+
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import DetailProduct from "./components/DetailProduct/DetailProduct";
-import AddProductForm from "./components/ShoppingCart/AddProductForm";
+
+
 import AddProducts from "./components/products/addProduct"
 import AdminOrders from "./components/adminOrders/orders"
 import AwaitingPayments from './components/adminOrders/AwitingPayments';
@@ -18,24 +20,45 @@ import AllExpenses from './components/Expenses/AllExpenses';
 import AddExpenses from './components/AddExpenses/AddExpenses';
 import SearchUser from './components/SearchUser/SearchUser';
 import Login from './components/Login/Login';
+
+import EditProducts from "./components/products/editproduct"
+import BlackTea from "./components/Categories/balckTea"
+import GreenTea from "./components/Categories/GreenTea"
+import Loosen from "./components/Categories/looseLeaf"
+import report from "./components/adminOrders/report"
+
 import Register from './components/Register/Register';
 import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
 
 
+
+import DeliveryEmpDetails from   './components/DeliveryEmpDetails';
+import EditEmployees from './components/DeliveryEmployees/editemployee';
+import AddEmployees from './components/DeliveryEmployees/addemployee';
+import EmployeeReport from './components/DeliveryEmployees/employeeReport';
+
+
+
 class App extends Component {
   render() {
       return (
           <Router>
-              <ApplicationHeader/>
+ <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
-                  <Route path="/cart" exact component={Cart}/>
-                  <Route path="/products" exact component={AddProductForm}/>
-                  <Route path="/products/:productId" exact component={DetailProduct}/>                  
+                  <Route path = "/products/:productId" exact component={DetailProduct}/>
+                  <Route path = "/cart" exact component={Cart}/>
+                 
+
                   <Route path = "/adminHome" component = {adminHome}></Route>
+                  <Route path = "/editProduct/:id" component = {EditProducts}></Route>
                   <Route path = "/addProducts" component = {AddProducts}></Route>
+                  <Route path = "/blackTea" component = {BlackTea}></Route>
+                  <Route path = "/GreenTea" component = {GreenTea }></Route>
+                  <Route path = "/LoosenTea" component = {Loosen}></Route>
+                  <Route path = "/Income" component = {report}></Route>
                   <Route path = "/allOrders" component = {AdminOrders}></Route>
                   <Route path = "/awaitingPayments" component = {AwaitingPayments}></Route>
                   <Route path = "/awaitingDelivery" component = {AwaitingDelivery}></Route>
@@ -47,6 +70,15 @@ class App extends Component {
                   <Route path = "/register" exact component={Register}></Route>
                   <Route path = "/editExpense" exact component={EditExpense}></Route>
                   <Route path = "/myAccount" exact component={UserProfile}></Route>
+                
+                  <Route path = "/deliveryEmpdetails" component = {DeliveryEmpDetails}></Route>
+                  <Route path = "/editEmployee/:id" component = {EditEmployees}></Route>
+                  <Route path = "/addEmployees" component = {AddEmployees}></Route>
+                  <Route path = "/employeeReport" component = {EmployeeReport}></Route>
+
+                  
+
+
               </Switch>
               <Footer/>
           </Router>

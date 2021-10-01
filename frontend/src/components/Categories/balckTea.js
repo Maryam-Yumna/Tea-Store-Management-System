@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AdminHeader from "./adminHeader";
+import AdminHeader from "../adminHeader";
 import { Link } from 'react-router-dom'
 
-class adminHome extends Component {
+class BlackTea extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,8 @@ class adminHome extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(`http://localhost:8070/product/`);
+    <AdminHeader />
+    const response = await fetch(`http://localhost:8070/product/getCategory/`+"Black Tea");
     const data = await response
       .json()
       .then((data) => {
@@ -31,9 +32,7 @@ class adminHome extends Component {
   render() {
     return (
       <div>
-         <AdminHeader></AdminHeader>
-        {/* <AdminHeader /> */}
-
+        <AdminHeader />
         <div class="row">
           <div class="col-sm-2">
             <div
@@ -56,7 +55,7 @@ class adminHome extends Component {
               <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                   <a
-                    href="/blackTea"
+                    href="#"
                     style={{ float: "left" }}
                     class="nav-link link-dark fs-6"
                     aria-current="page"
@@ -66,7 +65,7 @@ class adminHome extends Component {
                 </li>
                 <li>
                   <a
-                    href="/GreenTea"
+                    href="#"
                     style={{ float: "left" }}
                     class="nav-link link-dark"
                   >
@@ -75,7 +74,7 @@ class adminHome extends Component {
                 </li>
                 <li>
                   <a
-                    href="/GreenTea"
+                   href="/GreenTea"
                     style={{ float: "left" }}
                     class="nav-link link-dark"
                   >
@@ -84,7 +83,7 @@ class adminHome extends Component {
                 </li>
                 <li>
                   <a
-                    href="/LoosenTea"
+                    href="#"
                     style={{ float: "left" }}
                     class="nav-link link-dark"
                   >
@@ -106,6 +105,7 @@ class adminHome extends Component {
           </div>
 
           <div class="col-sm-10">
+            
             <div class="album py-5 bg-light">
               <div class="container">
                 <form class="d-flex">
@@ -120,6 +120,9 @@ class adminHome extends Component {
                   </button>
                 </form>
                 <br />
+                     <span class="fs-4" style={{ color: "#298a43" }}>
+                  Categories
+                </span>
 
                 {this.state.Products.map((item) => (
                   <div style={{ width: "23%", float: "left", margin: "10px" }}>
@@ -217,4 +220,4 @@ let updateItem = (id)=>{
 
 }
 
-export default adminHome;
+export default BlackTea;

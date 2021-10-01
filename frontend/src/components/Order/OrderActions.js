@@ -1,4 +1,3 @@
-/* Redux */
 import axios from 'axios'
 import { CART_CLEAR_ITEMS } from '../constants/cartConstants'
 import {

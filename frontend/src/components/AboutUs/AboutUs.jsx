@@ -2,6 +2,7 @@ import React from 'react';
 
 function AboutUs(){
     return <div>
+       
         <br/> <br/> <br/>  <br/>
         <div  className = "text-center" id="aboutus">
             <h2>About SerineTea</h2>

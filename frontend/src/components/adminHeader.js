@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { Link } from 'react-router-dom'
+
 
 class adminHeader extends Component {
   constructor(props) {
@@ -133,16 +135,23 @@ class adminHeader extends Component {
               </li>
               <li class="nav-item">
                 <Link to="/#" class="nav-link link-dark px-2">
-                  About
+                  About | 
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/deliveryEmpdetails" class="nav-link link-dark px-2">
+                  Delivery Employees
                 </Link>
               </li>
             </ul>
             {/* <ul class="nav">
               <li class="nav-item">
+
                 <Link to="#" class="nav-link link-dark px-2">
                   {" "}
                   Reports{" "}
                 </Link>
+
               </li>
             </ul> */}
             <ul class="nav">
@@ -151,9 +160,12 @@ class adminHeader extends Component {
                 Reports
               </a>
               <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><Link class="dropdown-item" to="#">User Reports</Link></li>
+                <li><Link class="dropdown-item" to="/expenseReport">Expense Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Order Reports</Link></li>
+                <li><Link class="dropdown-item" to="#">Cart Reports</Link></li>
                 <li><Link class="dropdown-item" to="#">Sales Reports</Link></li>
-                <li><Link class="dropdown-item" to="#">Reports</Link></li>
+                <li><Link class="dropdown-item" to="/Income">Income Reports</Link></li>
+                <li><Link class="dropdown-item" to="/employeeReport">Delivery Employee Reports</Link></li>
               </ul>
             </li>
             </ul>
