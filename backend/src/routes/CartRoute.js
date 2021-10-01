@@ -40,9 +40,18 @@ router.route('/allCartItems').get((req, res)=>{
     })
 })
 
-//Retrieve all the products in a sorted order
+//Retrieve all the products in a sorted order to get items with highest prices
 router.route('/sort/highest').get((req, res)=>{
     Cart.find().sort({price : -1}).limit(10).then((products)=>{
+        res.json(products)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+//Retrieve all the products in a sorted order to get items with lowest prices
+router.route('/sort/lowest').get((req, res)=>{
+    Cart.find().sort({price : 1}).limit(5).then((products)=>{
         res.json(products)
     }).catch((err)=>{
         console.log(err)
