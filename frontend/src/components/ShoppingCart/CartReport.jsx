@@ -1,7 +1,6 @@
 import React , {useEffect , useState} from 'react';
 import axios from "axios";
 import {Link} from 'react-router-dom';
-import AdminHeader from "../adminHeader";
 import {toast} from 'react-toastify';
 
 toast.configure()
@@ -63,7 +62,6 @@ function CartReport(){
 
     return(
     <div>
-        <AdminHeader/>
         <div className = "container">
             <br/><br/>
             <h4 className = "text-center text-success font-monospace">Generate Reports related Shopping Cart</h4>
