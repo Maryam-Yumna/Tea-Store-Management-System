@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import searchImage from '../../images/search2.png'
 
 class SearchUser extends Component {
     constructor(){
@@ -181,13 +182,14 @@ class SearchUser extends Component {
                                 </div>
                             </form>
                         </div>
-                    <div className="container w-75 p-3">
+                    
                     {this.state.userDetails === "" ?  
-                            // <table className="table table-dark table-striped table-hover" >
+                    <div className="container w-75 p-3">
+                            {/* <table className="table table-dark table-striped table-hover" > */}
                             <table className="table table-info table-striped table-hover" >
                                 <thead>
                                     <tr>
-                                        <th scope="col" id ='fullName'>Expense Type</th>
+                                        <th scope="col" id ='fullName'>Full Name</th>
                                         <th scope="col" id ='email'>Email</th>
                                         <th scope="col" id ='phone'>Phone</th>
                                         <th scope="col" id ='address'>address</th>
@@ -208,51 +210,57 @@ class SearchUser extends Component {
                                     })}
                                 </tbody>
                             </table>
+                            </div>
                         : 
-                        <div style={{textAlign: "left"}}>
-                <div className="modal-dialog" role="document">
-                        <div className="modal-content rounded-5 shadow">
-                            <div className="modal-header p-5 pb-4 border-bottom-0">
-                                <h2 className="fw-bold mb-0">User Details</h2>
-                            </div>
+                        <div className="container p-3">
+                        <div className="row">
+                            <div className="col" style={{backgroundImage:"url("+searchImage+")", backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"contain", overflow:"hidden", width:"75%"}}  ></div>
+                            <div className="col-8" style={{textAlign: "left"}}>
+                                            <div className="modal-dialog" role="document">
+                                                    <div className="modal-content rounded-5 shadow">
+                                                        <div className="modal-header p-5 pb-4 border-bottom-0">
+                                                            <h2 className="fw-bold mb-0">User Details</h2>
+                                                        </div>
 
-                            <div className=" p-5 pt-0 ">
-                                <div className="mb-3 row">
-                                    <label htmlFor="staticFirstName" className="col-sm-3 col-form-label">First Name</label>
-                                    <div className="col-sm-7">
-                                    <input type="text" readOnly className="form-control-plaintext" id="staticFirstName" value={this.state.userDetails.firstName}/>
-                                    </div>
-                                </div>
-                                <div className="mb-3 row">
-                                    <label htmlFor="staticLastName" className="col-sm-3 col-form-label">Last Name</label>
-                                    <div className="col-sm-7">
-                                    <input type="text" readOnly className="form-control-plaintext" id="staticLastName" value={this.state.userDetails.lastName}/>
-                                    </div>
-                                </div>
-                                <div className="mb-3 row">
-                                    <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Email</label>
-                                    <div className="col-sm-7">
-                                    <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.state.userDetails.email}/>
-                                    </div>
-                                </div>
-                                <div className="mb-3 row">
-                                    <label htmlFor="staticPhone" className="col-sm-3 col-form-label">Phone</label>
-                                    <div className="col-sm-7">
-                                    <input type="text" readOnly className="form-control-plaintext" id="staticPhone" value={this.state.userDetails.phone}/>
-                                    </div>
-                                </div>
-                                <div className="mb-3 row">
-                                    <label htmlFor="staticAddress" className="col-sm-3 col-form-label">Address</label>
-                                    <div className="col-sm-7">
-                                    <input type="text" readOnly className="form-control-plaintext" id="staticAddress" value={this.state.userDetails.address}/>
-                                    </div>
-                                </div>
-                            </div>
+                                                        <div className=" p-5 pt-0 ">
+                                                            <div className="mb-3 row">
+                                                                <label htmlFor="staticFirstName" className="col-sm-3 col-form-label">First Name</label>
+                                                                <div className="col-sm-7">
+                                                                <input type="text" readOnly className="form-control-plaintext" id="staticFirstName" value={this.state.userDetails.firstName}/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mb-3 row">
+                                                                <label htmlFor="staticLastName" className="col-sm-3 col-form-label">Last Name</label>
+                                                                <div className="col-sm-7">
+                                                                <input type="text" readOnly className="form-control-plaintext" id="staticLastName" value={this.state.userDetails.lastName}/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mb-3 row">
+                                                                <label htmlFor="staticEmail" className="col-sm-3 col-form-label">Email</label>
+                                                                <div className="col-sm-7">
+                                                                <input type="text" readOnly className="form-control-plaintext" id="staticEmail" value={this.state.userDetails.email}/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mb-3 row">
+                                                                <label htmlFor="staticPhone" className="col-sm-3 col-form-label">Phone</label>
+                                                                <div className="col-sm-7">
+                                                                <input type="text" readOnly className="form-control-plaintext" id="staticPhone" value={this.state.userDetails.phone}/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="mb-3 row">
+                                                                <label htmlFor="staticAddress" className="col-sm-3 col-form-label">Address</label>
+                                                                <div className="col-sm-7">
+                                                                <input type="text" readOnly className="form-control-plaintext" id="staticAddress" value={this.state.userDetails.address}/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                        </div>
                         </div>
-                    </div>    
-            </div>
+                        </div>
                         }
-                    </div>
+                    
                     </div>
                 </div>
             </div>
