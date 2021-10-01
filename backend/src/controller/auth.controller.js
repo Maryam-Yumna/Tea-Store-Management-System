@@ -55,8 +55,7 @@ const updateUser = async(req, res)=>{
     const update = {
             firstName: req.body.firstName, 
             lastName: req.body.lastName, 
-            address: req.body.address,
-            phone: req.body.phone,
+            address: req.body.address
         };
 
         User.findOneAndUpdate({_id: req.user.id}, update,{new: true})
