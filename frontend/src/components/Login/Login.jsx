@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../App.css';
 
 const initialState ={
     password:'',
@@ -66,7 +65,7 @@ class Login extends Component {
     }
     render() {
         return (
-            <div className= 'homebgimg'><br/>
+            <div>
                 {/* <div className="modal modal-signin position-static d-block bg-secondary py-5" tabIndex="-1" role="dialog" id="modalSignin"> */}
                     <div className="modal-dialog" role="document">
                         <div className="modal-content rounded-5 shadow">
@@ -112,7 +111,7 @@ class Login extends Component {
                             </form>
                         </div>
                         </div>
-                    </div><br/>
+                    </div>
                 {/* </div> */}
             </div>
         );
