@@ -26,7 +26,7 @@ function Header(props){
                                 {/* <li class="nav-item navbar-brand "><Link to = "/login">Login</Link></li>
                                 <li class="nav-item navbar-brand "><Link to = "/register">Register</Link></li> */}
                                 {props.logged ==="true"?(<div>{/*When the user logged in*/}
-                                    <li class="nav-item navbar-brand ">
+                                    <li className="nav-item navbar-brand ">
                                         <Link to = "/myAccount">
                                             <img src = {userAccount} alt="" width = "20"/> Profile
                                         </Link>
@@ -72,3 +72,4 @@ function Header(props){
 }
 
 export default Header;
+

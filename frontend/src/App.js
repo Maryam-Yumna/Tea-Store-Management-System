@@ -33,12 +33,17 @@ import Register from './components/Register/Register';
 import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader';
+import EditPayment from './components/adminOrders/ChnagePaymentstatus'
+import EditDelivery from './components/adminOrders/ChangeDeliverystatus'
+import UserProfile from './components/UserProfile/UserProfile';
+import EditUserProfile from './components/UserProfile/EditUserProfile';
+import ExpenseReport from './components/ExpenseReports/ExpenseReport';
 
 class App extends Component {
   render() {
       return (
           <Router>
- <ApplicationHeader/>
+            <ApplicationHeader/>
               <Switch>
                   <Route path="/" exact component={Home}/>
                   <Route path = "/products/:productId" exact component={DetailProduct}/>
@@ -59,6 +64,8 @@ class App extends Component {
                   <Route path = "/Income" component = {report}></Route>
                   <Route path = "/allOrders" component = {AdminOrders}></Route>
                   <Route path = "/awaitingPayments" component = {AwaitingPayments}></Route>
+                  <Route path = "/chnagePaymentStatus/:id" component = {EditPayment}></Route>
+                  <Route path = "/chnageDeliveryStatus/:id" component = {EditDelivery}></Route>
                   <Route path = "/awaitingDelivery" component = {AwaitingDelivery}></Route>
                   <Route path = "/paid" component = {Paid}></Route>
                   <Route path = "/expenses" exact component={AllExpenses}></Route>
@@ -68,6 +75,8 @@ class App extends Component {
                   <Route path = "/register" exact component={Register}></Route>
                   <Route path = "/editExpense" exact component={EditExpense}></Route>
                   <Route path = "/myAccount" exact component={UserProfile}></Route>
+                  <Route path = "/editUserProfile" exact component={EditUserProfile}></Route>
+                  <Route path="/expenseReport" exact component ={ExpenseReport}/>
               </Switch>
               <Footer/>
           </Router>
@@ -77,3 +86,5 @@ class App extends Component {
 }
 
 export default App;
+
+
