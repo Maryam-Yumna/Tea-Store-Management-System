@@ -42,6 +42,10 @@ import UserProfile from './components/UserProfile/UserProfile';
 import EditUserProfile from './components/UserProfile/EditUserProfile';
 import ExpenseReport from './components/ExpenseReports/ExpenseReport';
 
+import DeliveryEmpDetails from   './components/DeliveryEmpDetails';
+import EditEmployees from './components/DeliveryEmployees/editemployee';
+import AddEmployees from './components/DeliveryEmployees/addemployee';
+import EmployeeReport from './components/DeliveryEmployees/employeeReport';
 
 
 class App extends Component {
@@ -85,6 +89,13 @@ class App extends Component {
                   <Route path = "/myAccount" exact component={UserProfile}></Route>
                   <Route path = "/editUserProfile" exact component={EditUserProfile}></Route>
                   <Route path="/expenseReport" exact component ={ExpenseReport}/>
+				  
+				  
+				  <Route path = "/deliveryEmpdetails" component = {DeliveryEmpDetails}></Route>
+                  <Route path = "/editEmployee/:id" component = {EditEmployees}></Route>
+                  <Route path = "/addEmployees" component = {AddEmployees}></Route>
+                  <Route path = "/employeeReport" component = {EmployeeReport}></Route>
+
               </Switch>
               <Footer/>
           </Router>
