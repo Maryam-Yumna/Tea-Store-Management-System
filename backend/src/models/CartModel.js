@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const cartSchema = new Schema( {
-
+    item: {
+        type: Schema.Types.ObjectId,
+        ref: "Product"
+    },
     productName: {
         type: String,
         required: true
@@ -19,14 +22,18 @@ const cartSchema = new Schema( {
         type: String,
         required: true
     },
-    count: {
+    qty:{
         type: Number
-        //required: true
     },
+    //User's token
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    }
+    },
+     addToCartDate: {
+         type: Date,
+         default: Date.now(),
+     }
 });
 
 const Cart = mongoose.model("Cart" , cartSchema);
