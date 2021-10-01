@@ -33,7 +33,7 @@ class LoosenTea extends Component {
       <div class="homebgimg">
       <div class="container">
         <br/> <br/>
-        <h2 className = "text-center fst-italic text-secondary">Loosen Tea Leaf</h2>
+        <h2 className = "text-center fst-italic text-white font-monospace">Loosen Tea Leaf</h2>
         <hr></hr>
         <br/>
         <div className = "row">
