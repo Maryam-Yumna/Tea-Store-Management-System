@@ -30,13 +30,18 @@ import GreenTea from "./components/Categories/GreenTea"
 import Loosen from "./components/Categories/looseLeaf"
 import report from "./components/adminOrders/report"
 import ApplicationHeader from './components/ApplicationHeader/ApplicationHeader'
+
+
+
 import EditPayment from './components/adminOrders/ChnagePaymentstatus'
 import EditDelivery from './components/adminOrders/ChangeDeliverystatus'
+
 import Register from './components/Register/Register';
 import EditExpense from './components/EditExpense/EditExpense';
 import UserProfile from './components/UserProfile/UserProfile';
 import EditUserProfile from './components/UserProfile/EditUserProfile';
 import ExpenseReport from './components/ExpenseReports/ExpenseReport';
+
 
 
 class App extends Component {
@@ -69,6 +74,7 @@ class App extends Component {
                   <Route path = "/chnagePaymentStatus/:id" component = {EditPayment}></Route>
                   <Route path = "/chnageDeliveryStatus/:id" component = {EditDelivery}></Route>
                   <Route path = "/awaitingDelivery" component = {AwaitingDelivery}></Route>
+                
                   <Route path = "/paid" component = {Paid}></Route>
                   <Route path = "/expenses" exact component={AllExpenses}></Route>
                   <Route path = "/addExpenses" exact component={AddExpenses}></Route>
