@@ -23,7 +23,7 @@ class EditExpense extends Component {
     }
     getExpense(){
         const  id =this.props.location.state.data;
-        axios.get(`http://localhost:8070/expense/${id}`)
+        axios.get(`http://localhost:8070/expense/getbyid/${id}`)
         .then((data)=>{
             this.setState({
                 type: data.data.type,
