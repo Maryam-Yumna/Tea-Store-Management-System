@@ -117,13 +117,8 @@ return (
       <div class="col-sm-8">
         <div class="container" style={{background:"#c6d1ba"  ,padding:"0px"}}>
           <div class="row">
-            <div class="col-6 col-md-4">  <img
-                    width="100%"
-                    height="100%"
-                   
-                    src="https://previews.123rf.com/images/purplebird18/purplebird181612/purplebird18161200025/68049295-green-tea-seamless-pattern-with-transparent-teapot-tea-leaves-and-drops-background-design-for-green-.jpg"
-                  /></div>
-            <div class="col-smcol-12 col-md-8"><div class="formAddProducts" style={{ padding: "5%" }}>
+         
+<div class="formAddProducts" style={{ padding: "5%" }}>
           <h3>Edit product</h3>
           <br />
           {
@@ -300,7 +295,7 @@ gotData ?(
       </div>
       <div class="col-sm-2"></div>
     </div>
-  </div>
+
 )
 }
 export default EditEmployee

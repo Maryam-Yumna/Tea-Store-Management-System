@@ -28,16 +28,17 @@ class DeliveryEmpDetails extends Component {
 
   render() {
     return (
+      <div class="container">
         <div class="row">
           <div class="col-sm-12">
-                {this.state.Employees.map((EmpDetail) => (
-                  <div style={{ width: "23%", float: "left", margin: "10px" }}>
+            
+                  <h3> Delivery Employee Details </h3>
                     <div class="row">
                       <div class="col s12 m7">
                       <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">Employee ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">Gender</th>
@@ -47,9 +48,10 @@ class DeliveryEmpDetails extends Component {
                                 <th scope="col">Job Type</th>
                             </tr>
                         </thead>
+                        {this.state.Employees.map((EmpDetail) => (
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{EmpDetail.EmpID}</th>
                                 <td>{EmpDetail.EmpFirstName} {EmpDetail.EmpLastname}</td>
                                 <td>{EmpDetail.Address}</td>
                                 <td>{EmpDetail.Gender}</td>
@@ -74,16 +76,15 @@ class DeliveryEmpDetails extends Component {
                                 </td>
                             </tr>
                         </tbody>
+                            ))}
                      </table>          
                    </div>
                </div>
              </div>     
-                ))}
+            
               </div>
-
-
-              <button onclick="window.print()">Print this page</button>
             </div> 
+     
     );
   }
 }
