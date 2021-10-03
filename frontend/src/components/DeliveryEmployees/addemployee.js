@@ -2,10 +2,11 @@
 import axios from "axios";
 import AdminHeader from "../adminHeader";
 import React,{useState}  from "react"
+import { Link } from "react-router-dom";
 
 
 export default function AddEmployee(){
-
+  const[EmpID,setEmpID] = useState("");
   const[EmpFirstName,setEmpFirstName] = useState("");
   const[EmpLastName,setEmpLastName] = useState("");
   const[Address,setAddress] = useState("");
@@ -24,6 +25,7 @@ export default function AddEmployee(){
   
   
      const newItem ={
+          EmpID,
           EmpFirstName,
           EmpLastName,
           Address,
@@ -51,19 +53,32 @@ export default function AddEmployee(){
           <div class="col-sm-2"></div>
           <div class="col-sm-8">
             <div class="container" style={{background:"#c6d1ba"  ,padding:"0px"}}>
-              <div class="row">
-                <div class="col-6 col-md-4">  <img
-                        width="100%"
-                        height="100%"
-                       
-                        src="https://previews.123rf.com/images/purplebird18/purplebird181612/purplebird18161200025/68049295-green-tea-seamless-pattern-with-transparent-teapot-tea-leaves-and-drops-background-design-for-green-.jpg"
-                      /></div>
-                <div class="col-smcol-12 col-md-8"><div class="formAddProducts" style={{ padding: "5%" }}>
+        
+               <div class="formAddProducts" style={{ padding: "5%" }}>
               <h3>Add Delivery Employee Details</h3>
               <br />
 
               <form onSubmit={sentData} class="needs-validation" novalidate>
               <div class="row g-3">
+              <div class="col-sm-6">
+                    <label for="EmpID" class="form-label">
+                      Employee ID
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="EmpID"
+                      placeholder=""
+                       maxlength="10" 
+                      required
+                      title="should contain more than than five letters"
+                      onChange={(e)=>{setEmpID(e.target.value) }}
+                    />
+                    <div class="invalid-feedback">
+                      Valid first name is required.
+                    </div>
+                  </div>
+
                   <div class="col-sm-12">
                     <label for="firstName" class="form-label">
                       First Name
@@ -225,6 +240,14 @@ export default function AddEmployee(){
                   type="submit">
                   Add Delivery Employee Detail
                 </button>
+                <Link to="/deliveryEmpdetails">
+                <button
+                  style={{ background: "#42ba96" }}
+                  class="w-100 btn btn-success"
+                  type="submit">
+                  View Delivery Employee Detail
+                </button>
+                </Link>
 
                 </div>
                 </div>
@@ -234,9 +257,9 @@ export default function AddEmployee(){
            </div>
           </div>   
           </div>
-        <div class="col-sm-2"></div>
-      </div>
-    </div>
+        
+
+  
     );
   }
 

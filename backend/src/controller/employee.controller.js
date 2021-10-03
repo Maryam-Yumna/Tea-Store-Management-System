@@ -42,6 +42,7 @@ const getEmployeeByID = async (req, res) => {
 const updateEmployee = async (req, res) => {
   let employeeId = req.params.id;
   const {
+    EmpID,
     EmpFirstName,
     EmpLastName,
     Address,
@@ -53,6 +54,7 @@ const updateEmployee = async (req, res) => {
   } = req.body;
 
   const updateEmployee = {
+    EmpID,
     EmpFirstName,
     EmpLastName,
     Address,
