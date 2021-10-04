@@ -136,8 +136,8 @@ class adminHeader extends Component {
                   About
                 </Link>
               </li>
-			  <li class="nav-item">
-                <Link to="/deliveryEmpdetails" class="nav-link link-dark px-2">
+			   <li class="nav-item">
+                <Link to="/addEmployees" class="nav-link link-dark px-2">
                   Delivery Employees
                 </Link>
               </li>

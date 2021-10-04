@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 const employeeSchema = new Schema({
+  EmpID: {
+    type: String,
+    required: true,
+  },
   EmpFirstName: {
     type: String,
     required: true,
