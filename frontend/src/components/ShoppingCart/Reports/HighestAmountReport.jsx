@@ -29,7 +29,7 @@ function HighestAmountReport(){
                    <table className="table">
                      <thead>
                        <tr className="table-dark">
-                         <th scope="col">User ID</th>
+                         <th scope="col">Date</th>
                          <th scope="col">Product Name</th>
                          <th scope="col">Price (LKR)</th>
                          <th scope="col">Quantity</th>
