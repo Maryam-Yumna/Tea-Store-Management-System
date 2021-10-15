@@ -22,3 +22,14 @@ We are implementing a web application for a tea store management system. In this
 ##### Express
 ##### ReactJs
 ##### Node
+
+## Prerequesites
+Node.js : To run npm packages
+
+## Procedure of setting up the prerequisites and running the project
+### run backend
+##### run command "npm install" in backend folder
+##### run the command "npm run dev" in backend folder to start backend
+### run frontend
+##### run command "npm install" in forntend folder
+##### run the command "npm start" in frontend folder to start frontend
